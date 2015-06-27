@@ -1,0 +1,35 @@
+/* line 8, ../sass/ConversationCollectionView.scss */
+.ConversationCollectionView div {
+  white-space: nowrap;
+}
+/* line 10, ../sass/ConversationCollectionView.scss */
+.ConversationCollectionView div > * {
+  text-align: center;
+  vertical-align: bottom;
+  display: inline-block;
+}
+/* line 16, ../sass/ConversationCollectionView.scss */
+.ConversationCollectionView aside {
+  background: #ebebeb;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+/* line 24, ../sass/ConversationCollectionView.scss */
+.ConversationCollectionView .botItem {
+  color: #ad588e;
+}
+/* line 26, ../sass/ConversationCollectionView.scss */
+.ConversationCollectionView .botItem p {
+  background: #ebebeb;
+  padding: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}

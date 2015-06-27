@@ -16,7 +16,7 @@ define([
 			className: 'PaletteView',
 			events   : {},
 			template: Handlebars.compile(html),
-			colors: ["#eff2ec", "#bdbdbd", "#333", "#ad588e"],
+			colors: ["#eff2ec", "#ebebeb", "#bdbdbd", "#333", "#ad588e"],
 			_base: null,
 			initialize: function(){
 				var that = this;

@@ -1,0 +1,32 @@
+@import "compass/css3";
+@import "_base";
+
+////////////////////////////////////////////////////////////////////
+// View: ConversationCollectionView
+////////////////////////////////////////////////////////////////////
+.ConversationCollectionView{ 
+	div{
+		white-space: nowrap;
+		> *{
+			text-align: center;
+			vertical-align: bottom;
+			display: inline-block;
+		}
+	}
+	aside{
+		$size: 30px;
+		background: $gray1_2;
+		line-height: $size;
+		@include sq($size);
+		@include box-sizing(border-box);
+		@include border-radius(50%);
+	}
+	.botItem{
+		color: $purple3;
+		p{
+			background: $gray1_2;
+			padding: 10px;
+			@include box-sizing(border-box);
+		}
+	}
+}

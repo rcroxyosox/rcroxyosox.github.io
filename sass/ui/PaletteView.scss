@@ -8,7 +8,7 @@
 	position: fixed;
 	left: 10%;
 	top: 15%;
-	@include sq(100px);
+	@include sq(110px);
 	z-index:  0;
 
 	@include single-transition(all, 0.5s, ease-in-out);

@@ -8,7 +8,7 @@ define(['backbone'], function(Backbone){
 	var responseType = {
 		CHOICE:0,
 		INPUT:1,
-		BOT: 2, // the bot will say something else
+		BOTCONTINUE: 2, // the bot will say something else
 		NONE: 3 // the conversation is over for now
 	};
 
@@ -16,9 +16,12 @@ define(['backbone'], function(Backbone){
 		defaults: {
 			id: null, // a unique id
 			message: "", // A String of text
-			fromType: null, // see the fromType enum above 
+			fromType: fromType.BOT, // see the fromType enum above 
 			responseTo: null, // an id mapping to another conversation item
 			requiresResponseType: null // see the responseType enum above 
+		},
+		isFromBot: function(){ // Convenience method
+			return (this.get('fromType') == fromType.BOT);
 		}
 	},{
 		fromType: fromType,

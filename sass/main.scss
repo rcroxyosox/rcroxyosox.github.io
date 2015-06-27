@@ -21,7 +21,7 @@ body{
 	@include size($appW, $appH);
 	@include box-shadow(0 0 5px rgba(0,0,0,0.2));
 	font-family: $font; 
-	font-weight: 200;
+	font-weight: $fontWeightLight;
 	font-size: 14px;
 	@include single-transition(all, 0.5s, ease-in-out);
 	@media screen and (max-width: $mobileQuerySize) {
