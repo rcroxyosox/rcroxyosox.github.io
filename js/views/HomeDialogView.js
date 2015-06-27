@@ -3,6 +3,7 @@ define([
 	'backbone',
 	'handlebars',
 	'views/ui/NavBarView',
+	'models/ConversationItemModelCollection',
 	'text!/html/HomeDialogView.html',
 	'css!/css/HomeDialogView.css'
 	], function(
@@ -10,6 +11,7 @@ define([
 		Backbone,
 		Handlebars,
 		NavBarView,
+		ConversationItemModelCollection,
 		html
 		) {
 
