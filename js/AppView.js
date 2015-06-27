@@ -44,7 +44,7 @@ define([
 			$('body').html(this.$el);
 
 			// Show the Palette
-			$('body').append(new PaletteView().render().$el);
+			// $('body').append(new PaletteView().render().$el);
 
 			return this;
 		}
