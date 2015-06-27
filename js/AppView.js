@@ -1,9 +1,9 @@
 define([
-	'backbone',
-	'views/ui/PaletteView'
+	'backbone'
+	// 'views/ui/PaletteView'
 ], function(
-	Backbone,
-	PaletteView
+	Backbone
+	// PaletteView
 ) {
 
 	var Router = Backbone.Router.extend({
