@@ -21,7 +21,7 @@ define(['backbone'], function(Backbone){
 			requiresResponseType: null // see the responseType enum above 
 		}
 	},{
-		from: from,
+		fromType: fromType,
 		responseType: responseType
 	});
 
