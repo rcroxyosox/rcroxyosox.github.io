@@ -1,9 +1,9 @@
 define([
-	'backbone'
-	// 'views/ui/PaletteView'
+	'backbone',
+	'views/ui/PaletteView'
 ], function(
-	Backbone
-	// PaletteView
+	Backbone,
+	PaletteView
 ) {
 
 	var Router = Backbone.Router.extend({
@@ -44,7 +44,7 @@ define([
 			$('body').html(this.$el);
 
 			// Show the Palette
-			// $('body').append(new PaletteView().render().$el);
+			$('body').append(new PaletteView().render().$el);
 
 			return this;
 		}
