@@ -3,14 +3,12 @@ define([
 	'backbone',
 	'handlebars',
 	'text!/html/ui/PaletteView.html',
-	'text!/sass/_base.scss',
 	'css!/css/ui/PaletteView.css'
 	], function(
 		$,
 		Backbone,
 		Handlebars,
 		html,
-		_base
 		) {
 
 		return Backbone.View.extend({
@@ -21,6 +19,9 @@ define([
 			colors: [],
 			initialize: function(){
 				this.getColorsFromBase();
+				require(['text!/sass/_base.scss'], function(){
+					console.log("no");
+				});
 			},
 			getColorsFromBase: function(){
 				this.colors = _base.match(/#[0-9a-fA-F]{3,6}/g);
