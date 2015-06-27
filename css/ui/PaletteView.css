@@ -6,8 +6,18 @@
   width: 100px;
   height: 100px;
   z-index: 0;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
-/* line 13, ../../sass/ui/PaletteView.scss */
+@media screen and (max-width: 400px) {
+  /* line 7, ../../sass/ui/PaletteView.scss */
+  .PaletteView {
+    left: -100%;
+  }
+}
+/* line 19, ../../sass/ui/PaletteView.scss */
 .PaletteView li {
   margin-left: 5px;
   margin-top: 7px;
