@@ -8,7 +8,7 @@ define([
 		$,
 		Backbone,
 		Handlebars,
-		html,
+		html
 		) {
 
 		return Backbone.View.extend({
