@@ -1,0 +1,12 @@
+/* line 7, ../../sass/ui/NavBarView.scss */
+.NavBarView {
+  position: relative;
+  background: #ad588e;
+  height: 40px;
+  width: 100%;
+  display: block;
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}

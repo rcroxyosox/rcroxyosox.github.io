@@ -1,0 +1,15 @@
+@import "compass/css3";
+@import "_base";
+
+////////////////////////////////////////////////////////////////////
+// View: NavBarView
+////////////////////////////////////////////////////////////////////
+.NavBarView{
+	position: relative;
+	background: $NavBarViewColor;
+	height: $NavBarViewHeight;
+	width: 100%;
+	display: block;
+	@include box-shadow(0 0 3px rgba(black,0.5));
+	z-index: 2;
+}

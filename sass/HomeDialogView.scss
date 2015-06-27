@@ -1,0 +1,45 @@
+@import "compass/css3";
+@import "_base";
+
+////////////////////////////////////////////////////////////////////
+// View: HomeDialogView
+////////////////////////////////////////////////////////////////////
+.HomeDialogView{
+	.sep{
+		b{
+			font-weight: 600;
+		}
+		$col: $gray2;
+		font-size: 7px;  
+		letter-spacing: 2px;
+	    display: table;
+	    padding: 0;
+	    overflow: hidden;
+	    margin: 0 auto;
+	    // border-spacing: 10px;
+	    white-space: nowrap;
+	    text-transform: uppercase;
+	    pointer-events: none;
+	    -moz-user-select: -moz-none;
+	    -ms-user-select: none;
+	    -webkit-user-select: none;
+	    user-select: none;
+	    color: $col;
+	    clear: both;
+	    @include box-sizing(border-box);
+
+	    &:before, &:after {
+	        content: "";
+	        display: table-cell;
+	        border-bottom: 1px solid $col;
+	        width: 50%;
+	        padding-top: 15px;
+	    }
+	    &:before {
+	        @include transform(translateY(-50%) translateX(-10px) scale(1,0.5));
+	    }
+	    &:after {
+	        @include transform(translateY(-50%) translateX(10px) scale(1,0.5));
+	    }
+	}
+}

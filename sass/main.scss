@@ -1,0 +1,46 @@
+@import "compass/css3";
+@import "compass/reset";
+@import "_base.scss";
+
+////////////////////////////////////////////////////////////////////
+// Resets
+////////////////////////////////////////////////////////////////////
+
+html{
+	background: $gray6;
+}
+body{
+	background: $gray1;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	display: block;
+	margin-left: -$appW/2;
+	margin-top: -$appH/2;
+	z-index: 2;
+	@include size($appW, $appH);
+	@include box-shadow(0 0 5px rgba(0,0,0,0.2));
+	font-family: $font; 
+	font-weight: 200;
+	font-size: 14px;
+}
+
+
+////////////////////////////////////////////////////////////////////
+// Reusable UI
+////////////////////////////////////////////////////////////////////
+
+.mainView{
+	$padding: 30px;
+ 	position: absolute;
+ 	width: 100%;
+ 	height: 100%;
+ 	overflow-y: scroll;
+ 	top: 0;
+ 	z-index: 1;
+ 	@include box-sizing(border-box);
+ 	padding: $padding;
+ 	&.withNavBarView{
+ 		padding-top: $NavBarViewHeight + $padding;
+ 	}
+}
