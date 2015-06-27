@@ -3,14 +3,12 @@ define([
 	'backbone',
 	'handlebars',
 	'text!/html/ui/PaletteView.html',
-	'text!/sass/_base.scss',
 	'css!/css/ui/PaletteView.css'
 	], function(
 		$,
 		Backbone,
 		Handlebars,
-		html,
-		_base
+		html
 		) {
 
 		return Backbone.View.extend({
@@ -18,12 +16,21 @@ define([
 			className: 'PaletteView',
 			events   : {},
 			template: Handlebars.compile(html),
-			colors: [],
+			colors: ["#eff2ec", "#bdbdbd", "#333", "#ad588e"],
+			_base: null,
 			initialize: function(){
-				this.getColorsFromBase();
+				var that = this;
+				if(!this.colors.length){
+					require(['text!/sass/_base.scss'], function(_base){
+						that._base = _base; 
+						that.getColorsFromBase();
+						that.render();
+					});
+				}
 			},
 			getColorsFromBase: function(){
-				this.colors = _base.match(/#[0-9a-fA-F]{3,6}/g);
+				this.colors = this._base.match(/#[0-9a-fA-F]{3,6}/g);
+				console.log(this.colors);
 			},
 			render: function() {
 				this.$el.html(this.template(this));
