@@ -1,14 +1,18 @@
-/* line 8, ../sass/ConversationCollectionView.scss */
+/* line 7, ../sass/ConversationCollectionView.scss */
+.ConversationCollectionView {
+  font-weight: 400;
+}
+/* line 9, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView div {
   white-space: nowrap;
 }
-/* line 10, ../sass/ConversationCollectionView.scss */
+/* line 11, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView div > * {
   text-align: center;
   vertical-align: bottom;
   display: inline-block;
 }
-/* line 16, ../sass/ConversationCollectionView.scss */
+/* line 17, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView aside {
   background: #ebebeb;
   line-height: 30px;
@@ -21,11 +25,11 @@
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 24, ../sass/ConversationCollectionView.scss */
+/* line 25, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .botItem {
   color: #7a4364;
 }
-/* line 26, ../sass/ConversationCollectionView.scss */
+/* line 27, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .botItem p {
   background: #ebebeb;
   padding: 10px;

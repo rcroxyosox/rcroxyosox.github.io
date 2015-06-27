@@ -5,6 +5,7 @@
 // View: ConversationCollectionView
 ////////////////////////////////////////////////////////////////////
 .ConversationCollectionView{ 
+	font-weight: $fontWeightMed;
 	div{
 		white-space: nowrap;
 		> *{
