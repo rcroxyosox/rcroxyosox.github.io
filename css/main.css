@@ -124,7 +124,13 @@ body.preload {
   transition: none;
 }
 
-/* line 45, ../sass/main.scss */
+/* line 39, ../sass/main.scss */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
+}
+
+/* line 48, ../sass/main.scss */
 .mainView {
   position: absolute;
   width: 100%;
@@ -137,7 +143,7 @@ body.preload {
   box-sizing: border-box;
   padding: 30px;
 }
-/* line 55, ../sass/main.scss */
+/* line 58, ../sass/main.scss */
 .mainView.withNavBarView {
   padding-top: 70px;
 }
