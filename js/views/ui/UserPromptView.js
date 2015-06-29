@@ -50,7 +50,8 @@ define([
 					$last.addClass('in');
 				},delay-400);
 				setTimeout(function(){
-					that.$el.removeClass('in');
+					that.$el.removeClass('in').empty();
+					console.log(that.$el.html());
 					that.saveResponse();
 				}, delay+400)
 				setTimeout(function(){
@@ -58,6 +59,7 @@ define([
 				}, delay)
 			},
 			saveResponse: function(){
+				var that = this;
 				var conversationItemModelCollection = ConversationItemModelCollection.getInstance();
 				conversationItemModelCollection.create(this.responseObj)
 				.done(function(){
