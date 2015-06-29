@@ -100,21 +100,25 @@
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
-/* line 41, ../../sass/ui/UserPromptView.scss */
+/* line 42, ../../sass/ui/UserPromptView.scss */
 .UserPromptView.send li {
   width: 0;
   overflow: hidden;
   opacity: 0;
   cursor: default;
 }
-/* line 48, ../../sass/ui/UserPromptView.scss */
+/* line 49, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices {
   width: 100%;
   white-space: nowrap;
   display: table;
 }
-/* line 52, ../../sass/ui/UserPromptView.scss */
+/* line 53, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices li {
   display: table-cell;
   padding: 20px 10px;
@@ -134,19 +138,19 @@
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 67, ../../sass/ui/UserPromptView.scss */
+/* line 68, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li {
   width: 50%;
 }
-/* line 72, ../../sass/ui/UserPromptView.scss */
+/* line 73, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li:nth-child(2) {
   background: rgba(255, 255, 255, 0.1);
 }
-/* line 75, ../../sass/ui/UserPromptView.scss */
+/* line 76, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li:nth-child(3) {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 78, ../../sass/ui/UserPromptView.scss */
+/* line 79, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li:nth-child(4) {
   background: rgba(255, 255, 255, 0.3);
 }
