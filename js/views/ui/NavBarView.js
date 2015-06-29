@@ -14,10 +14,19 @@ define([
 		return Backbone.View.extend({
 			tagName  : "div",
 			className: 'NavBarView',
-			events   : {},
+			events   : {
+				'click .icon-settings':'toggleSettings'
+			},
+			leftButtons: [{
+				iconClass:'icon-settings'
+			}],
+			rightButtons: [],
 			template: Handlebars.compile(html),
+			toggleSettings: function(){
+				alert("settings");
+			},
 			render: function() {
-				this.$el.html(this.template({}));
+				this.$el.html(this.template(this));
 				return this;
 			}
 		});

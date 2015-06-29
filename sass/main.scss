@@ -1,7 +1,8 @@
 @import "compass/css3";
 @import "compass/reset";
 @import "_base.scss";
-
+@import "ui/icons.scss";
+ 
 ////////////////////////////////////////////////////////////////////
 // Resets
 ////////////////////////////////////////////////////////////////////
@@ -30,6 +31,9 @@ body{
 		width: 100%;
 		height: 100%;
 		margin: 0;
+	}
+	&.preload{
+		@include transition(none);
 	}
 }
 

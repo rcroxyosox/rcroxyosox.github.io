@@ -8,7 +8,7 @@
 	position: fixed;
 	left: 10%;
 	top: 15%;
-	@include sq(110px);
+	@include sq(20px);
 	z-index:  0;
 
 	@include single-transition(all, 0.5s, ease-in-out);
@@ -21,6 +21,21 @@
 		margin-top: 7px;
 		display: inline-block;
 		@include sq(20px);
+		position: relative;
 		border: 4px solid rgba(0,0,0,0.1);
+		> *{
+			opacity: 0.2;
+			letter-spacing: 1px;
+			font-size: 9px;
+			font-weight: $fontWeightBold;
+			left: 40px;
+			vertical-align: middle; 
+			position: absolute;
+			display: block;
+			height: 100%;
+			line-height: 19px;
+			white-space: nowrap;
+			color: white;
+		}
 	}
 }

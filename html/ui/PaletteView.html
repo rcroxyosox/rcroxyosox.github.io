@@ -1,5 +1,7 @@
 {{#if colors}}
 	{{#each colors}}
-		<li style="background-color: {{this}}"></li>
+		<li style="background-color: {{color}}">
+			<span>{{name}} : {{color}}</span>
+		</li>
 	{{/each}}
 {{/if}}

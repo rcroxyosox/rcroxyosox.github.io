@@ -1,0 +1,83 @@
+@import "compass/css3";
+@import "_base";
+
+
+@include keyframes(pop) {
+	0%, 100%{
+		opacity: 1;
+		@include transform(scale(1));
+	}
+	50%{
+		opacity: 0;
+		@include transform(scale(1.5));
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+// View: UserPromptView
+////////////////////////////////////////////////////////////////////
+.UserPromptView{
+	$collapsedSize: 30px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background: $green3; 
+	display: block; 
+	width: 100%;
+	// height: $UserPromptViewHeight;
+	text-align: center;
+	@include box-sizing(border-box);
+	@include single-transition(all, 0.5s, ease-in-out);
+	@include transform(translateY(100%));
+	&.in{
+		@include transform(translateY(0));
+	}
+	&.send{ 
+		overflow: hidden;
+		margin-top: -$collapsedSize/2;
+		@include sq($collapsedSize);
+		@include border-radius(50%);
+		li{
+			width: 0;
+			overflow: hidden;
+			opacity: 0;
+			cursor: default;
+		}
+	}
+	.userPromptChoices{
+		width: 100%;
+		white-space: nowrap;
+		display: table;
+		li{
+			display: table-cell;
+			padding: 20px 10px;
+			cursor: pointer;
+			text-align: center;
+			color: white;
+			white-space: normal;
+			vertical-align: middle;
+			font-weight: $fontWeightMed;
+			line-height: 20px;
+			background: $green3;
+			@include box-sizing(border-box);
+			@include single-transition(all, 0.3s, ease-in-out);
+		}
+		&.col2{
+			li{
+				width: 50%;
+				&:first-child{
+
+				}
+				&:nth-child(2){ 
+					background: rgba(255,255,255, 0.1)
+				}
+				&:nth-child(3){ 
+					background: rgba(255,255,255, 0.2)
+				}
+				&:nth-child(4){ 
+					background: rgba(255,255,255, 0.3)
+				}
+			}
+		}
+	}
+}

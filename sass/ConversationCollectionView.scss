@@ -4,13 +4,29 @@
 ////////////////////////////////////////////////////////////////////
 // View: ConversationCollectionView
 ////////////////////////////////////////////////////////////////////
+@include keyframes(blink) {
+	0%, 100%{
+		opacity: 1;
+	}
+	10%{
+		background: $green3;
+	}
+	30%{
+		background: $gray2;
+	}
+	50%{
+		opacity: 0;
+	}
+}
+
 .ConversationCollectionView{ 
+	$padding: 13px;
 	font-weight: $fontWeightMed;
 	margin: 10px 0;
+
 	div{
 		white-space: nowrap;
 		> *{
-			text-align: center;
 			vertical-align: bottom;
 			display: inline-block;
 		}
@@ -21,17 +37,143 @@
 		line-height: $size;
 		font-weight: $fontWeightBold;
 		font-size: 13px;
+		text-align: center;
 		@include sq($size);
 		@include box-sizing(border-box);
 		@include border-radius(50%);
 	}
-	.botItem{
-		color: $purple4;
+
+	// Conversation Item View
+	li{
+		margin-bottom: 10px;
 		p{
+			line-height: 18px;
+			padding: $padding;
+			position: relative;
+			img{
+				max-width: 100%;
+			}
+			&:before{
+				$w: 20px;
+				@include single-transition(all, 0.3s, ease-in-out, 0.3s);
+				content:"";
+				display: block;
+				position: absolute;
+				left: calc(100% - #{$w});
+				opacity: 0;
+				bottom: 0;
+				@include size($w, 10px);
+				@include transform(skew(-54deg));
+			}
+		}
+	}
+
+	.userItem{
+		div{
+			text-align: right;
+		}
+		p{
+			overflow: hidden;
+			@include sq(30px);
+			@include border-radius(50%);
+			@include single-transition(all, 0.3s, ease-in-out, 0.3s);
+			padding: 0;
+			opacity: 0;
+			background: $green3; 
+			// @include background-image(linear-gradient(131deg, $green2, $green3));
+			color: transparent;
+			z-index: 2;
+			&:before{
+				left: initial;
+				right: -7px;
+				@include transform(translateX(-30px));
+				background: $green3;
+			}
+		}
+		&.showText{ 
+			p{
+				color: white;
+			}
+		}
+		&.in{
+			p{
+				opacity: 1;
+				padding: $padding;
+				overflow: visible; 
+				@include sq(auto);
+				@include border-radius(5px);
+				&:before{
+					opacity: 1;
+					@include transform(translateX(0) skew(54deg));
+				}
+			}
+		}
+	}
+
+	.botItem{ 
+		color: $purple4;
+		@include single-transition(all, 0.3s, ease-in-out);
+		@include transform(translateX(-10%));
+		opacity: 0; 
+
+		p{
+
+			@include single-transition(all, 0.5s, ease-in-out, 0.1s);
+			@include transform(translateX(-200%) scale(0)); 
+			opacity: 0;
+			&:before{
+				background: $gray1_2;
+			}
+
 			background: $gray1_2;
-			padding: 13px;
-			@include border-radius(4px);
+			margin-left: 10px;
+			white-space: normal;
 			@include box-sizing(border-box);
+			max-width: calc(100% - 52px);
+		}
+
+		&.in{
+			opacity: 1;
+			@include transform(translateX(0));
+			p{
+				@include transform(translateX(0) scale(1));
+				opacity: 1;
+				@include border-radius(5px);
+				&:before{
+					opacity: 1;
+					left: -5px;
+				}
+			}
+		}
+	}
+	.elipsisItem{
+		display: block;
+		white-space: nowrap;
+		margin-top: -2px;
+
+		> *{
+			vertical-align: middle;
+			display: inline-block;
+			background: $purple3;
+			margin-right: 3px;
+			@include sq(6px);
+			@include border-radius(50%);	
+			$speed: 0.6s;		
+			$speed2: $speed*.33;
+			$speed3: $speed*.66;
+
+			&:last-child{
+				margin-right: 0; 
+			}
+			&:nth-child(1){
+				@include animation(blink $speed ease-in-out 0s infinite);
+			}
+			&:nth-child(2){
+				@include animation(blink $speed ease-in-out $speed2 infinite);
+			}
+			&:nth-child(3){
+				@include animation(blink $speed ease-in-out $speed3 infinite);
+			}
 		}
 	}
 }

@@ -1,15 +1,15 @@
 {{#if leftButtons}}
-<ul class="leftButtons">
+<ul class="navBarButtons leftButtons">
 	{{#each leftButtons}}
-		<li>b</li>
+		<li class="icon {{iconClass}}"></li>
 	{{/each}}
 </ul>
 {{/if}}
 
 {{#if rightButtons}}
-<ul class="rightButtons">
-	{{#each leftButtons}}
-		<li>b</li>
+<ul class="navBarButtons rightButtons">
+	{{#each rightButtons}}
+		<li class="icon {{iconClass}}">b</li>
 	{{/each}}
 </ul>
 {{/if}}

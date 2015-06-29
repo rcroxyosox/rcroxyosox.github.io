@@ -39,6 +39,7 @@ define([
 		},
 		initialize: function() {
 			this.startRouter();
+			$('body').removeClass('preload');
 		},
 		render: function(){
 			$('body').html(this.$el);

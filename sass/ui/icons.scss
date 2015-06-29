@@ -1,0 +1,14 @@
+@import "compass/css3";
+@import "_base";
+
+////////////////////////////////////////////////////////////////////
+// Icons
+////////////////////////////////////////////////////////////////////
+.icon{
+	@include sq(20px);
+	@include background-size(100%);
+}
+
+.icon-settings{
+	background-image: url("#{$imgs}icon-settings.svg");
+}

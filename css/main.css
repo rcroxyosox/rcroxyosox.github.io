@@ -63,12 +63,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 9, ../sass/main.scss */
+/* line 7, ../sass/ui/icons.scss */
+.icon {
+  width: 20px;
+  height: 20px;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+
+/* line 12, ../sass/ui/icons.scss */
+.icon-settings {
+  background-image: url("/img/icon-settings.svg");
+}
+
+/* line 10, ../sass/main.scss */
 html {
   background: #333;
 }
 
-/* line 12, ../sass/main.scss */
+/* line 13, ../sass/main.scss */
 body {
   background: #eff2ec;
   position: absolute;
@@ -92,7 +107,7 @@ body {
   transition: all 0.5s ease-in-out;
 }
 @media screen and (max-width: 700px) {
-  /* line 12, ../sass/main.scss */
+  /* line 13, ../sass/main.scss */
   body {
     left: 0;
     top: 0;
@@ -101,8 +116,15 @@ body {
     margin: 0;
   }
 }
+/* line 35, ../sass/main.scss */
+body.preload {
+  -moz-transition: none;
+  -o-transition: none;
+  -webkit-transition: none;
+  transition: none;
+}
 
-/* line 41, ../sass/main.scss */
+/* line 45, ../sass/main.scss */
 .mainView {
   position: absolute;
   width: 100%;
@@ -115,7 +137,7 @@ body {
   box-sizing: border-box;
   padding: 30px;
 }
-/* line 51, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 .mainView.withNavBarView {
   padding-top: 70px;
 }

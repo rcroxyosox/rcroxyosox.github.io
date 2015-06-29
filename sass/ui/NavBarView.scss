@@ -5,6 +5,7 @@
 // View: NavBarView
 ////////////////////////////////////////////////////////////////////
 .NavBarView{
+	$margins: 10px;
 	position: relative;
 	background: $NavBarViewColor;
 	height: $NavBarViewHeight;
@@ -12,4 +13,16 @@
 	display: block;
 	@include box-shadow(0 0 3px rgba(black,0.5));
 	z-index: 2;
+	white-space: nowrap;
+	.navBarButtons{
+		position: absolute;
+		top: 50%;
+		margin-top: -10px;
+		&.leftButtons{
+			left: $margins;
+		}
+		&.rightButtons{
+			right: $margins;
+		}
+	} 
 }

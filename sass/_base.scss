@@ -1,11 +1,17 @@
 ////////////////////////////////////////////////////////////////////
+// Paths
+////////////////////////////////////////////////////////////////////
+$imgs: "/img/";
+
+
+////////////////////////////////////////////////////////////////////
 // Sizes
 ////////////////////////////////////////////////////////////////////
 $appW: 360px;
 $appH: 550px;
 $NavBarViewHeight: 40px;
+$UserPromptViewHeight: 50px;
 $mobileQuerySize: 700px;
-
 
 ////////////////////////////////////////////////////////////////////
 // Colors
@@ -15,8 +21,11 @@ $gray1: #eff2ec;
 $gray1_2: #ebebeb;
 $gray2: #bdbdbd;
 $gray6: #333;
+$purple2: #cc8bb4;
 $purple3: #ad588e; 
 $purple4: #7a4364;
+$green2: #9bd792;
+$green3: #67ba57;
 
 // UI
 $NavBarViewColor: $purple3;
@@ -33,7 +42,37 @@ $fontWeightBold: 700;
 ////////////////////////////////////////////////////////////////////
 // Helpers
 ////////////////////////////////////////////////////////////////////
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
 
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
 @mixin size($w, $h){
 	width: $w;
 	height: $h;
