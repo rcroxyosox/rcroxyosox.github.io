@@ -45,7 +45,13 @@ define([
 				var right = $('body').width() - position.left + $lastMessage.width();
 				var bottom = $('body').height() - position.top;
 				var delay = Utils.getTransitionDuration(that.$el);
-				that.$el.css({bottom: "", right: $('.mainView').css('padding-right'), bottom: bottom});
+				var x = '-'+$('.mainView').css('padding-right');
+				var y = '-'+(bottom-this.$el.height())+'px';
+
+				console.log(x,y);
+				that.$el.css({
+					'transform': 'translateX('+x+') translateY('+y+')', 
+				});
 				setTimeout(function(){
 					$last.addClass('in');
 				},delay-400);
