@@ -35,6 +35,7 @@
 	&.send{ 
 		overflow: hidden;
 		margin-top: -$collapsedSize/2;
+		bottom: -$collapsedSize;
 		@include sq($collapsedSize);
 		@include border-radius(50%);
 		li{

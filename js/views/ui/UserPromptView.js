@@ -38,7 +38,6 @@ define([
 			},
 			moveToResponsePosition: function(){
 				var that = this;
-				
 				var $last = $('.ConversationCollectionView li:last');
 				var $lastMessage = $last.find('p');
 				var position = $lastMessage.position();
@@ -46,18 +45,16 @@ define([
 				var bottom = $('body').height() - position.top;
 				var delay = Utils.getTransitionDuration(that.$el);
 				var x = '-'+$('.mainView').css('padding-right');
-				var y = '-'+(bottom-this.$el.height())+'px';
+				var y = '-'+(bottom)+'px';
 
-				console.log(x,y);
-				that.$el.css({
+				that.$el.empty().css({
 					'transform': 'translateX('+x+') translateY('+y+')', 
 				});
 				setTimeout(function(){
 					$last.addClass('in');
 				},delay-400);
 				setTimeout(function(){
-					that.$el.removeClass('in').empty();
-					console.log(that.$el.html());
+					that.$el.removeClass('in');
 					that.saveResponse();
 				}, delay+400)
 				setTimeout(function(){
