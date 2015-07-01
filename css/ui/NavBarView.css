@@ -11,17 +11,33 @@
   z-index: 2;
   white-space: nowrap;
 }
-/* line 17, ../../sass/ui/NavBarView.scss */
+/* line 16, ../../sass/ui/NavBarView.scss */
 .NavBarView .navBarButtons {
   position: absolute;
   top: 50%;
   margin-top: -10px;
 }
-/* line 21, ../../sass/ui/NavBarView.scss */
+/* line 20, ../../sass/ui/NavBarView.scss */
 .NavBarView .navBarButtons.leftButtons {
-  left: 10px;
+  left: 30px;
 }
-/* line 24, ../../sass/ui/NavBarView.scss */
+/* line 23, ../../sass/ui/NavBarView.scss */
 .NavBarView .navBarButtons.rightButtons {
-  right: 10px;
+  right: 30px;
+}
+/* line 25, ../../sass/ui/NavBarView.scss */
+.NavBarView .navBarButtons.rightButtons li {
+  margin-right: 10px;
+}
+/* line 27, ../../sass/ui/NavBarView.scss */
+.NavBarView .navBarButtons.rightButtons li:last-child {
+  margin-right: 0;
+}
+/* line 32, ../../sass/ui/NavBarView.scss */
+.NavBarView .navBarButtons li {
+  display: inline-block;
+}
+/* line 36, ../../sass/ui/NavBarView.scss */
+.NavBarView .icon-settings {
+  background-position: 8px center;
 }

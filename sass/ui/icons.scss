@@ -7,8 +7,49 @@
 .icon{
 	@include sq(20px);
 	@include background-size(100%);
+	background-repeat: none;
+	position: relative;
+	&:after{
+		content: ""; 
+		position: absolute;
+		top: 0;
+		left: 0;
+		@include sq(100%);
+		@include background-size(100%);
+		background-repeat: none;
+	}
+}
+
+.icon-menu{
+	background-image: url("#{$imgs}icon-menu.svg");
+}
+
+.icon-conversation{
+	background-image: url("#{$imgs}icon-conversation.svg");
+	&:after{
+		opacity: 0;
+		background-image: url("#{$imgs}icon-conversation-selected.svg");
+	}
+	&.selected{
+		&:after{
+			opacity: 1;
+		}
+	}
 }
 
 .icon-settings{
 	background-image: url("#{$imgs}icon-settings.svg");
+}
+
+.icon-dashboard{
+	background-image: url("#{$imgs}icon-dashboard.svg");
+	&:after{
+		opacity: 0;
+		background-image: url("#{$imgs}icon-dashboard-selected.svg");
+	}
+	&.selected{
+		&:after{
+			opacity: 1;
+		}
+	}
 }

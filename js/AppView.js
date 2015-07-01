@@ -7,8 +7,13 @@ define([
 ) {
 
 	var Router = Backbone.Router.extend({
+		getCurrentRoute: function(){
+			return this.routes[Backbone.history.getFragment()]
+		},
 		routes: {
-			"": "home"
+			"": "conversation",
+			"conversation": "conversation",
+			"dashboard": "dashboard"
 		}
 	});
 
@@ -16,20 +21,36 @@ define([
 		tagName:"section",
 		className:"AppView",
 		router: new Router(),
+		currentView: null,
+		previousView: null,
 		switchView: function(options){
-			var view = new options.view();
-			this.$el.html(view.render().$el);
-			if(view.Nav){
-				this.$el.prepend(new view.Nav().render().$el);
-				view.$el.addClass('withNavBarView');
+			this.previousView = this.currentView;
+			this.currentView = new options.view();
+			this.$el.html(this.currentView.render().$el);
+
+			if(this.currentView.Nav){
+				this.$el.prepend(new this.currentView.Nav().render().$el);
+				this.currentView.$el.addClass('withNavBarView');
 			}
+
 		},
 		startRouter: function() {
+
 			var that = this;
-			this.router.on("route:home", function() {
+
+			this.router.on("route:conversation", function() {
 				require(['views/HomeDialogView'], function(HomeDialogView) {
 					that.switchView({
 						view: HomeDialogView
+					});
+				});
+				// do something
+			});
+
+			this.router.on("route:dashboard", function() {
+				require(['views/HomeDashboardView'], function(HomeDashboardView) {
+					that.switchView({
+						view: HomeDashboardView,
 					});
 				});
 				// do something
@@ -49,7 +70,13 @@ define([
 
 			return this;
 		}
+	},{
+		getInstance: function(){
+			return instance;
+		}
 	});
+
+	var instance = new AppView();
 
 	return AppView;
 

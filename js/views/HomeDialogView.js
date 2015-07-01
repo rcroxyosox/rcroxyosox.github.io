@@ -1,9 +1,11 @@
 define([
 	'jquery',
+	'jqueryScrollTo',
 	'backbone',
 	'handlebars',
 	'Utils',
-	'views/ui/NavBarView',
+	'AppView',
+	'views/HomeNavBarView',
 	'views/ui/UserPromptView',
 	'models/ConversationItemModelCollection',
 	'text!/html/HomeDialogView.html',
@@ -12,10 +14,12 @@ define([
 	'css!/css/ConversationCollectionView.css'
 	], function(
 		$,
+		jqueryScrollTo,
 		Backbone,
 		Handlebars,
 		Utils,
-		NavBarView,
+		AppView,
+		HomeNavBarView,
 		UserPromptView,
 		ConversationItemModelCollection,
 		html,
@@ -27,12 +31,26 @@ define([
 			tagName: 'li',
 			model: null, // Should be a ConversationItemModel
 			template: Handlebars.compile(ConversationItemViewHTML),
+			events:{
+				'click':'test'
+			},
 			initialize: function(){
 				var that = this;
 				this.listenTo(this.model, 'change:stub', function(){
 					that.$el.toggleClass('stubItem', this.model.get('stub'));
 					that.$('p').html(that.model.get('message'));
+					setTimeout(function(){
+						that.scrollIfNeeded();
+					},300);
 				});
+			},
+			scrollIfNeeded: function(){
+				var that = this;
+				var thisBottom = that.$('p').position().top + that.$('p').height();
+				var pageBottom = $('.mainView').height();
+				if(thisBottom > pageBottom){
+					$('.mainView').scrollTo('.ConversationCollectionView li:last', 800);
+				}
 			},
 			render: function(){
 				var that = this;
@@ -42,9 +60,10 @@ define([
 				this.$el.addClass((data.isFromBot)?'botItem':'userItem');
 				this.$el.html(this.template(data));
 				if(data.isFromBot){
-					setTimeout(function(){that.$el.addClass('in');},100);
+					setTimeout(function(){
+						that.$el.addClass('in');
+					},100);
 				}
-
 				return this;
 			}
 		});
@@ -56,6 +75,7 @@ define([
 			collection: ConversationItemModelCollection.getInstance(),
 			initialize: function(){
 				var that = this;
+				this.collection.reset([]);
 				this.listenTo(this.collection, 'add', function(model){
 					that.$el.append(new ConversationItemView({model:model}).render().$el);
 				});
@@ -70,10 +90,13 @@ define([
 		return Backbone.View.extend({
 			tagName  : "div",
 			className: 'mainView HomeDialogView',
-			Nav: NavBarView.extend({}),
+			Nav: HomeNavBarView,
 			events   : {},
 			template: Handlebars.compile(html),
 			conversationCollectionView: null,
+			remove: function(){
+				Backbone.prototype.remove.call(this);
+			},
 			renderUserPrompt: function(model){
 				this.userPrompt && this.userPrompt.remove();
 				this.userPrompt = new UserPromptView({model:model}).render();
@@ -83,7 +106,7 @@ define([
 				var that = this;
 				this.conversationCollectionView = new ConversationCollectionView();
 				this.listenTo(this.conversationCollectionView.collection, 'prompt', function(model){
-					this.renderUserPrompt(model);
+					that.renderUserPrompt(model);
 				});
 			},
 			render: function() {

@@ -5,6 +5,7 @@ require.config({
 		backbone: '/js/lib/backbone',
 		handlebars: '/js/lib/handlebars-v3.0.3',
 		jquery:'/js/lib/jquery-1.11.3',
+		jqueryScrollTo:'/js/lib/jquery.scrollTo/jquery.scrollTo',
 		text: '/js/lib/require-text/text',
 		css: '/js/lib/require-css/css'
 	}
@@ -12,5 +13,5 @@ require.config({
 });
 
 require(['AppView'], function(AppView){
-	new AppView().render();
+	AppView.getInstance().render();
 });

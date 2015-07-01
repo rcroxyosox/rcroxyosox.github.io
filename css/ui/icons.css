@@ -6,9 +6,58 @@
   -o-background-size: 100%;
   -webkit-background-size: 100%;
   background-size: 100%;
+  background-repeat: none;
+  position: relative;
+}
+/* line 12, ../../sass/ui/icons.scss */
+.icon:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  background-repeat: none;
 }
 
-/* line 12, ../../sass/ui/icons.scss */
+/* line 23, ../../sass/ui/icons.scss */
+.icon-menu {
+  background-image: url("/img/icon-menu.svg");
+}
+
+/* line 27, ../../sass/ui/icons.scss */
+.icon-conversation {
+  background-image: url("/img/icon-conversation.svg");
+}
+/* line 29, ../../sass/ui/icons.scss */
+.icon-conversation:after {
+  opacity: 0;
+  background-image: url("/img/icon-conversation-selected.svg");
+}
+/* line 34, ../../sass/ui/icons.scss */
+.icon-conversation.selected:after {
+  opacity: 1;
+}
+
+/* line 40, ../../sass/ui/icons.scss */
 .icon-settings {
   background-image: url("/img/icon-settings.svg");
+}
+
+/* line 44, ../../sass/ui/icons.scss */
+.icon-dashboard {
+  background-image: url("/img/icon-dashboard.svg");
+}
+/* line 46, ../../sass/ui/icons.scss */
+.icon-dashboard:after {
+  opacity: 0;
+  background-image: url("/img/icon-dashboard-selected.svg");
+}
+/* line 51, ../../sass/ui/icons.scss */
+.icon-dashboard.selected:after {
+  opacity: 1;
 }

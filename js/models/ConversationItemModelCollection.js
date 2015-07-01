@@ -22,30 +22,25 @@ define([
 			if(collection.length == 0){
 				return this.fakeDB[0];
 			}else{
+
 				var lastItem = collection[collection.length-1];
-				var responseTo = lastItem.get('responseTo');
+				var requiresResponseType = lastItem.get('requiresResponseType');
 
-				if(typeof(responseTo) == "number"){
-					responseTo = _.findWhere(collection, {id:responseTo});
-				}
-
-				var requiresResponseType = responseTo.get('requiresResponseType');
-
-				// If responding to a choice
-				if(requiresResponseType == ConversationItemModel.responseType.CHOICE){
-					var possibleResponses = responseTo.get('possibleResponses');
-					var selectedChoice = lastItem.get('selectedChoice');
-					var nextId = possibleResponses[selectedChoice];
+				// If its in response to a choice
+				if(typeof lastItem.get('selectedChoice') === "number"){
+					// get the original question
+					var originalQuestionItem =  lastItem.get('responseTo');
+					var nextId = originalQuestionItem.get('possibleResponses')[lastItem.get('selectedChoice')];
 
 					if(typeof(nextId) != "undefined"){
 						var nextItem = _.findWhere(this.fakeDB, {id: nextId});
 						return nextItem;
 					}else{
-						console.error("Could not find "+nextId+" inside possibleResponses arr for ", responseTo);
+						console.error("Could not find "+selectedChoice+" inside possibleResponses arr for ", possibleResponses);
 					}
 
-				// If responding to a bot
-				}else if(lastItem.get('requiresResponseType') == ConversationItemModel.responseType.BOTCONTINUE){
+				}
+				else if(requiresResponseType == ConversationItemModel.responseType.BOTCONTINUE){
 					var nextItem = _.findWhere(this.fakeDB, {id: lastItem.get('possibleResponses')[0]});
 					return nextItem;
 				}
@@ -93,13 +88,21 @@ define([
 			id: 8,
 			responseTo: 5,
 			message: "<img src=\"http://pngimg.com/upload/cup_PNG2000.png\" />",
+			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
+			possibleResponses: [10]
+		},
+		{
+			id: 10,
+			responseTo: 8,
+			message: ":D",
 			requiresResponseType: ConversationItemModel.responseType.NONE,
 		},
 		{
 			id: 9,
 			responseTo: 5,
 			message: "<img src=\"http://www.downeastcoffee.ca/sites/default/files/media/slides/coffee.png\" />",
-			requiresResponseType: ConversationItemModel.responseType.NONE,
+			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
+			possibleResponses: [10]
 		}
 		]
 	};
@@ -112,6 +115,7 @@ define([
 				userResponse.id = userResponse.responseTo.get('id') + 1;
 				userResponse.fromType = ConversationItemModel.fromType.USER;
 				userResponse.message = userResponse.responseTo.get('choices')[userResponse.selectedChoice];
+				userResponse.requiresResponseType = ConversationItemModel.responseType.BOTCONTINUE
 			}
 
 			this.add(userResponse);
@@ -154,6 +158,7 @@ define([
 							dfd.resolve(stub);
 						}else{
 							dfd.reject({error:"No stub found"});
+							return;
 						}
 
 						// Prompt if user input is required, fetch again if bot, otherwise the discussion is over

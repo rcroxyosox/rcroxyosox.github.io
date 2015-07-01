@@ -3,8 +3,13 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
 <g>
-	<circle fill="#CC8BB4" cx="10" cy="4.3" r="1.6"/>
-	<circle fill="#CC8BB4" cx="10" cy="10" r="1.6"/>
-	<circle fill="#CC8BB4" cx="10" cy="15.7" r="1.6"/>
+	<g>
+		<path fill="#CC8BB4" d="M4.2,9.2h11.7c0.3,0,0.6-0.2,0.6-0.6V4.7c0-0.3-0.2-0.6-0.6-0.6H4.2c-0.3,0-0.6,0.2-0.6,0.6v3.9
+			C3.6,9,3.9,9.2,4.2,9.2z"/>
+	</g>
+	<g>
+		<path fill="#CC8BB4" d="M4.2,15.8h11.7c0.3,0,0.6-0.2,0.6-0.6v-3.9c0-0.3-0.2-0.6-0.6-0.6H4.2c-0.3,0-0.6,0.2-0.6,0.6v3.9
+			C3.6,15.6,3.9,15.8,4.2,15.8z"/>
+	</g>
 </g>
 </svg>

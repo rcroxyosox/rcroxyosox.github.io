@@ -5,11 +5,10 @@
 // View: NavBarView
 ////////////////////////////////////////////////////////////////////
 .NavBarView{
-	$margins: 10px;
 	position: relative;
 	background: $NavBarViewColor;
 	height: $NavBarViewHeight;
-	width: 100%;
+	width: 100%; 
 	display: block;
 	@include box-shadow(0 0 3px rgba(black,0.5));
 	z-index: 2;
@@ -19,10 +18,22 @@
 		top: 50%;
 		margin-top: -10px;
 		&.leftButtons{
-			left: $margins;
+			left: $mainMargins;
 		}
 		&.rightButtons{
-			right: $margins;
+			right: $mainMargins;
+			li{
+				margin-right: 10px;
+				&:last-child{
+					margin-right: 0;
+				}
+			}
+		}
+		li{
+			display: inline-block;
 		}
 	} 
+	.icon-settings{
+		background-position: 8px center;
+	}
 }
