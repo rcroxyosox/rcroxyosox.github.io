@@ -102,12 +102,14 @@ html {
 
 /* line 15, ../sass/main.scss */
 body {
+  color: #333;
   background-color: white;
   position: absolute;
   left: 50%;
-  top: 0;
+  top: 50%;
   display: block;
   margin-left: -180px;
+  margin-top: -275px;
   z-index: 2;
   width: 360px;
   height: 550px;
@@ -132,7 +134,7 @@ body {
     margin: 0;
   }
 }
-/* line 37, ../sass/main.scss */
+/* line 38, ../sass/main.scss */
 body.preload {
   -moz-transition: none;
   -o-transition: none;
@@ -140,16 +142,21 @@ body.preload {
   transition: none;
 }
 
-/* line 41, ../sass/main.scss */
+/* line 42, ../sass/main.scss */
 * {
   -webkit-tap-highlight-color: transparent;
   -moz-tap-highlight-color: transparent;
 }
 
-/* line 49, ../sass/main.scss */
+/* line 46, ../sass/main.scss */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* line 53, ../sass/main.scss */
 .mainView {
   position: absolute;
-  width: 100%;
+  width: calc(100% + 30px);
   height: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -158,18 +165,40 @@ body.preload {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0;
 }
-/* line 57, ../sass/main.scss */
+/* line 61, ../sass/main.scss */
 .mainView .mainViewContent {
   padding: 30px;
-  background: white;
+  padding-right: 60px;
+  background: transparent;
 }
-/* line 63, ../sass/main.scss */
+/* line 68, ../sass/main.scss */
 .mainView.withNavBarView {
   padding-top: 200px;
 }
+/* line 76, ../sass/main.scss */
+.mainView.in {
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+/* line 79, ../sass/main.scss */
+.mainView.in .mainViewContent {
+  background: white;
+}
 
-/* line 68, ../sass/main.scss */
+/* line 85, ../sass/main.scss */
 .modal {
   position: absolute;
   display: block;
@@ -185,7 +214,7 @@ body.preload {
   -webkit-transition-delay: 0.3s;
   transition: all 0.3s ease-in-out 0.3s;
 }
-/* line 75, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 .modal.in {
   -moz-transform: scale(80);
   -ms-transform: scale(80);

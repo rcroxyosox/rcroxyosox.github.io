@@ -95,7 +95,14 @@ define([
 			template: Handlebars.compile(html),
 			conversationCollectionView: null,
 			remove: function(){
-				Backbone.View.prototype.remove.call(this);
+				var that = this;
+				this.$el.removeClass('in');
+				this.userPrompt && this.userPrompt.remove();
+
+				setTimeout(function(){
+					that.trigger('removed');
+					Backbone.View.prototype.remove.call(that);
+				},300);
 			},
 			renderUserPrompt: function(model){
 				this.userPrompt && this.userPrompt.remove();
@@ -106,12 +113,13 @@ define([
 				var that = this;
 				this.conversationCollectionView = new ConversationCollectionView();
 				this.listenTo(this.conversationCollectionView.collection, 'prompt', function(model){
-					console.log("now");
 					that.renderUserPrompt(model);
 				});
 			},
 			render: function() {
+				var that = this;
 				this.$el.html(this.template()).find('.mainViewContent').append(this.conversationCollectionView.render().$el);
+				setTimeout(function(){ that.$el.addClass('in'); },10);
 				return this;
 			}
 		});

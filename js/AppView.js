@@ -25,18 +25,28 @@ define([
 		currentView: null,
 		previousView: null,
 		switchView: function(options){
+			var that = this;
 			this.previousView = this.currentView;
 			this.currentView = new options.view();
-			this.$el.html(this.currentView.render().$el);
-			this.previousView && this.previousView.remove();
 
-			if(this.currentView.Nav){
-				var nav = new this.currentView.Nav({
-					attachedToView: this.currentView
-				});
-				this.$el.prepend(nav.render().$el);
-				this.currentView.$el.addClass('withNavBarView');
+			var createNewView = function(){
+				that.$el.html(that.currentView.render().$el);
+				if(that.currentView.Nav){
+					var nav = new that.currentView.Nav({
+						attachedToView: that.currentView
+					});
+					that.$el.prepend(nav.render().$el);
+					that.currentView.$el.addClass('withNavBarView');
+				}
 			}
+
+			if(this.previousView){
+				this.previousView.on('removed', createNewView);
+				this.previousView.remove();
+			}else{
+				createNewView();
+			}
+
 
 		},
 		startRouter: function() {
