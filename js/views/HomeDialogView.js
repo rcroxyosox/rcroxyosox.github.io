@@ -95,7 +95,7 @@ define([
 			template: Handlebars.compile(html),
 			conversationCollectionView: null,
 			remove: function(){
-				Backbone.prototype.remove.call(this);
+				Backbone.View.prototype.remove.call(this);
 			},
 			renderUserPrompt: function(model){
 				this.userPrompt && this.userPrompt.remove();
@@ -106,6 +106,7 @@ define([
 				var that = this;
 				this.conversationCollectionView = new ConversationCollectionView();
 				this.listenTo(this.conversationCollectionView.collection, 'prompt', function(model){
+					console.log("now");
 					that.renderUserPrompt(model);
 				});
 			},

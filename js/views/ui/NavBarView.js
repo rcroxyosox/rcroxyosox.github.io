@@ -21,6 +21,9 @@ define([
 			attachedToView: null,
 			template: Handlebars.compile(html),
 			headerSelector: '.navBarViewHeader', // a reference to the header element
+			navTitle: "",
+			headerTitle: "",
+			headerSubTitle: "",
 			events:{},
 			initialize: function(options){
 				_.extend(this, options);
@@ -43,12 +46,19 @@ define([
 			initScrollListener: function(){
 				var that = this;
 				this.attachedToView.$el.on('scroll', function(event){
+					var $header = $(that.headerSelector);
 					var headerHeight = parseInt(that.attachedToView.$el.css('padding-top'));
 					var navHeight = that.$el.height();
 					var scrollAmount = $(event.target).scrollTop();
-					var perc = (scrollAmount/headerHeight);
+					var perc = (scrollAmount*0.3);
 					var perc2 = (scrollAmount/(headerHeight-that.$el.height()));
-					$(that.headerSelector).find('aside').css({opacity: perc2});
+
+					$header.css({'background-size':(100+perc*0.3)+"%"});
+					$header.find('.tint').css({opacity: perc2});
+					$header.find('section').css({opacity: 1-perc2*2.5, transform:'translateY(-'+perc+'px)'});
+					console.log(perc);
+
+
 					if((headerHeight - scrollAmount) < navHeight){
 						that.$el.addClass('in')
 					}else{
@@ -70,9 +80,11 @@ define([
 				this.$('.icon').removeClass('selected');
 				this.$('.'+button.iconClass).addClass('selected');
 			},
+
 			toggleSettings: function(){
 				alert("settings");
 			},
+
 			render: function() {
 				var that = this;
 				this.$el.html(this.template(this));

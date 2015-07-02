@@ -28,6 +28,7 @@ define([
 			this.previousView = this.currentView;
 			this.currentView = new options.view();
 			this.$el.html(this.currentView.render().$el);
+			this.previousView && this.previousView.remove();
 
 			if(this.currentView.Nav){
 				var nav = new this.currentView.Nav({
