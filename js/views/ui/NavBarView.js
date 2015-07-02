@@ -24,11 +24,6 @@ define([
 			navTitle: "",
 			headerTitle: "",
 			headerSubTitle: "",
-			events:{
-				'touchstart': function(){
-					alert("hello");
-				}
-			},
 			initialize: function(options){
 				_.extend(this, options);
 				var that = this;
@@ -37,7 +32,7 @@ define([
 
 				_.each(this.getButtons(), function(button){
 					if(button.route && button.iconClass){
-						that.events['click .'+button.iconClass] = function(){
+						that.events['touchstart .'+button.iconClass] = function(){
 							AppView.getInstance().router.navigate(button.route, {trigger:true});
 						}
 					}
