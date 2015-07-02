@@ -54,13 +54,9 @@ define([
 				setTimeout(function(){
 					$last.addClass('in');
 				},delay-400);
-				setTimeout(function(){
-					that.$el.removeClass('in');
-					that.saveResponse();
-				}, delay+400)
-				setTimeout(function(){
-					$last.addClass('showText');
-				}, delay)
+
+				that.$el.removeClass('in');
+				that.saveResponse();
 			},
 			saveResponse: function(){
 				var that = this;
@@ -83,6 +79,7 @@ define([
 				var selectedChoiceIndex = $selection.index();
 				var conversationItemModelCollection = ConversationItemModelCollection.getInstance();
 				var ConversationItemModel = ConversationItemModelCollection.getInstance().model;
+
 				this.responseObj = {
 					responseTo: this.model,
 					selectedChoice: selectedChoiceIndex

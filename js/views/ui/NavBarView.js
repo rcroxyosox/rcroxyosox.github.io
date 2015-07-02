@@ -48,7 +48,6 @@ define([
 					var scrollAmount = $(event.target).scrollTop();
 					var perc = (scrollAmount/headerHeight);
 					var perc2 = (scrollAmount/(headerHeight-that.$el.height()));
-					console.log(perc2);
 					$(that.headerSelector).find('aside').css({opacity: perc2});
 					if((headerHeight - scrollAmount) < navHeight){
 						that.$el.addClass('in')

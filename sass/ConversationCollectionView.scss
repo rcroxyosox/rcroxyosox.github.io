@@ -75,10 +75,9 @@
 		}
 		p{
 			overflow: hidden;
-			@include sq(30px);
 			@include border-radius(50%);
 			@include single-transition(all, 0.3s, ease-in-out, 0.3s);
-			padding: 0;
+			@include transform(translateX(30px));
 			opacity: 0; 
 			background: white;
 			border: 1px solid $gray2; 
@@ -97,18 +96,12 @@
 				background: white;
 			}
 		}
-		&.showText{ 
-			p{    
-
-			}
-		}
 		&.in{
 			p{
 				opacity: 1;
-				padding: $padding;
 				overflow: visible; 
-				@include sq(auto);
 				@include border-radius(5px);
+				@include transform(translateX(0));
 				&:before{
 					opacity: 1;
 					@include transform(translateX(0) skew(54deg));
