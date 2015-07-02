@@ -3,6 +3,7 @@ define([
 	'backbone',
 	'handlebars',
 	'AppView',
+	'Utils',
 	'text!/html/ui/NavBarView.html',
 	'css!/css/ui/NavBarView.css'
 	], function(
@@ -10,6 +11,7 @@ define([
 		Backbone,
 		Handlebars,
 		AppView,
+		Utils,
 		html
 		) {
 
@@ -27,12 +29,12 @@ define([
 			initialize: function(options){
 				_.extend(this, options);
 				var that = this;
-
+				var tapEvent = (Utils.hasTouchSupport())?'touchstart':'click';
 				this.listenTo(AppView.getInstance().router, 'route', that.setSelected);
 
 				_.each(this.getButtons(), function(button){
 					if(button.route && button.iconClass){
-						that.events['touchstart .'+button.iconClass] = function(){
+						that.events[tapEvent+' .'+button.iconClass] = function(){
 							AppView.getInstance().router.navigate(button.route, {trigger:true});
 						}
 					}

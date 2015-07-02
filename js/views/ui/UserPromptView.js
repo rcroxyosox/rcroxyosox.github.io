@@ -15,11 +15,15 @@ define([
 		html
 		) {
 
+		var tapEvent = (Utils.hasTouchSupport())?'touchstart':'click';
+
 		return Backbone.View.extend({
 			tagName  : "div",
 			className: 'UserPromptView',
-			events   : {
-				'click .userPromptChoices': 'addResponse'
+			events   : function(){
+				var events = {};
+				events[tapEvent+' .userPromptChoices'] = 'addResponse';
+				return events;
 			},
 			template: Handlebars.compile(html),
 			model: null,
