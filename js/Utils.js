@@ -1,6 +1,10 @@
 define(['jquery'], function($){
 
 	return {
+		hasTouchSupport: function(){
+			var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+			return supportsTouch;
+		},
 		getTransitionDuration: function($element, withDelay){
 			var el       = $element;
 			var prefixes = 'moz webkit ms o khtml'.split( ' ' );

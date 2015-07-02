@@ -28,9 +28,10 @@
 	// height: $UserPromptViewHeight;
 	text-align: center;  
 	@include box-sizing(border-box); 
-	@include single-transition(all, 0.5s, ease-in-out);
+	@include single-transition(all, 0.1s, ease-in-out);
 	@include transform(translateY(100%));
 	&.in{
+		@include single-transition(all, 0.5s, ease-in-out);
 		@include transform(translateY(0));
 	} 
 	// &.send{ 

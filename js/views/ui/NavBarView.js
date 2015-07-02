@@ -24,7 +24,11 @@ define([
 			navTitle: "",
 			headerTitle: "",
 			headerSubTitle: "",
-			events:{},
+			events:{
+				'touchstart': function(){
+					alert("hello");
+				}
+			},
 			initialize: function(options){
 				_.extend(this, options);
 				var that = this;

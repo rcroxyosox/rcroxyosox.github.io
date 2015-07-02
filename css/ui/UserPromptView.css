@@ -75,10 +75,10 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
   -webkit-transform: translateY(100%);
@@ -86,18 +86,22 @@
 }
 /* line 33, ../../sass/ui/UserPromptView.scss */
 .UserPromptView.in {
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-/* line 54, ../../sass/ui/UserPromptView.scss */
+/* line 55, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices {
   width: 100%;
   white-space: nowrap;
   display: table;
 }
-/* line 58, ../../sass/ui/UserPromptView.scss */
+/* line 59, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices li {
   display: table-cell;
   padding: 20px 10px;
@@ -117,19 +121,19 @@
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 73, ../../sass/ui/UserPromptView.scss */
+/* line 74, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li {
   width: 50%;
 }
-/* line 78, ../../sass/ui/UserPromptView.scss */
+/* line 79, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li:nth-child(2) {
   background: rgba(255, 255, 255, 0.1);
 }
-/* line 81, ../../sass/ui/UserPromptView.scss */
+/* line 82, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li:nth-child(3) {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 84, ../../sass/ui/UserPromptView.scss */
+/* line 85, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li:nth-child(4) {
   background: rgba(255, 255, 255, 0.3);
 }
