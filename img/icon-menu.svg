@@ -3,11 +3,10 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
 <g>
-	<path fill="#CC8BB4" d="M18.2,4.3H1.8C1.5,4.3,1.2,4,1.2,3.7V3.3c0-0.3,0.3-0.6,0.6-0.6h16.3c0.3,0,0.6,0.3,0.6,0.6v0.4
-		C18.8,4,18.5,4.3,18.2,4.3z"/>
-	<path fill="#CC8BB4" d="M18.2,10.8H1.8c-0.3,0-0.6-0.3-0.6-0.6V9.8c0-0.3,0.3-0.6,0.6-0.6h16.3c0.3,0,0.6,0.3,0.6,0.6v0.4
-		C18.8,10.5,18.5,10.8,18.2,10.8z"/>
-	<path fill="#CC8BB4" d="M18.2,17.3H1.8c-0.3,0-0.6-0.3-0.6-0.6v-0.4c0-0.3,0.3-0.6,0.6-0.6h16.3c0.3,0,0.6,0.3,0.6,0.6v0.4
-		C18.8,17,18.5,17.3,18.2,17.3z"/>
+	<rect x="3.4" y="3.2" fill="#FFFFFF" width="13.1" height="0.8"/>
+	<rect x="3.4" y="7.5" fill="#FFFFFF" width="13.1" height="0.8"/>
+	<rect x="3.4" y="11.7" fill="#FFFFFF" width="13.1" height="0.8"/>
+	<rect x="3.4" y="16" fill="#FFFFFF" width="13.1" height="0.8"/>
 </g>
+<path fill="#FFFFFF" d="M32-3.3H15.7v-13.6h11.9v9.6L32-3.3z M16.4-4.1H30L26.8-7v-9.1H16.4V-4.1z"/>
 </svg>

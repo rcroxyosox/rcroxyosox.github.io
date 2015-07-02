@@ -13,7 +13,7 @@
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  color: #bdbdbd;
+  color: #eeeded;
   clear: both;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -27,7 +27,7 @@
 .HomeDialogView .sep:before, .HomeDialogView .sep:after {
   content: "";
   display: table-cell;
-  border-bottom: 1px solid #bdbdbd;
+  border-bottom: 1px solid #eeeded;
   width: 50%;
   padding-top: 15px;
 }

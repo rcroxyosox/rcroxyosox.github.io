@@ -1,43 +1,159 @@
 /* line 7, ../../sass/ui/NavBarView.scss */
 .NavBarView {
   position: relative;
-  background: #ad588e;
+  background-position: center center;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
   height: 50px;
   width: 100%;
   display: block;
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   z-index: 2;
   white-space: nowrap;
 }
-/* line 16, ../../sass/ui/NavBarView.scss */
-.NavBarView .navBarButtons {
+/* line 17, ../../sass/ui/NavBarView.scss */
+.NavBarView .navTitleCell {
+  opacity: 0;
+  vertical-align: middle;
+}
+/* line 21, ../../sass/ui/NavBarView.scss */
+.NavBarView h1 {
+  color: white;
+  font-size: 21px;
+  position: relative;
+  font-weight: 300;
+  top: 1px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* line 33, ../../sass/ui/NavBarView.scss */
+.NavBarView > nav {
+  width: 100%;
+  display: table;
   position: absolute;
   top: 50%;
-  margin-top: -10px;
+  margin-top: -18px;
+  padding: 0 30px;
+  table-layout: fixed;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
-/* line 20, ../../sass/ui/NavBarView.scss */
+/* line 42, ../../sass/ui/NavBarView.scss */
+.NavBarView > nav > * {
+  display: table-cell;
+}
+/* line 44, ../../sass/ui/NavBarView.scss */
+.NavBarView > nav > *:first-child {
+  padding-right: 10px;
+  width: 30px;
+}
+/* line 48, ../../sass/ui/NavBarView.scss */
+.NavBarView > nav > *:nth-child(2) {
+  padding-right: 10px;
+  width: 60%;
+}
+/* line 52, ../../sass/ui/NavBarView.scss */
+.NavBarView > nav > *:last-child {
+  width: 30%;
+}
+/* line 55, ../../sass/ui/NavBarView.scss */
+.NavBarView > nav > * > * {
+  display: inline-block;
+  white-space: nowrap;
+}
+/* line 61, ../../sass/ui/NavBarView.scss */
+.NavBarView > aside {
+  background-color: #5f5d9a;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+/* line 69, ../../sass/ui/NavBarView.scss */
+.NavBarView.in {
+  opacity: 1;
+}
+/* line 71, ../../sass/ui/NavBarView.scss */
+.NavBarView.in > aside {
+  opacity: 1;
+}
+/* line 76, ../../sass/ui/NavBarView.scss */
 .NavBarView .navBarButtons.leftButtons {
-  left: 30px;
+  text-align: left;
 }
-/* line 23, ../../sass/ui/NavBarView.scss */
+/* line 79, ../../sass/ui/NavBarView.scss */
 .NavBarView .navBarButtons.rightButtons {
-  right: 30px;
+  text-align: right;
 }
-/* line 25, ../../sass/ui/NavBarView.scss */
+/* line 81, ../../sass/ui/NavBarView.scss */
 .NavBarView .navBarButtons.rightButtons li {
   margin-right: 10px;
 }
-/* line 27, ../../sass/ui/NavBarView.scss */
+/* line 83, ../../sass/ui/NavBarView.scss */
 .NavBarView .navBarButtons.rightButtons li:last-child {
   margin-right: 0;
 }
-/* line 32, ../../sass/ui/NavBarView.scss */
+/* line 88, ../../sass/ui/NavBarView.scss */
 .NavBarView .navBarButtons li {
+  width: 30px;
+  height: 30px;
   display: inline-block;
+  opacity: 0.3;
 }
-/* line 36, ../../sass/ui/NavBarView.scss */
+/* line 92, ../../sass/ui/NavBarView.scss */
+.NavBarView .navBarButtons li.selected {
+  opacity: 1;
+}
+/* line 95, ../../sass/ui/NavBarView.scss */
+.NavBarView .navBarButtons li.icon-menu {
+  background-position: -5px center;
+  opacity: 1;
+}
+/* line 101, ../../sass/ui/NavBarView.scss */
 .NavBarView .icon-settings {
   background-position: 8px center;
+}
+
+/* line 106, ../../sass/ui/NavBarView.scss */
+.navBarViewHeader {
+  background: url("http://www.galleriesss.com/wp-content/uploads/2014/06/cute-newborn-babycute-smiling-newborn-baby-photography-gallery-tdltewl9.jpg");
+  width: 100%;
+  height: 200px;
+  background-repeat: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+/* line 116, ../../sass/ui/NavBarView.scss */
+.navBarViewHeader:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  background-color: #333;
+}
+/* line 126, ../../sass/ui/NavBarView.scss */
+.navBarViewHeader aside {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #5f5d9a;
+  opacity: 0;
 }

@@ -90,7 +90,7 @@ define([
 		return Backbone.View.extend({
 			tagName  : "div",
 			className: 'mainView HomeDialogView',
-			Nav: HomeNavBarView,
+			Nav: HomeNavBarView.extend({navTitle:""}),
 			events   : {},
 			template: Handlebars.compile(html),
 			conversationCollectionView: null,
@@ -100,7 +100,7 @@ define([
 			renderUserPrompt: function(model){
 				this.userPrompt && this.userPrompt.remove();
 				this.userPrompt = new UserPromptView({model:model}).render();
-				this.$el.append(this.userPrompt.$el);
+				this.userPrompt.render();
 			},
 			initialize: function(){
 				var that = this;
@@ -110,7 +110,7 @@ define([
 				});
 			},
 			render: function() {
-				this.$el.html(this.template({test:"World"})).append(this.conversationCollectionView.render().$el);
+				this.$el.html(this.template()).find('.mainViewContent').append(this.conversationCollectionView.render().$el);
 				return this;
 			}
 		});

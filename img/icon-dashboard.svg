@@ -3,13 +3,8 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
 <g>
-	<g>
-		<path fill="#CC8BB4" d="M4.2,9.2h11.7c0.3,0,0.6-0.2,0.6-0.6V4.7c0-0.3-0.2-0.6-0.6-0.6H4.2c-0.3,0-0.6,0.2-0.6,0.6v3.9
-			C3.6,9,3.9,9.2,4.2,9.2z"/>
-	</g>
-	<g>
-		<path fill="#CC8BB4" d="M4.2,15.8h11.7c0.3,0,0.6-0.2,0.6-0.6v-3.9c0-0.3-0.2-0.6-0.6-0.6H4.2c-0.3,0-0.6,0.2-0.6,0.6v3.9
-			C3.6,15.6,3.9,15.8,4.2,15.8z"/>
-	</g>
+	<path fill="#FFFFFF" d="M3.2,16.8h4V3.2h-4V16.8z M3.9,4h2.4v12H3.9V4z"/>
+	<path fill="#FFFFFF" d="M8,16.8h4v-6.3H8V16.8z M8.8,11.2h2.4V16H8.8V11.2z"/>
+	<path fill="#FFFFFF" d="M12.9,5.7v11.1h4V5.7H12.9z M16.1,16h-2.4V6.5h2.4V16z"/>
 </g>
 </svg>

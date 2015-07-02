@@ -16,7 +16,7 @@ define([
 			className: 'PaletteView',
 			events   : {},
 			template: Handlebars.compile(html),
-			colors: [{"name":"$gray1","color":"#eff2ec"},{"name":"$gray1_2","color":"#ebebeb"},{"name":"$gray2","color":"#bdbdbd"},{"name":"$gray6","color":"#333"},{"name":"$purple2","color":"#cc8bb4"},{"name":"$purple3","color":"#ad588e"},{"name":"$purple4","color":"#7a4364"},{"name":"$green2","color":"#9bd792"},{"name":"$green3","color":"#67ba57"}],
+			colors: [{"name":"$gray1","color":"#eff2ec"},{"name":"$gray2","color":"#eeeded"},{"name":"$gray6","color":"#333"},{"name":"$purple2","color":"#6563a4"},{"name":"$purple3","color":"#5f5d9a"},{"name":"$purple4","color":"#7a4364"},{"name":"$green2","color":"#6dd5c9"},{"name":"$blue3","color":"#00bcd4"}],
 			_base: null,
 			initialize: function(){
 				var that = this;

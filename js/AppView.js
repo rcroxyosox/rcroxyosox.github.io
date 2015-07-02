@@ -1,6 +1,7 @@
 define([
 	'backbone',
-	'views/ui/PaletteView'
+	'views/ui/PaletteView',
+	'css!/css/AppView.css'
 ], function(
 	Backbone,
 	PaletteView
@@ -29,7 +30,10 @@ define([
 			this.$el.html(this.currentView.render().$el);
 
 			if(this.currentView.Nav){
-				this.$el.prepend(new this.currentView.Nav().render().$el);
+				var nav = new this.currentView.Nav({
+					attachedToView: this.currentView
+				});
+				this.$el.prepend(nav.render().$el);
 				this.currentView.$el.addClass('withNavBarView');
 			}
 

@@ -1,0 +1,7 @@
+/* line 7, ../sass/AppView.scss */
+.AppView {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}

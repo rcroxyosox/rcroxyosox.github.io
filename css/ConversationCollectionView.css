@@ -3,10 +3,10 @@
     opacity: 1;
   }
   10% {
-    background: #67ba57;
+    background: #5f5d9a;
   }
   30% {
-    background: #bdbdbd;
+    background: #00bcd4;
   }
   50% {
     opacity: 0;
@@ -17,10 +17,10 @@
     opacity: 1;
   }
   10% {
-    background: #67ba57;
+    background: #5f5d9a;
   }
   30% {
-    background: #bdbdbd;
+    background: #00bcd4;
   }
   50% {
     opacity: 0;
@@ -31,10 +31,10 @@
     opacity: 1;
   }
   10% {
-    background: #67ba57;
+    background: #5f5d9a;
   }
   30% {
-    background: #bdbdbd;
+    background: #00bcd4;
   }
   50% {
     opacity: 0;
@@ -45,10 +45,10 @@
     opacity: 1;
   }
   10% {
-    background: #67ba57;
+    background: #5f5d9a;
   }
   30% {
-    background: #bdbdbd;
+    background: #00bcd4;
   }
   50% {
     opacity: 0;
@@ -71,7 +71,7 @@
 }
 /* line 35, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView aside {
-  background: #ebebeb;
+  background: #eeeded;
   line-height: 40px;
   font-weight: 700;
   font-size: 13px;
@@ -138,8 +138,8 @@
   transition: all 0.3s ease-in-out 0.3s;
   padding: 0;
   opacity: 0;
-  background: #67ba57;
-  color: transparent;
+  background: white;
+  border: 1px solid #eeeded;
   z-index: 2;
 }
 /* line 87, ../sass/ConversationCollectionView.scss */
@@ -155,13 +155,14 @@
   -webkit-transition: all 0.5s ease-in-out;
   -webkit-transition-delay: 0.2s;
   transition: all 0.5s ease-in-out 0.2s;
-  background: #67ba57;
+  background: transparent;
+  border: 1px solid #eeeded;
+  border-top: none;
+  border-left: none;
+  bottom: -1px;
+  background: white;
 }
-/* line 96, ../sass/ConversationCollectionView.scss */
-.ConversationCollectionView .userItem.showText p {
-  color: white;
-}
-/* line 101, ../sass/ConversationCollectionView.scss */
+/* line 106, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .userItem.in p {
   opacity: 1;
   padding: 13px;
@@ -172,7 +173,7 @@
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 107, ../sass/ConversationCollectionView.scss */
+/* line 112, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .userItem.in p:before {
   opacity: 1;
   -moz-transform: translateX(0) skew(54deg);
@@ -180,9 +181,8 @@
   -webkit-transform: translateX(0) skew(54deg);
   transform: translateX(0) skew(54deg);
 }
-/* line 115, ../sass/ConversationCollectionView.scss */
+/* line 120, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .botItem {
-  color: #7a4364;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -193,7 +193,12 @@
   transform: translateX(-10%);
   opacity: 0;
 }
-/* line 121, ../sass/ConversationCollectionView.scss */
+/* line 125, ../sass/ConversationCollectionView.scss */
+.ConversationCollectionView .botItem aside {
+  background: #6dd5c9;
+  color: white;
+}
+/* line 130, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .botItem p {
   -moz-transition: all 0.5s ease-in-out 0.1s;
   -o-transition: all 0.5s ease-in-out 0.1s;
@@ -205,7 +210,7 @@
   -webkit-transform: translateX(-200%) scale(0);
   transform: translateX(-200%) scale(0);
   opacity: 0;
-  background: #ebebeb;
+  background: #eeeded;
   margin-left: 10px;
   white-space: normal;
   -moz-box-sizing: border-box;
@@ -213,11 +218,11 @@
   box-sizing: border-box;
   max-width: calc(100% - 52px);
 }
-/* line 126, ../sass/ConversationCollectionView.scss */
+/* line 135, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .botItem p:before {
-  background: #ebebeb;
+  background: #eeeded;
 }
-/* line 137, ../sass/ConversationCollectionView.scss */
+/* line 146, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .botItem.in {
   opacity: 1;
   -moz-transform: translateX(0);
@@ -225,7 +230,7 @@
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
-/* line 140, ../sass/ConversationCollectionView.scss */
+/* line 149, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .botItem.in p {
   -moz-transform: translateX(0) scale(1);
   -ms-transform: translateX(0) scale(1);
@@ -236,22 +241,22 @@
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 144, ../sass/ConversationCollectionView.scss */
+/* line 153, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .botItem.in p:before {
   opacity: 1;
   left: -5px;
 }
-/* line 151, ../sass/ConversationCollectionView.scss */
+/* line 160, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .elipsisItem {
   display: block;
   white-space: nowrap;
   margin-top: -2px;
 }
-/* line 156, ../sass/ConversationCollectionView.scss */
+/* line 165, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .elipsisItem > * {
   vertical-align: middle;
   display: inline-block;
-  background: #ad588e;
+  background: #5f5d9a;
   margin-right: 3px;
   width: 6px;
   height: 6px;
@@ -259,25 +264,25 @@
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 167, ../sass/ConversationCollectionView.scss */
+/* line 176, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .elipsisItem > *:last-child {
   margin-right: 0;
 }
-/* line 170, ../sass/ConversationCollectionView.scss */
+/* line 179, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .elipsisItem > *:nth-child(1) {
   -webkit-animation: blink 0.6s ease-in-out 0s infinite;
   -moz-animation: blink 0.6s ease-in-out 0s infinite;
   -o-animation: blink 0.6s ease-in-out 0s infinite;
   animation: blink 0.6s ease-in-out 0s infinite;
 }
-/* line 173, ../sass/ConversationCollectionView.scss */
+/* line 182, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .elipsisItem > *:nth-child(2) {
   -webkit-animation: blink 0.6s ease-in-out 0.198s infinite;
   -moz-animation: blink 0.6s ease-in-out 0.198s infinite;
   -o-animation: blink 0.6s ease-in-out 0.198s infinite;
   animation: blink 0.6s ease-in-out 0.198s infinite;
 }
-/* line 176, ../sass/ConversationCollectionView.scss */
+/* line 185, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .elipsisItem > *:nth-child(3) {
   -webkit-animation: blink 0.6s ease-in-out 0.396s infinite;
   -moz-animation: blink 0.6s ease-in-out 0.396s infinite;

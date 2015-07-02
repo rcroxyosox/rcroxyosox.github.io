@@ -7,11 +7,11 @@ define([
 		) {
 
 		var HomeNavBarView = NavBarView.extend({
-			events   : {
-				'click .icon-menu':'toggleSettings'
-			},
-			initialize: function(){
-				NavBarView.prototype.initialize.call(this);
+			headerTitle: "Wednesday July 1",
+			headerSubTitle: "Good Morning Mike",
+			events   : {},
+			initialize: function(options){
+				NavBarView.prototype.initialize.call(this, options);
 			},
 			leftButtons: [{
 				iconClass:'icon-menu'
@@ -22,8 +22,6 @@ define([
 			},{
 				iconClass:'icon-dashboard',
 				route: 'dashboard'
-			},{
-				iconClass:'icon-settings'
 			}]
 		});
 

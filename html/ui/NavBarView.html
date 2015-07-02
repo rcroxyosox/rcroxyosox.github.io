@@ -1,15 +1,30 @@
-{{#if leftButtons}}
-<ul class="navBarButtons leftButtons">
-	{{#each leftButtons}}
-		<li class="icon {{iconClass}}"></li>
-	{{/each}}
-</ul>
-{{/if}}
+<aside></aside>
 
-{{#if rightButtons}}
-<ul class="navBarButtons rightButtons">
-	{{#each rightButtons}}
-		<li class="icon {{iconClass}}"></li>
-	{{/each}}
-</ul>
-{{/if}}
+<nav>
+	{{#if leftButtons}}
+	<div>
+		<ul class="navBarButtons leftButtons">
+			{{#each leftButtons}}
+				<li class="icon {{iconClass}}"></li>
+			{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+
+	<div class="navTitleCell"><h1>{{navTitle}}</h1></div>
+
+	{{#if rightButtons}}
+	<div>
+		<ul class="navBarButtons rightButtons">
+			{{#each rightButtons}}
+				<li class="icon {{iconClass}}"></li>
+			{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+</nav>
+
+<header class="navBarViewHeader">
+	<aside></aside>
+	<section></section>
+</header>

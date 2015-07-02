@@ -71,83 +71,50 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -o-background-size: 100%;
   -webkit-background-size: 100%;
   background-size: 100%;
-  background-repeat: none;
+  background-repeat: no-repeat;
   position: relative;
 }
-/* line 12, ../sass/ui/icons.scss */
-.icon:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  -webkit-background-size: 100%;
-  background-size: 100%;
-  background-repeat: none;
-}
 
-/* line 23, ../sass/ui/icons.scss */
+/* line 14, ../sass/ui/icons.scss */
 .icon-menu {
   background-image: url("/img/icon-menu.svg");
 }
 
-/* line 27, ../sass/ui/icons.scss */
+/* line 18, ../sass/ui/icons.scss */
 .icon-conversation {
   background-image: url("/img/icon-conversation.svg");
 }
-/* line 29, ../sass/ui/icons.scss */
-.icon-conversation:after {
-  opacity: 0;
-  background-image: url("/img/icon-conversation-selected.svg");
-}
-/* line 34, ../sass/ui/icons.scss */
-.icon-conversation.selected:after {
-  opacity: 1;
-}
 
-/* line 40, ../sass/ui/icons.scss */
-.icon-settings {
-  background-image: url("/img/icon-settings.svg");
-}
-
-/* line 44, ../sass/ui/icons.scss */
+/* line 22, ../sass/ui/icons.scss */
 .icon-dashboard {
   background-image: url("/img/icon-dashboard.svg");
 }
-/* line 46, ../sass/ui/icons.scss */
-.icon-dashboard:after {
-  opacity: 0;
-  background-image: url("/img/icon-dashboard-selected.svg");
-}
-/* line 51, ../sass/ui/icons.scss */
-.icon-dashboard.selected:after {
-  opacity: 1;
+
+/* line 9, ../sass/main.scss */
+* {
+  -webkit-font-smoothing: antialiased;
 }
 
-/* line 10, ../sass/main.scss */
+/* line 12, ../sass/main.scss */
 html {
   background: #333;
 }
 
-/* line 13, ../sass/main.scss */
+/* line 15, ../sass/main.scss */
 body {
-  background: #eff2ec;
+  background-color: white;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 0;
   display: block;
   margin-left: -180px;
-  margin-top: -275px;
   z-index: 2;
   width: 360px;
   height: 550px;
   -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 15px;
   -moz-transition: all 0.5s ease-in-out;
@@ -156,7 +123,7 @@ body {
   transition: all 0.5s ease-in-out;
 }
 @media screen and (max-width: 700px) {
-  /* line 13, ../sass/main.scss */
+  /* line 15, ../sass/main.scss */
   body {
     left: 0;
     top: 0;
@@ -165,7 +132,7 @@ body {
     margin: 0;
   }
 }
-/* line 35, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
 body.preload {
   -moz-transition: none;
   -o-transition: none;
@@ -173,13 +140,13 @@ body.preload {
   transition: none;
 }
 
-/* line 39, ../sass/main.scss */
+/* line 41, ../sass/main.scss */
 * {
   -webkit-tap-highlight-color: transparent;
   -moz-tap-highlight-color: transparent;
 }
 
-/* line 48, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 .mainView {
   position: absolute;
   width: 100%;
@@ -190,14 +157,18 @@ body.preload {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 30px;
 }
-/* line 58, ../sass/main.scss */
+/* line 56, ../sass/main.scss */
+.mainView .mainViewContent {
+  padding: 30px;
+  background: white;
+}
+/* line 62, ../sass/main.scss */
 .mainView.withNavBarView {
-  padding-top: 80px;
+  padding-top: 200px;
 }
 
-/* line 63, ../sass/main.scss */
+/* line 67, ../sass/main.scss */
 .modal {
   position: absolute;
   display: block;
@@ -213,7 +184,7 @@ body.preload {
   -webkit-transition-delay: 0.3s;
   transition: all 0.3s ease-in-out 0.3s;
 }
-/* line 70, ../sass/main.scss */
+/* line 74, ../sass/main.scss */
 .modal.in {
   -moz-transform: scale(80);
   -ms-transform: scale(80);

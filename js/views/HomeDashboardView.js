@@ -19,7 +19,7 @@ define([
 			tagName  : "div",
 			className: 'mainView HomeDashboardView',
 			events   : {},
-			Nav: HomeNavBarView,
+			Nav: HomeNavBarView.extend({navTitle: "Dashboard"}),
 			template: Handlebars.compile(html),
 			render: function() {
 				this.$el.html(this.template(this));

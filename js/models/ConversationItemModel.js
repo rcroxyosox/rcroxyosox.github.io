@@ -6,8 +6,8 @@ define(['backbone'], function(Backbone){
 	};
 
 	var responseType = {
-		CHOICE:0,
-		INPUT:1,
+		CHOICE:0, // The user is selecting a choice
+		INPUT:1, // The user should give text input
 		BOTCONTINUE: 2, // the bot will say something else
 		NONE: 3 // the conversation is over for now
 	};

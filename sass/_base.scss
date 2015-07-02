@@ -5,36 +5,39 @@ $imgs: "/img/";
 
 
 ////////////////////////////////////////////////////////////////////
-// Sizes
+// Sizes 
 ////////////////////////////////////////////////////////////////////
 $appW: 360px;
 $appH: 550px;
 $mainMargins: 30px;
+
 $NavBarViewHeight: 50px;
+$NavBarViewHeightExpanded: 200px; 
+$NavBarViewIconSize: 30px;   
 $UserPromptViewHeight: 50px;
 $mobileQuerySize: 700px;
+
 
 ////////////////////////////////////////////////////////////////////
 // Colors
 ////////////////////////////////////////////////////////////////////
 
 $gray1: #eff2ec;
-$gray1_2: #ebebeb;
-$gray2: #bdbdbd;
+$gray2: #eeeded;
 $gray6: #333;
-$purple2: #cc8bb4;
-$purple3: #ad588e; 
+$purple2: #6563a4;
+$purple3: #5f5d9a; 
 $purple4: #7a4364;
-$green2: #9bd792;
-$green3: #67ba57;
-
+$green2: #6dd5c9;
+$blue3: #00bcd4;
 // UI
 $NavBarViewColor: $purple3;
+$mainBGColor: white;
 
 ////////////////////////////////////////////////////////////////////
 // Fonts
 ////////////////////////////////////////////////////////////////////
-$font: 'Open Sans', sans-serif;
+$font: 'Roboto', sans-serif;
 $fontWeightLight: 300;
 $fontWeightMed: 400;
 $fontWeightBold: 700;

@@ -6,18 +6,20 @@
 ////////////////////////////////////////////////////////////////////
 // Resets
 ////////////////////////////////////////////////////////////////////
-
+*{
+	-webkit-font-smoothing: antialiased; 
+}
 html{
-	background: $gray6;
+	background: $gray6; 
 }
 body{
-	background: $gray1;
+	background-color: $mainBGColor;
 	position: absolute;
 	left: 50%;
-	top: 50%;
+	top: 0;
 	display: block; 
 	margin-left: -$appW/2;
-	margin-top: -$appH/2;
+	// margin-top: -$appH/2;
 	z-index: 2;
 	@include size($appW, $appH);
 	@include box-shadow(0 0 5px rgba(0,0,0,0.2));
@@ -44,19 +46,21 @@ body{
 ////////////////////////////////////////////////////////////////////
 // Reusable UI
 ////////////////////////////////////////////////////////////////////
-
 .mainView{
-	$padding: $mainMargins;
  	position: absolute;
  	width: 100%;
  	height: 100%;
  	overflow-y: scroll;
- 	top: 0;
+ 	top: 0;  
  	z-index: 1;
+ 	.mainViewContent{
+ 		padding: $mainMargins;
+ 		background: $mainBGColor;
+ 	} 
  	@include box-sizing(border-box);
- 	padding: $padding;
+
  	&.withNavBarView{
- 		padding-top: $NavBarViewHeight + $padding;
+ 		padding-top: $NavBarViewHeightExpanded;
  	}
 }
 

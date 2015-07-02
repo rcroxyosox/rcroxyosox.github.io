@@ -44,12 +44,13 @@ define([
 				var right = $('body').width() - position.left + $lastMessage.width();
 				var bottom = $('body').height() - position.top;
 				var delay = Utils.getTransitionDuration(that.$el);
-				var x = '-'+$('.mainView').css('padding-right');
+				var x = '-'+$('.mainViewContent').css('padding-right');
 				var y = '-'+(bottom)+'px';
 
-				that.$el.empty().css({
-					'transform': 'translateX('+x+') translateY('+y+')', 
-				});
+				// that.$el.empty().css({
+				// 	'transform': 'translateX('+x+') translateY('+y+')', 
+				// });
+				
 				setTimeout(function(){
 					$last.addClass('in');
 				},delay-400);
@@ -98,6 +99,8 @@ define([
 				var data = this.model.toJSON();
 				data.choices && (data.numChoices = data.choices.length);
 				this.$el.html(this.template(data));
+				$('.AppView').append(this.$el);
+				
 				setTimeout(function(){
 					that.$el.addClass('in');
 				},100);

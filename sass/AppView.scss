@@ -5,5 +5,8 @@
 // View: AppView
 ////////////////////////////////////////////////////////////////////
 .AppView{
-
+	overflow: hidden;	
+	position: relative;
+	
+	@include sq(100%);
 }

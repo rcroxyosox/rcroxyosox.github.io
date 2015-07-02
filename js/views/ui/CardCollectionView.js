@@ -24,7 +24,7 @@ define([
 
 		return Backbone.View.extend({
 			tagName  : "ul",
-			className: 'CardCollectionView',
+			className: 'mainViewContent CardCollectionView',
 			collection: new CardItemModelCollection([{heading:"Rounds"},{heading:"Skin to Skin"},{heading:"Another Card"},{heading:"Another Card"}]),
 			events   : {},
 			initialize: function(options){

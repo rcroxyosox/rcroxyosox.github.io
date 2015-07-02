@@ -21,9 +21,10 @@
 	position: absolute;
 	right: 0;
 	bottom: 0;
-	background: $green3; 
+	background: $purple2; 
 	display: block; 
 	width: 100%;
+	z-index: 2;
 	// height: $UserPromptViewHeight;
 	text-align: center;  
 	@include box-sizing(border-box); 
@@ -31,21 +32,25 @@
 	@include transform(translateY(100%));
 	&.in{
 		@include transform(translateY(0));
-	}
-	&.send{ 
-		overflow: hidden;
-		margin-top: -$collapsedSize/2;
-		bottom: -$collapsedSize;
-		@include sq($collapsedSize);
-		@include border-radius(50%);
-		@include single-transition(all, 0.3s, ease-in-out);
-		li{
-			width: 0;
-			overflow: hidden;
-			opacity: 0;
-			cursor: default;
-		}
-	}
+	} 
+	// &.send{ 
+	// 	overflow: hidden;
+	// 	margin-top: -$collapsedSize/2;
+	// 	bottom: -$collapsedSize;
+	// 	@include sq($collapsedSize);
+	// 	@include border-radius(50%);
+	// 	@include single-transition(all, 0.3s, ease-in-out);
+	// 	background: white;
+	// 	// opacity: 0;
+	// 	border: 1px solid $gray2;
+	// 	li{
+	// 		width: 0;
+	// 		overflow: hidden;
+	// 		opacity: 0;
+	// 		cursor: default;
+	// 		background: white;
+	// 	}
+	// }
 	.userPromptChoices{
 		width: 100%;
 		white-space: nowrap;
@@ -60,11 +65,11 @@
 			vertical-align: middle;
 			font-weight: $fontWeightMed;
 			line-height: 20px;
-			background: $green3;
+			background: $purple3;
 			@include box-sizing(border-box);
 			@include single-transition(all, 0.3s, ease-in-out);
 		}
-		&.col2{
+		&.col2{ 
 			li{
 				width: 50%;
 				&:first-child{

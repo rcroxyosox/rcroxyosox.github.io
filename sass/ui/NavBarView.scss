@@ -6,23 +6,79 @@
 ////////////////////////////////////////////////////////////////////
 .NavBarView{
 	position: relative;
-	background: $NavBarViewColor;
-	height: $NavBarViewHeight;
+	background-position: center center;
+	@include background-size(cover);
+
+	height: $NavBarViewHeight; 
 	width: 100%; 
 	display: block;
-	@include box-shadow(0 0 3px rgba(black,0.5));
 	z-index: 2;
 	white-space: nowrap;
-	.navBarButtons{
+	.navTitleCell{
+		opacity: 0;
+		vertical-align: middle;
+	}
+	h1{
+		color: white;
+		font-size: 21px;
+		position: relative;
+		font-weight: $fontWeightLight;
+		top: 1px;
+		position: relative;
+		width: 100%;
+		overflow: hidden;  
+		white-space: nowrap; 
+		text-overflow: ellipsis;
+	}
+	> nav{
+		width: 100%;
+		display: table;
 		position: absolute;
 		top: 50%;
-		margin-top: -10px;
+		margin-top: - ($NavBarViewIconSize / 2) - 3;
+		padding: 0 $mainMargins;
+		table-layout: fixed;
+		@include box-sizing(border-box);
+		> *{
+			display: table-cell;
+			&:first-child{
+				padding-right: 10px;
+				width: $NavBarViewIconSize;
+			}
+			&:nth-child(2){
+				padding-right: 10px;
+				width: 60%;
+			}
+			&:last-child{
+				width: 30%;
+			}
+			> *{
+				display: inline-block;
+				white-space: nowrap;
+			}
+		}
+	}
+	> aside{
+		background-color: $NavBarViewColor;
+		position: absolute;
+		left: 0;
+		top: 0;
+		@include sq(100%);
+		opacity: 0;
+	}
+	&.in{
+		opacity: 1;
+		> aside{
+			opacity: 1; 
+		}
+	}  
+	.navBarButtons{
 		&.leftButtons{
-			left: $mainMargins;
+			text-align: left; 
 		}
 		&.rightButtons{
-			right: $mainMargins;
-			li{
+			text-align: right; 
+			li{ 
 				margin-right: 10px;
 				&:last-child{
 					margin-right: 0;
@@ -30,10 +86,47 @@
 			}
 		}
 		li{
+			@include sq($NavBarViewIconSize);
 			display: inline-block;
+			opacity: 0.3;
+			&.selected{
+				opacity: 1;
+			}
+			&.icon-menu{
+				background-position: -5px center;
+				opacity: 1;
+			}
 		}
 	} 
 	.icon-settings{
 		background-position: 8px center;
+	}
+}
+
+.navBarViewHeader{
+	background: url("http://www.galleriesss.com/wp-content/uploads/2014/06/cute-newborn-babycute-smiling-newborn-baby-photography-gallery-tdltewl9.jpg");
+	@include size(100%, $NavBarViewHeightExpanded);
+	background-repeat: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+	@include background-size(100%);
+	&:after{
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		@include sq(100%);
+		opacity: 0.3;
+		background-color: $gray6;
+	}
+	aside{
+		display: block;
+		@include sq(100%);
+		background: $NavBarViewColor;
+		opacity: 0;
 	}
 }

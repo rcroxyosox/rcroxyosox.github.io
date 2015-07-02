@@ -18,9 +18,12 @@ define([
 			className: 'NavBarView',
 			leftButtons:[],
 			rightButtons:[],
+			attachedToView: null,
 			template: Handlebars.compile(html),
+			headerSelector: '.navBarViewHeader', // a reference to the header element
 			events:{},
-			initialize: function(){
+			initialize: function(options){
+				_.extend(this, options);
 				var that = this;
 
 				this.listenTo(AppView.getInstance().router, 'route', that.setSelected);
@@ -34,14 +37,33 @@ define([
 				});
 
 				this.delegateEvents();
-
-				// myRouter.on("route", function(route, params) {
-				//     console.log("Different Page: " + route);
-				// });
+				this.initScrollListener();
 			},
+
+			initScrollListener: function(){
+				var that = this;
+				this.attachedToView.$el.on('scroll', function(event){
+					var headerHeight = parseInt(that.attachedToView.$el.css('padding-top'));
+					var navHeight = that.$el.height();
+					var scrollAmount = $(event.target).scrollTop();
+					var perc = (scrollAmount/headerHeight);
+					var perc2 = (scrollAmount/(headerHeight-that.$el.height()));
+					console.log(perc2);
+					$(that.headerSelector).find('aside').css({opacity: perc2});
+					if((headerHeight - scrollAmount) < navHeight){
+						that.$el.addClass('in')
+					}else{
+						that.$el.removeClass('in');
+					}
+
+					that.$el.find('.navTitleCell').css({opacity: perc2});
+				});
+			},
+
 			getButtons: function(){
 				return _.extend({},this.leftButtons, this.rightButtons);
 			},
+
 			setSelected: function(){
 				var selected = AppView.getInstance().router.getCurrentRoute();
 				var buttons = this.getButtons();
@@ -55,7 +77,10 @@ define([
 			render: function() {
 				var that = this;
 				this.$el.html(this.template(this));
-				setTimeout(function(){ that.setSelected(); },0);
+				setTimeout(function(){ 
+					that.setSelected(); 
+					that.$el.parent().append(that.$(that.headerSelector));
+				},0);
 				return this;
 			}
 		});
