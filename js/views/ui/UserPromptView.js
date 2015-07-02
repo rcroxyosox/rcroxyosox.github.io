@@ -74,6 +74,7 @@ define([
 				});
 			},
 			addResponse: function(event){
+				event.preventDefault();
 				this.$el.addClass('send').removeClass('in');
 				// return;
 
