@@ -118,11 +118,11 @@ define([
 					that.$el.addClass('in');
 				},100);
 
-				// if(data.isTypeInput){
-				// 	setTimeout(function(){
-						
-				// 	},500);
-				// }
+				if(data.isTypeInput){
+					setTimeout(function(){
+						that.$('button').trigger(tapEvent);
+					},500);
+				}
 
 				return this;
 			}
