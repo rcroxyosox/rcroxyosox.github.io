@@ -121,6 +121,7 @@ define([
 				if(data.isTypeInput){
 					setTimeout(function(){
 						that.$('button').trigger(tapEvent);
+						prompt("");
 					},500);
 				}
 
