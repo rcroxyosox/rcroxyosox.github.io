@@ -23,7 +23,6 @@ define([
 			events   : function(){
 				var events = {};
 				events[tapEvent+' .userPromptChoices'] = 'addResponse';
-				events[tapEvent+' button'] = 'focusKeyboard'
 				return events;
 			},
 			template: Handlebars.compile(html),
@@ -97,9 +96,6 @@ define([
 					that.moveToResponsePosition();
 				},100);
 			},
-			focusKeyboard: function(){
-				this.$('input').focus();
-			},
 			render: function() {
 				var that = this;
 				var responseType = ConversationItemModelCollection.getInstance().model.responseType;
@@ -118,11 +114,11 @@ define([
 					that.$el.addClass('in');
 				},100);
 
-				if(data.isTypeInput){
-					setTimeout(function(){
-						that.$('input').focus().click();
-					},500);
-				}
+				// if(data.isTypeInput){
+				// 	setTimeout(function(){
+				// 		that.$('input').focus();
+				// 	},500);
+				// }
 
 				return this;
 			}
