@@ -1,0 +1,52 @@
+/* line 9, ../sass/SkinToSkinCardView.scss */
+.SkinToSkinCardView .MintChartBarView {
+  height: 75px;
+}
+/* line 13, ../sass/SkinToSkinCardView.scss */
+.SkinToSkinCardView > section {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+/* line 17, ../sass/SkinToSkinCardView.scss */
+.SkinToSkinCardView > section > * {
+  display: table-cell;
+}
+/* line 19, ../sass/SkinToSkinCardView.scss */
+.SkinToSkinCardView > section > *:last-child {
+  width: 80px;
+}
+/* line 21, ../sass/SkinToSkinCardView.scss */
+.SkinToSkinCardView > section > *:last-child > * {
+  display: block;
+}
+/* line 23, ../sass/SkinToSkinCardView.scss */
+.SkinToSkinCardView > section > *:last-child > *:first-child {
+  color: #6563a4;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 62px;
+}
+/* line 29, ../sass/SkinToSkinCardView.scss */
+.SkinToSkinCardView > section > *:last-child > *:last-child {
+  font-size: 11px;
+  text-transform: uppercase;
+  line-height: 0;
+  color: #999999;
+}
+/* line 41, ../sass/SkinToSkinCardView.scss */
+.SkinToSkinCardView .MintChartBarView .mint-chart-bar-bar-wrapper {
+  width: 100%;
+}
+/* line 46, ../sass/SkinToSkinCardView.scss */
+.SkinToSkinCardView .MintChartBarView .mint-chart-bar-bars li i {
+  background: #6563a4;
+}
+/* line 50, ../sass/SkinToSkinCardView.scss */
+.SkinToSkinCardView .MintChartBarView .mint-chart-bar-bars li:nth-child(even) i {
+  background: #d667cd;
+}
+/* line 55, ../sass/SkinToSkinCardView.scss */
+.SkinToSkinCardView .MintChartBarView .mint-chart-bar-bars label {
+  color: #999999;
+}

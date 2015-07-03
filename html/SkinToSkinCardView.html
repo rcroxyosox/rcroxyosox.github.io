@@ -1,0 +1,12 @@
+<header>
+	<h2>{{headerTitle}}{{#if headerSubTitle}} <span>{{headerSubTitle}}</span>{{/if}}</h2>
+</header>
+<section>
+	<div></div>
+	{{#if delta}}
+		<aside>
+			<span>{{delta}}%</span>
+			<span>{{#if deltaIncrease}}increase{{else}}decrease{{/if}}</span>
+		</aside>
+	{{/if}}
+</div>

@@ -1,0 +1,60 @@
+@import "compass/css3";
+@import "_base";
+
+////////////////////////////////////////////////////////////////////
+// View: SkinToSkinCardView
+////////////////////////////////////////////////////////////////////
+.SkinToSkinCardView{
+
+	.MintChartBarView{
+		height: 75px;
+	}
+
+	> section{
+		width: 100%;
+		display: table;
+		table-layout: fixed;
+		> *{
+			display: table-cell;
+			&:last-child{
+				width: 80px;
+				> *{
+					display: block;
+					&:first-child{
+						color: $purple2;
+						font-weight: $fontWeightLight;
+						font-size: 36px;
+						line-height: 62px;
+					}
+					&:last-child{
+						font-size: 11px;
+						text-transform: uppercase;
+						line-height: 0;
+						color: $gray3;
+					}
+				}
+			}
+		}
+	}
+
+	.MintChartBarView{
+		.mint-chart-bar-bar-wrapper{
+			width: 100%;
+		}
+		.mint-chart-bar-bars{
+			li{
+				i{
+					background: $purple2;
+				}
+				&:nth-child(even){ 
+					i{
+						background: $pink2;
+					}
+				}
+			}
+			label{
+				color: $gray3;
+			}
+		}
+	}
+}
