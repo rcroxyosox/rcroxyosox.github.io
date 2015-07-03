@@ -37,7 +37,7 @@
   position: absolute;
   top: 50%;
   margin-top: -16px;
-  padding: 0 30px;
+  padding: 0 20px;
   table-layout: fixed;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -69,7 +69,7 @@
 }
 /* line 62, ../../sass/ui/NavBarView.scss */
 .NavBarView > aside {
-  background-color: #5f5d9a;
+  background-color: #6dd5c9;
   position: absolute;
   left: 0;
   top: 0;
@@ -147,7 +147,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.3;
+  opacity: 0.5;
   background-color: #333;
 }
 /* line 127, ../../sass/ui/NavBarView.scss */
@@ -159,7 +159,7 @@
   opacity: 0;
   width: 100%;
   height: 100%;
-  background: #5f5d9a;
+  background: #6dd5c9;
 }
 /* line 136, ../../sass/ui/NavBarView.scss */
 .navBarViewHeader > section {
@@ -168,14 +168,14 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 /* line 145, ../../sass/ui/NavBarView.scss */
 .navBarViewHeader h1 {
-  font-size: 22px;
+  font-size: 26px;
 }
 /* line 148, ../../sass/ui/NavBarView.scss */
 .navBarViewHeader h2 {

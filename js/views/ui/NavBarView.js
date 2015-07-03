@@ -57,8 +57,6 @@ define([
 					$header.css({'background-size':(100+perc*0.3)+"%"});
 					$header.find('.tint').css({opacity: perc2});
 					$header.find('section').css({opacity: 1-perc2*2.5, transform:'translateY(-'+perc+'px)'});
-					console.log(perc);
-
 
 					if((headerHeight - scrollAmount) < navHeight){
 						that.$el.addClass('in')

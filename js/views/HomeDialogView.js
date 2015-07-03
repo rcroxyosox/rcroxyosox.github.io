@@ -34,11 +34,37 @@ define([
 			events:{
 				'click':'test'
 			},
+
+			renderViewFromBotResponse: function(renderInstruction){
+				console.log(renderInstruction);
+
+				// A skin to skin card
+				return $.Deferred(function(dfd){
+					if(renderInstruction == "carditem:skintoskin"){
+						require(['views/SkinToSkinCardView'], function(SkinToSkinCardView){
+							dfd.resolve(new SkinToSkinCardView({tagName:'div'}).render().$el);
+						});
+					}else{
+						def.reject('No action found for instruction: '+renderInstruction);
+					}
+				}).promise();
+			},
+
 			initialize: function(){
 				var that = this;
 				this.listenTo(this.model, 'change:stub', function(){
 					that.$el.toggleClass('stubItem', this.model.get('stub'));
-					that.$('p').html(that.model.get('message'));
+					var message = that.model.get('message');
+					var $container = that.$('p');
+					if(message.indexOf("{{") > -1){
+						var renderInstruction = message.substring(2,message.length-2);
+						that.renderViewFromBotResponse(renderInstruction).always(function(response){
+							$container.empty().append(response);
+						});
+					}else{
+						$container.empty().append(message);
+					}
+
 					setTimeout(function(){
 						that.scrollIfNeeded();
 					},300);
@@ -98,11 +124,22 @@ define([
 				var that = this;
 				this.$el.removeClass('in');
 				this.userPrompt && this.userPrompt.remove();
+				var scrolled = this.$el.scrollTop();
 
-				setTimeout(function(){
-					that.trigger('removed');
-					Backbone.View.prototype.remove.call(that);
-				},300);
+				var remove = function(){
+					that.$el.removeClass('in');
+					setTimeout(function(){
+						that.trigger('removed');
+						Backbone.View.prototype.remove.call(that);
+					},300);
+				}
+
+				if(scrolled > 0){
+					this.$el.animate({ scrollTop: 0 }, 300, remove);
+				}else{
+					remove();
+				}
+
 			},
 			renderUserPrompt: function(model){
 				this.userPrompt && this.userPrompt.remove();

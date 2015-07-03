@@ -48,13 +48,21 @@ define([
 			}
 		},
 		// A possible schema for a conversation
-		fakeDB : [{
+		fakeDB : [
+		{
 			id: 1,
-			responseTo: 0,
+			responseTo: 21,
 			message: "how are you doing today?",
-			requiresResponseType: ConversationItemModel.responseType.CHOICE,
+			requiresResponseType: ConversationItemModel.responseType.INPUT,
 			choices: ["Meh", "Great!"],
 			possibleResponses: [3,4]
+		},
+		{
+			id: 20,
+			responseTo: 0,
+			message: "Looks like you've been getting in more Skin to Skin time. That's great",
+			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
+			possibleResponses: [21]
 		},
 		{
 			id: 3,
@@ -103,6 +111,13 @@ define([
 			message: "<img src=\"http://www.downeastcoffee.ca/sites/default/files/media/slides/coffee.png\" />",
 			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
 			possibleResponses: [10]
+		},
+		{
+			id: 21,
+			responseTo: 20,
+			message: "{{carditem:skintoskin}}",
+			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
+			possibleResponses: [1]
 		}
 		]
 	};

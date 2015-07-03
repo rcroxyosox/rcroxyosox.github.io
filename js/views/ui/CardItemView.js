@@ -2,7 +2,8 @@ define([
 	'jquery',
 	'backbone',
 	'handlebars',
-	'text!/html/ui/CardItemView.html'
+	'text!/html/ui/CardItemView.html',
+	'css!/css/ui/CardItemView.css'
 	], function(
 		$,
 		Backbone,
@@ -17,6 +18,8 @@ define([
 			},
 			model: null,
 			template: Handlebars.compile(html),
+			headerTitle: "",
+			headerSubTitle: "",
 			takeAction: function(event){
 				console.log(event);
 				var $li = $(event.target);
@@ -29,7 +32,7 @@ define([
 				_.extend(this, options);
 			},
 			render: function() {
-				this.$el.html(this.template(this.model.toJSON()));
+				this.$el.html(this.template(this));
 				return this;
 			}
 		});

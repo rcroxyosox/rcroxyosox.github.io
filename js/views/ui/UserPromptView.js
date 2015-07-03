@@ -98,14 +98,27 @@ define([
 			},
 			render: function() {
 				var that = this;
+				var responseType = ConversationItemModelCollection.getInstance().model.responseType;
+				var reqResponseType = this.model.get('requiresResponseType');
 				var data = this.model.toJSON();
+
 				data.choices && (data.numChoices = data.choices.length);
+				data.isTypeChoice = (reqResponseType == responseType.CHOICE);
+				data.isTypeInput = (reqResponseType == responseType.INPUT);
+
 				this.$el.html(this.template(data));
+				
 				$('.AppView').append(this.$el);
 				
 				setTimeout(function(){
 					that.$el.addClass('in');
 				},100);
+				
+				if(data.isTypeInput){
+					setTimeout(function(){
+						that.$('input').focus();
+					},500);
+				}
 				return this;
 			}
 		});

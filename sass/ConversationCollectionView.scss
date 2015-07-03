@@ -6,6 +6,7 @@
 ////////////////////////////////////////////////////////////////////
 @include keyframes(blink) {
 	0%, 100%{
+		background: $pink2; 
 		opacity: 1;
 	}
 	10%{
@@ -25,46 +26,50 @@
 	font-weight: $fontWeightMed;
 	margin: 10px 0;
 
-	div{
-		white-space: nowrap;
-		> *{
-			vertical-align: bottom;
-			display: inline-block;
-		}
-	}
-	aside{
-		$size: 40px;
-		background: $gray2;
-		line-height: $size;
-		font-weight: $fontWeightBold;
-		font-size: 13px;
-		text-align: center;
-		@include sq($size);
-		@include box-sizing(border-box);
-		@include border-radius(50%);
-	}
-
 	// Conversation Item View
 	li{
 		margin-bottom: 10px;
-		p{
-			line-height: 18px;
-			padding: $padding;
-			position: relative;
-			img{
-				max-width: 100%;
+
+		> div{
+
+			white-space: nowrap;
+
+			> *{
+				vertical-align: bottom;
+				display: inline-block;
 			}
-			&:before{
-				$w: 20px;
-				@include single-transition(all, 0.3s, ease-in-out, 0.3s);
-				content:"";
-				display: block;
-				position: absolute;
-				left: calc(100% - #{$w});
-				opacity: 0;
-				bottom: 0;
-				@include size($w, 10px);
-				@include transform(skew(-54deg));
+
+			> aside{
+				$size: 40px;
+				background: $gray2;
+				line-height: $size;
+				font-weight: $fontWeightBold;
+				font-size: 13px;
+				text-align: center;
+				@include sq($size);
+				@include box-sizing(border-box);
+				@include border-radius(50%);
+			}
+
+			> p{
+				line-height: 18px;
+				padding: $padding;
+				position: relative;
+				img{
+					max-width: 100%;
+				}
+				&:before{
+					$w: 20px;
+					@include single-transition(all, 0.3s, ease-in-out, 0.3s);
+					content:"";
+					display: block;
+					position: absolute;
+					left: calc(100% - #{$w});
+					opacity: 0;
+					bottom: 0;
+					@include size($w, 10px);
+					@include transform(skew(-54deg));
+				}
 			}
 		}
 	}
@@ -115,25 +120,29 @@
 		@include transform(translateX(-10%));
 		opacity: 0; 
 		
-		aside{
-			background: $green2;
-			color: white;
-		}
+		> div{
 
-		p{
-
-			@include single-transition(all, 0.5s, ease-in-out, 0.1s);
-			@include transform(translateX(-200%) scale(0)); 
-			opacity: 0;
-			&:before{
-				background: $gray2;
+			> aside{
+				background: $green2;
+				color: white;
 			}
 
-			background: $gray2;
-			margin-left: 10px;
-			white-space: normal;
-			@include box-sizing(border-box);
-			max-width: calc(100% - 52px);
+			> p{
+
+				@include single-transition(all, 0.5s, ease-in-out, 0.1s);
+				@include transform(translateX(-200%) scale(0)); 
+				opacity: 0;
+				&:before{
+					background: $gray2;
+				}
+
+				background: $gray2;
+				margin-left: 10px;
+				white-space: normal;
+				@include box-sizing(border-box);
+				max-width: calc(100% - 52px);
+			}
+
 		}
 
 		&.in{
@@ -179,5 +188,11 @@
 				@include animation(blink $speed ease-in-out $speed3 infinite);
 			}
 		}
+	}
+
+	// Any card item inside a message
+	.CardItemView{
+		padding: 0;
+		@include box-shadow(none);
 	}
 }

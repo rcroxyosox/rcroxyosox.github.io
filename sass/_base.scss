@@ -5,11 +5,11 @@ $imgs: "/img/";
 
 
 ////////////////////////////////////////////////////////////////////
-// Sizes 
+// Sizes  
 ////////////////////////////////////////////////////////////////////
 $appW: 360px;
 $appH: 550px;
-$mainMargins: 30px;
+$mainMargins: 20px;
 
 $NavBarViewHeight: 50px;
 $NavBarViewHeightExpanded: 200px; 
@@ -17,6 +17,7 @@ $NavBarViewIconSize: 30px;
 $UserPromptViewHeight: 50px;
 $mobileQuerySize: 700px;
 
+$CardItemViewMargins: 20px;
 
 ////////////////////////////////////////////////////////////////////
 // Colors
@@ -24,14 +25,18 @@ $mobileQuerySize: 700px;
 
 $gray1: #eff2ec;
 $gray2: #eeeded;
+$gray2_3: #e3e3e3;
+$gray3: #999999;
 $gray6: #333;
 $purple2: #6563a4;
 $purple3: #5f5d9a; 
 $purple4: #7a4364;
+$pink2: #d667cd;
 $green2: #6dd5c9;
 $blue3: #00bcd4;
+
 // UI
-$NavBarViewColor: $purple3;
+$NavBarViewColor: $green2;
 $mainBGColor: white;
 
 ////////////////////////////////////////////////////////////////////

@@ -25,6 +25,7 @@
 	display: block; 
 	width: 100%;
 	z-index: 2;
+	text-transform: uppercase;
 	// height: $UserPromptViewHeight;
 	text-align: center;  
 	@include box-sizing(border-box); 
@@ -52,6 +53,20 @@
 	// 		background: white;
 	// 	}
 	// }
+	input[type="text"], button{
+		@include box-sizing(border-box);
+		padding: 15px;
+	}
+
+	input[type="text"]{
+		width: 80%;
+		background-color: rgba($gray6, 0.3);
+	}
+	button{
+		width: 20%;
+		margin-left: -4px;
+	}
+
 	.userPromptChoices{
 		width: 100%;
 		white-space: nowrap;

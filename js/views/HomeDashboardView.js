@@ -24,13 +24,21 @@ define([
 			Nav: HomeNavBarView.extend({navTitle: "Dashboard"}),
 			remove: function(){
 				var that = this;
-				this.$el.animate({ scrollTop: 0 }, 300, function(){
+				var scrolled = this.$el.scrollTop();
+
+				var remove = function(){
 					that.$el.removeClass('in');
 					setTimeout(function(){
 						that.trigger('removed');
 						Backbone.View.prototype.remove.call(that);
 					},300);
-				});
+				}
+
+				if(scrolled > 0){
+					this.$el.animate({ scrollTop: 0 }, 300, remove);
+				}else{
+					remove();
+				}
 			},
 			template: Handlebars.compile(html),
 			render: function() {
