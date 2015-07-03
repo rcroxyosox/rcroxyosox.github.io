@@ -23,11 +23,15 @@ define([
 			events   : function(){
 				var events = {};
 				events[tapEvent+' .userPromptChoices'] = 'addResponse';
+				events['focus input'] = 'focusInput';
 				return events;
 			},
 			template: Handlebars.compile(html),
 			model: null,
 			responseObj: null,
+			focusInput: function(event){
+				$(event.target).removeClass('blink');
+			},
 			remove: function(){
 				var that = this;
 				if(this.$el.is('.in')){
@@ -113,12 +117,6 @@ define([
 				setTimeout(function(){
 					that.$el.addClass('in');
 				},100);
-
-				// if(data.isTypeInput){
-				// 	setTimeout(function(){
-				// 		that.$('input').focus();
-				// 	},500);
-				// }
 
 				return this;
 			}

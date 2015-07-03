@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////
 // View: ConversationCollectionView
 ////////////////////////////////////////////////////////////////////
-@include keyframes(blink) {
+@include keyframes(loading) {
 	0%, 100%{
 		background: $pink2; 
 		opacity: 1;
@@ -179,13 +179,13 @@
 				margin-right: 0; 
 			}
 			&:nth-child(1){
-				@include animation(blink $speed ease-in-out 0s infinite);
+				@include animation(loading $speed ease-in-out 0s infinite);
 			}
 			&:nth-child(2){
-				@include animation(blink $speed ease-in-out $speed2 infinite);
+				@include animation(loading $speed ease-in-out $speed2 infinite);
 			}
 			&:nth-child(3){
-				@include animation(blink $speed ease-in-out $speed3 infinite);
+				@include animation(loading $speed ease-in-out $speed3 infinite);
 			}
 		}
 	}

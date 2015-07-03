@@ -1,68 +1,36 @@
-@-webkit-keyframes pop {
+@-webkit-keyframes blinkbg {
   0%, 100% {
-    opacity: 1;
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    background: rgba(51, 51, 51, 0.3);
   }
   50% {
-    opacity: 0;
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5);
+    background: rgba(51, 51, 51, 0.1);
   }
 }
-@-moz-keyframes pop {
+@-moz-keyframes blinkbg {
   0%, 100% {
-    opacity: 1;
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    background: rgba(51, 51, 51, 0.3);
   }
   50% {
-    opacity: 0;
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5);
+    background: rgba(51, 51, 51, 0.1);
   }
 }
-@-o-keyframes pop {
+@-o-keyframes blinkbg {
   0%, 100% {
-    opacity: 1;
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    background: rgba(51, 51, 51, 0.3);
   }
   50% {
-    opacity: 0;
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5);
+    background: rgba(51, 51, 51, 0.1);
   }
 }
-@keyframes pop {
+@keyframes blinkbg {
   0%, 100% {
-    opacity: 1;
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    background: rgba(51, 51, 51, 0.3);
   }
   50% {
-    opacity: 0;
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5);
+    background: rgba(51, 51, 51, 0.1);
   }
 }
-/* line 19, ../../sass/ui/UserPromptView.scss */
+/* line 17, ../../sass/ui/UserPromptView.scss */
 .UserPromptView {
   position: absolute;
   right: 0;
@@ -85,7 +53,7 @@
   -webkit-transform: translateY(100%);
   transform: translateY(100%);
 }
-/* line 34, ../../sass/ui/UserPromptView.scss */
+/* line 32, ../../sass/ui/UserPromptView.scss */
 .UserPromptView.in {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -96,30 +64,37 @@
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-/* line 56, ../../sass/ui/UserPromptView.scss */
+/* line 54, ../../sass/ui/UserPromptView.scss */
 .UserPromptView input[type="text"], .UserPromptView button {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 15px;
 }
-/* line 61, ../../sass/ui/UserPromptView.scss */
+/* line 59, ../../sass/ui/UserPromptView.scss */
 .UserPromptView input[type="text"] {
   width: 80%;
-  background-color: rgba(51, 51, 51, 0.3);
+  background: rgba(51, 51, 51, 0.3);
 }
-/* line 65, ../../sass/ui/UserPromptView.scss */
+/* line 62, ../../sass/ui/UserPromptView.scss */
+.UserPromptView input[type="text"].blink {
+  -webkit-animation: blinkbg 1s ease-in-out 0s infinite;
+  -moz-animation: blinkbg 1s ease-in-out 0s infinite;
+  -o-animation: blinkbg 1s ease-in-out 0s infinite;
+  animation: blinkbg 1s ease-in-out 0s infinite;
+}
+/* line 66, ../../sass/ui/UserPromptView.scss */
 .UserPromptView button {
   width: 20%;
   margin-left: -4px;
 }
-/* line 70, ../../sass/ui/UserPromptView.scss */
+/* line 71, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices {
   width: 100%;
   white-space: nowrap;
   display: table;
 }
-/* line 74, ../../sass/ui/UserPromptView.scss */
+/* line 75, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices li {
   display: table-cell;
   padding: 20px 10px;
@@ -139,19 +114,19 @@
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 89, ../../sass/ui/UserPromptView.scss */
+/* line 90, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li {
   width: 50%;
 }
-/* line 94, ../../sass/ui/UserPromptView.scss */
+/* line 95, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li:nth-child(2) {
   background: rgba(255, 255, 255, 0.1);
 }
-/* line 97, ../../sass/ui/UserPromptView.scss */
+/* line 98, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li:nth-child(3) {
   background: rgba(255, 255, 255, 0.2);
 }
-/* line 100, ../../sass/ui/UserPromptView.scss */
+/* line 101, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .userPromptChoices.col2 li:nth-child(4) {
   background: rgba(255, 255, 255, 0.3);
 }

@@ -1,4 +1,4 @@
-@-webkit-keyframes blink {
+@-webkit-keyframes loading {
   0%, 100% {
     background: #d667cd;
     opacity: 1;
@@ -13,7 +13,7 @@
     opacity: 0;
   }
 }
-@-moz-keyframes blink {
+@-moz-keyframes loading {
   0%, 100% {
     background: #d667cd;
     opacity: 1;
@@ -28,7 +28,7 @@
     opacity: 0;
   }
 }
-@-o-keyframes blink {
+@-o-keyframes loading {
   0%, 100% {
     background: #d667cd;
     opacity: 1;
@@ -43,7 +43,7 @@
     opacity: 0;
   }
 }
-@keyframes blink {
+@keyframes loading {
   0%, 100% {
     background: #d667cd;
     opacity: 1;
@@ -276,24 +276,24 @@
 }
 /* line 181, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .elipsisItem > *:nth-child(1) {
-  -webkit-animation: blink 0.6s ease-in-out 0s infinite;
-  -moz-animation: blink 0.6s ease-in-out 0s infinite;
-  -o-animation: blink 0.6s ease-in-out 0s infinite;
-  animation: blink 0.6s ease-in-out 0s infinite;
+  -webkit-animation: loading 0.6s ease-in-out 0s infinite;
+  -moz-animation: loading 0.6s ease-in-out 0s infinite;
+  -o-animation: loading 0.6s ease-in-out 0s infinite;
+  animation: loading 0.6s ease-in-out 0s infinite;
 }
 /* line 184, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .elipsisItem > *:nth-child(2) {
-  -webkit-animation: blink 0.6s ease-in-out 0.198s infinite;
-  -moz-animation: blink 0.6s ease-in-out 0.198s infinite;
-  -o-animation: blink 0.6s ease-in-out 0.198s infinite;
-  animation: blink 0.6s ease-in-out 0.198s infinite;
+  -webkit-animation: loading 0.6s ease-in-out 0.198s infinite;
+  -moz-animation: loading 0.6s ease-in-out 0.198s infinite;
+  -o-animation: loading 0.6s ease-in-out 0.198s infinite;
+  animation: loading 0.6s ease-in-out 0.198s infinite;
 }
 /* line 187, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .elipsisItem > *:nth-child(3) {
-  -webkit-animation: blink 0.6s ease-in-out 0.396s infinite;
-  -moz-animation: blink 0.6s ease-in-out 0.396s infinite;
-  -o-animation: blink 0.6s ease-in-out 0.396s infinite;
-  animation: blink 0.6s ease-in-out 0.396s infinite;
+  -webkit-animation: loading 0.6s ease-in-out 0.396s infinite;
+  -moz-animation: loading 0.6s ease-in-out 0.396s infinite;
+  -o-animation: loading 0.6s ease-in-out 0.396s infinite;
+  animation: loading 0.6s ease-in-out 0.396s infinite;
 }
 /* line 194, ../sass/ConversationCollectionView.scss */
 .ConversationCollectionView .CardItemView {

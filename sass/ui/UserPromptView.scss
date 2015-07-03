@@ -1,17 +1,15 @@
 @import "compass/css3";
 @import "_base";
 
-
-@include keyframes(pop) {
+@include keyframes(blinkbg) {
 	0%, 100%{
-		opacity: 1;
-		@include transform(scale(1));
+		background: rgba($gray6, 0.3);
 	}
 	50%{
-		opacity: 0;
-		@include transform(scale(1.5));
+		background: rgba($gray6, 0.1);
 	}
 }
+
 
 ////////////////////////////////////////////////////////////////////
 // View: UserPromptView
@@ -60,7 +58,10 @@
 
 	input[type="text"]{
 		width: 80%;
-		background-color: rgba($gray6, 0.3);
+		background: rgba($gray6, 0.3);
+		&.blink{
+			@include animation(blinkbg 1s ease-in-out 0s infinite);
+		}
 	}
 	button{
 		width: 20%;
