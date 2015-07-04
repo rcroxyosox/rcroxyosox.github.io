@@ -177,13 +177,14 @@ button {
   margin: 0;
   outline: none;
   color: white;
+  text-transform: uppercase;
+  font-size: 12px;
   font-family: inherit;
   font-weight: 400;
-  font-size: inherit;
   background: transparent;
 }
 
-/* line 89, ../sass/main.scss */
+/* line 90, ../sass/main.scss */
 .mainView {
   position: absolute;
   width: 100%;
@@ -201,25 +202,25 @@ button {
   transition: all 0.3s ease-in-out;
   opacity: 0;
 }
-/* line 97, ../sass/main.scss */
+/* line 98, ../sass/main.scss */
 .mainView .mainViewContent {
   padding: 20px;
   background: white;
 }
-/* line 103, ../sass/main.scss */
+/* line 104, ../sass/main.scss */
 .mainView.withNavBarView {
   padding-top: 200px;
 }
-/* line 110, ../sass/main.scss */
+/* line 111, ../sass/main.scss */
 .mainView.in {
   opacity: 1;
 }
-/* line 112, ../sass/main.scss */
+/* line 113, ../sass/main.scss */
 .mainView.in .mainViewContent {
   background: white;
 }
 
-/* line 118, ../sass/main.scss */
+/* line 119, ../sass/main.scss */
 .modal {
   position: absolute;
   display: block;
@@ -235,7 +236,7 @@ button {
   -webkit-transition-delay: 0.3s;
   transition: all 0.3s ease-in-out 0.3s;
 }
-/* line 125, ../sass/main.scss */
+/* line 126, ../sass/main.scss */
 .modal.in {
   -moz-transform: scale(80);
   -ms-transform: scale(80);

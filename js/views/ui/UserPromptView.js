@@ -22,13 +22,20 @@ define([
 			className: 'UserPromptView',
 			events   : function(){
 				var events = {};
-				events[tapEvent+' .userPromptChoices'] = 'addResponse';
 				events['focus input'] = 'focusInput';
+				events['keyup input'] = 'enterKey';
+				events[tapEvent+' .userPromptChoices'] = 'addResponse';
+				events[tapEvent+' button'] = 'addResponse';
 				return events;
 			},
 			template: Handlebars.compile(html),
 			model: null,
 			responseObj: null,
+			enterKey: function(event){
+				if(event.keyCode == 13){
+					this.addResponse();
+				}
+			},
 			focusInput: function(event){
 				$(event.target).removeClass('blink');
 			},
@@ -78,21 +85,32 @@ define([
 				});
 			},
 			addResponse: function(event){
-				event.preventDefault();
-				this.$el.addClass('send').removeClass('in');
-				// return;
-
 				var that = this;
-				// this.$el.removeClass('in');
-				var $selection = $(event.target).closest('li');
-				var selectedChoiceIndex = $selection.index();
 				var conversationItemModelCollection = ConversationItemModelCollection.getInstance();
-				var ConversationItemModel = ConversationItemModelCollection.getInstance().model;
+				event && event.preventDefault();
+				
+				var responseType = conversationItemModelCollection.model.responseType;
+				var reqResponseType = this.model.get('requiresResponseType');
 
+				this.$el.addClass('send').removeClass('in');
 				this.responseObj = {
 					responseTo: this.model,
-					selectedChoice: selectedChoiceIndex
+					responseType: reqResponseType
 				};
+				// return;
+
+
+				if(reqResponseType == responseType.CHOICE){
+					var $selection = $(event.target).closest('li');
+					var selectedChoiceIndex = $selection.index();
+					var conversationItemModelCollection = ConversationItemModelCollection.getInstance();
+					var ConversationItemModel = ConversationItemModelCollection.getInstance().model;
+
+					this.responseObj.selectedChoice = selectedChoiceIndex;
+				}
+				else if(reqResponseType == responseType.INPUT){
+					this.responseObj.responseText = this.$('input').val();
+				}
 
 				conversationItemModelCollection.addUserResponse(this.responseObj);
 

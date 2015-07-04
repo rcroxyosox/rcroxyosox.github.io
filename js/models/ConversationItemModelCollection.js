@@ -19,33 +19,42 @@ define([
 
 		fakeServerDecideWhichToShow: function(collection){
 			var collection = collection.where({stub: false});
+
 			if(collection.length == 0){
 				return this.fakeDB[0];
-			}else{
+			}
 
-				var lastItem = collection[collection.length-1];
-				var requiresResponseType = lastItem.get('requiresResponseType');
+			var lastItem = collection[collection.length-1];
+			var requiresResponseType = lastItem.get('requiresResponseType');
 
-				// If its in response to a choice
-				if(typeof lastItem.get('selectedChoice') === "number"){
-					// get the original question
-					var originalQuestionItem =  lastItem.get('responseTo');
-					var nextId = originalQuestionItem.get('possibleResponses')[lastItem.get('selectedChoice')];
+			// If the last item was a selection of a CHOICE
+			if(lastItem.get('responseType') == ConversationItemModel.responseType.CHOICE){
+				// get the original question
+				var originalQuestionItem =  lastItem.get('responseTo');
+				var nextId = originalQuestionItem.get('possibleResponses')[lastItem.get('selectedChoice')];
 
-					if(typeof(nextId) != "undefined"){
-						var nextItem = _.findWhere(this.fakeDB, {id: nextId});
-						return nextItem;
-					}else{
-						console.error("Could not find "+selectedChoice+" inside possibleResponses arr for ", possibleResponses);
-					}
-
-				}
-				else if(requiresResponseType == ConversationItemModel.responseType.BOTCONTINUE){
-					var nextItem = _.findWhere(this.fakeDB, {id: lastItem.get('possibleResponses')[0]});
+				if(typeof(nextId) != "undefined"){
+					var nextItem = _.findWhere(this.fakeDB, {id: nextId});
 					return nextItem;
+				}else{
+					console.error("Could not find "+selectedChoice+" inside possibleResponses arr for ", possibleResponses);
 				}
 
 			}
+
+			// If the last item was an INPUT value given
+			else if(lastItem.get('responseType') == ConversationItemModel.responseType.INPUT){
+
+				// Bunch of server side magic...
+				var nextItem = _.findWhere(this.fakeDB, {id: 3});
+				return nextItem;
+			}
+
+			else if(requiresResponseType == ConversationItemModel.responseType.BOTCONTINUE){
+				var nextItem = _.findWhere(this.fakeDB, {id: lastItem.get('possibleResponses')[0]});
+				return nextItem;
+			}
+
 		},
 		// A possible schema for a conversation
 		fakeDB : [
@@ -54,14 +63,16 @@ define([
 			responseTo: 21,
 			message: "how are you doing today?",
 			requiresResponseType: ConversationItemModel.responseType.INPUT,
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
 			choices: ["Meh", "Great!"],
 			possibleResponses: [3,4]
 		},
 		{
 			id: 20,
 			responseTo: 0,
-			message: "Looks like you've been getting in more Skin to Skin time. That's great",
+			message: "By the way, looks like you've been getting in more Skin to Skin time. That's great",
 			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
 			possibleResponses: [21]
 		},
 		{
@@ -69,6 +80,7 @@ define([
 			responseTo: 2,
 			message: "bummer :(",
 			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
 			possibleResponses: [5]
 		},
 		{
@@ -76,6 +88,7 @@ define([
 			responseTo: 2,
 			message: "Great!",
 			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
 			possibleResponses: [7]
 		},
 		{
@@ -83,6 +96,7 @@ define([
 			responseTo: 3,
 			message: "Can I make you a cup of tea?",
 			choices: ["Sure that should help", "How about a coffee instead"],
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
 			possibleResponses: [8,9],
 			requiresResponseType: ConversationItemModel.responseType.CHOICE,
 		},
@@ -90,12 +104,14 @@ define([
 			id: 7,
 			responseTo: 3,
 			message: "Welp, guess I'll talk to you later then!",
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
 			requiresResponseType: ConversationItemModel.responseType.NONE,
 		},
 		{
 			id: 8,
 			responseTo: 5,
 			message: "<img src=\"http://pngimg.com/upload/cup_PNG2000.png\" />",
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
 			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
 			possibleResponses: [10]
 		},
@@ -103,12 +119,15 @@ define([
 			id: 10,
 			responseTo: 8,
 			message: ":D",
-			requiresResponseType: ConversationItemModel.responseType.NONE,
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
+			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
+			possibleResponses: [20]
 		},
 		{
 			id: 9,
 			responseTo: 5,
 			message: "<img src=\"http://www.downeastcoffee.ca/sites/default/files/media/slides/coffee.png\" />",
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
 			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
 			possibleResponses: [10]
 		},
@@ -116,8 +135,8 @@ define([
 			id: 21,
 			responseTo: 20,
 			message: "{{carditem:skintoskin}}",
-			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
-			possibleResponses: [1]
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
+			requiresResponseType: ConversationItemModel.responseType.NONE
 		}
 		]
 	};
@@ -126,11 +145,16 @@ define([
 	var ConversationItemModelCollection = Backbone.Collection.extend({
 
 		addUserResponse: function(userResponse){
-			if(typeof(userResponse.selectedChoice) != "undefined"){
-				userResponse.id = userResponse.responseTo.get('id') + 1;
-				userResponse.fromType = ConversationItemModel.fromType.USER;
+			var reqResponseType = userResponse.responseTo.get('requiresResponseType');
+			userResponse.id = userResponse.responseTo.get('id') + 1;
+			userResponse.fromType = ConversationItemModel.fromType.USER;
+			userResponse.requiresResponseType = ConversationItemModel.responseType.BOTCONTINUE;
+
+			if(reqResponseType == ConversationItemModel.responseType.CHOICE){
 				userResponse.message = userResponse.responseTo.get('choices')[userResponse.selectedChoice];
-				userResponse.requiresResponseType = ConversationItemModel.responseType.BOTCONTINUE
+			}
+			else if(reqResponseType == ConversationItemModel.responseType.INPUT){
+				userResponse.message = userResponse.responseText;
 			}
 
 			this.add(userResponse);

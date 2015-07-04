@@ -19,6 +19,7 @@ define(['backbone'], function(Backbone){
 			message: "", // A String of text
 			fromType: fromType.BOT, // see the fromType enum above 
 			responseTo: null, // an model of another conversation item
+			responseType: null, // see the responseType enum above
 			requiresResponseType: null, // see the responseType enum above 
 			choices: [], // a list of response choices if any
 			selectedChoice: null, // a selected choice if any
