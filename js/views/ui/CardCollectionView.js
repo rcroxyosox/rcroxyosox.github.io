@@ -14,7 +14,7 @@ define([
 		return Backbone.View.extend({
 			tagName  : "ul",
 			className: 'mainViewContent CardCollectionView',
-			cards: [SkinToSkinCardView],
+			cards: [SkinToSkinCardView,SkinToSkinCardView,SkinToSkinCardView,SkinToSkinCardView],
 			events   : {},
 			initialize: function(options){
 				_.extend(this, options);
