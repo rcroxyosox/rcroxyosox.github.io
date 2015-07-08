@@ -115,7 +115,7 @@ define([
 		return Backbone.View.extend({
 			tagName  : "div",
 			className: 'mainView HomeDialogView',
-			Nav: HomeNavBarView.extend({navTitle:moment().format('dddd, MMMM D')}),
+			Nav: HomeNavBarView.extend({navTitle:''}),
 			events   : {},
 			template: Handlebars.compile(html),
 			conversationCollectionView: null,

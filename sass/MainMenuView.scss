@@ -7,9 +7,9 @@
 .MainMenuView{
 	@include sq(100%);
 	position: absolute;
-	background: url("http://www.galleriesss.com/wp-content/uploads/2014/06/cute-newborn-babycute-smiling-newborn-baby-photography-gallery-tdltewl9.jpg");
-	background-position: center center;
-	background-repeat: no-repeat;
+	// background: url("http://www.galleriesss.com/wp-content/uploads/2014/06/cute-newborn-babycute-smiling-newborn-baby-photography-gallery-tdltewl9.jpg");
+	// background-position: center center;
+	// background-repeat: no-repeat;
 	color: white;
 	font-size: 20px;
 	text-align: left;
@@ -48,8 +48,10 @@
 
 // The Main Menu modal
 .mainMenuModal{ 
+
 	opacity: 0;
 	width: 100% !important;
+	background: transparent;
 	$speed-appear: 0.3s;
 	@include transition(all $speed-appear ease-in-out !important);
 	@include transform(translateY(5%) perspective(210px) rotateX(-2deg) scale(0.9));
