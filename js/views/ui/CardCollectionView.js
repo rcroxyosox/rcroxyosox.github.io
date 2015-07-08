@@ -2,19 +2,17 @@ define([
 	'jquery',
 	'backbone',
 	'handlebars',
-	'views/SkinToSkinCardView',
 	'css!/css/ui/CardCollectionView.css'
 	], function(
 		$,
 		Backbone,
-		Handlebars,
-		SkinToSkinCardView
+		Handlebars
 		) {
 
 		return Backbone.View.extend({
 			tagName  : "ul",
 			className: 'mainViewContent CardCollectionView',
-			cards: [SkinToSkinCardView,SkinToSkinCardView,SkinToSkinCardView,SkinToSkinCardView],
+			cards: [],
 			events   : {},
 			initialize: function(options){
 				_.extend(this, options);

@@ -3,6 +3,7 @@ define([
 	'jqueryScrollTo',
 	'backbone',
 	'handlebars',
+	'moment',
 	'Utils',
 	'AppView',
 	'views/HomeNavBarView',
@@ -17,6 +18,7 @@ define([
 		jqueryScrollTo,
 		Backbone,
 		Handlebars,
+		moment,
 		Utils,
 		AppView,
 		HomeNavBarView,
@@ -31,9 +33,6 @@ define([
 			tagName: 'li',
 			model: null, // Should be a ConversationItemModel
 			template: Handlebars.compile(ConversationItemViewHTML),
-			events:{
-				'click':'test'
-			},
 
 			renderViewFromBotResponse: function(renderInstruction){
 				console.log(renderInstruction);
@@ -116,7 +115,7 @@ define([
 		return Backbone.View.extend({
 			tagName  : "div",
 			className: 'mainView HomeDialogView',
-			Nav: HomeNavBarView.extend({navTitle:""}),
+			Nav: HomeNavBarView.extend({navTitle:moment().format('dddd, MMMM D')}),
 			events   : {},
 			template: Handlebars.compile(html),
 			conversationCollectionView: null,
@@ -155,7 +154,7 @@ define([
 			},
 			render: function() {
 				var that = this;
-				this.$el.html(this.template()).find('.mainViewContent').append(this.conversationCollectionView.render().$el);
+				this.$el.html(this.template({postTime: moment().calendar()})).find('.mainViewContent').append(this.conversationCollectionView.render().$el);
 				setTimeout(function(){ that.$el.addClass('in'); },10);
 				return this;
 			}

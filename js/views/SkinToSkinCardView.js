@@ -1,17 +1,19 @@
 define([
 	'jquery',
 	'backbone',
+	'handlebars',
 	'views/ui/CardItemView',
 	'views/ui/MintChartBarView',
-	'handlebars',
+	'views/SkinToSkinDetailView',
 	'text!/html/SkinToSkinCardView.html',
 	'css!/css/SkinToSkinCardView.css'
 	], function(
 		$,
 		Backbone,
+		Handlebars,
 		CardItemView,
 		MintChartBarView,
-		Handlebars,
+		SkinToSkinDetailView,
 		html
 		) {
 
@@ -28,6 +30,7 @@ define([
 			headerSubTitle: "Last 7 Days",
 			template: Handlebars.compile(html),
 			model: new SkinToSkinModel(),
+			DetailView: SkinToSkinDetailView, 
 			render: function() {
 				CardItemView.prototype.render.call(this);
 				var data = _.extend(this, this.model.toJSON());

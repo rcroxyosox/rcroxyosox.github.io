@@ -26,12 +26,6 @@
 						font-size: 36px;
 						line-height: 62px;
 					}
-					&:last-child{
-						font-size: 11px;
-						text-transform: uppercase;
-						line-height: 0;
-						color: $gray3;
-					}
 				}
 			}
 		}
@@ -53,7 +47,7 @@
 				}
 			}
 			label{
-				color: $gray3;
+				color: $gray4;
 			}
 		}
 	}

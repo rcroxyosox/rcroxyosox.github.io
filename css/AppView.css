@@ -4,4 +4,16 @@
   position: relative;
   width: 100%;
   height: 100%;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+/* line 12, ../sass/AppView.scss */
+.AppView.out {
+  -moz-transform: perspective(210px) rotateX(-2deg) scale(0.9);
+  -ms-transform: perspective(210px) rotateX(-2deg) scale(0.9);
+  -webkit-transform: perspective(210px) rotateX(-2deg) scale(0.9);
+  transform: perspective(210px) rotateX(-2deg) scale(0.9);
+  opacity: 0.3;
 }

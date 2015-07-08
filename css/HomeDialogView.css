@@ -1,7 +1,7 @@
 /* line 8, ../sass/HomeDialogView.scss */
 .HomeDialogView .sep {
   font-size: 9px;
-  letter-spacing: 2px;
+  font-weight: 400;
   display: table;
   padding: 0;
   overflow: hidden;
@@ -13,32 +13,28 @@
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  color: #eeeded;
+  color: #999999;
   clear: both;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 9, ../sass/HomeDialogView.scss */
-.HomeDialogView .sep b {
-  font-weight: 600;
-}
-/* line 31, ../sass/HomeDialogView.scss */
+/* line 29, ../sass/HomeDialogView.scss */
 .HomeDialogView .sep:before, .HomeDialogView .sep:after {
   content: "";
   display: table-cell;
-  border-bottom: 1px solid #eeeded;
+  border-bottom: 1px solid transparent;
   width: 50%;
   padding-top: 15px;
 }
-/* line 38, ../sass/HomeDialogView.scss */
+/* line 37, ../sass/HomeDialogView.scss */
 .HomeDialogView .sep:before {
   -moz-transform: translateY(-50%) translateX(-10px) scale(1, 0.5);
   -ms-transform: translateY(-50%) translateX(-10px) scale(1, 0.5);
   -webkit-transform: translateY(-50%) translateX(-10px) scale(1, 0.5);
   transform: translateY(-50%) translateX(-10px) scale(1, 0.5);
 }
-/* line 41, ../sass/HomeDialogView.scss */
+/* line 40, ../sass/HomeDialogView.scss */
 .HomeDialogView .sep:after {
   -moz-transform: translateY(-50%) translateX(10px) scale(1, 0.5);
   -ms-transform: translateY(-50%) translateX(10px) scale(1, 0.5);

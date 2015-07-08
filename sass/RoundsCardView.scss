@@ -1,0 +1,43 @@
+@import "compass/css3";
+@import "_base";
+
+////////////////////////////////////////////////////////////////////
+// View: RoundsCardView
+////////////////////////////////////////////////////////////////////
+.RoundsCardView{
+	> ul{
+		white-space: nowrap;
+		width: 100%;
+		display: block;
+		margin: 20px 0;
+		li{
+			$fontSize: 44px;
+			margin-left: -4px;
+			display: inline-block;
+			width: 33%;
+			@include box-sizing(border-box);
+			text-align: center;
+			color: $purple2;
+			> *:first-child{
+				position: relative;
+				> *:first-child{
+					margin-left: -10px;
+					position: absolute;
+					font-weight: $fontWeightMed;
+					color: $pink2;
+					font-size: $fontSize/3;
+					top: 50%;
+					margin-top: -($fontSize/3)/2;
+				}
+				> *:last-child{
+					font-size: $fontSize/2;
+				}
+				font-size: $fontSize;
+				font-weight: $fontWeightLight;
+			}
+			&:last-child{
+				margin-left: 0;
+			}
+		}
+	}
+}

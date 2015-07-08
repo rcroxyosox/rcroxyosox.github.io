@@ -1,0 +1,21 @@
+/* line 8, ../sass/ProgressCardView.scss */
+.ProgressCardView > ul {
+  display: table;
+  width: 100%;
+  margin: 15px 0 10px;
+}
+/* line 12, ../sass/ProgressCardView.scss */
+.ProgressCardView > ul li {
+  display: table-row;
+}
+/* line 14, ../sass/ProgressCardView.scss */
+.ProgressCardView > ul li > * {
+  padding: 5px;
+  display: table-cell;
+}
+/* line 16, ../sass/ProgressCardView.scss */
+.ProgressCardView > ul li > *:first-child {
+  width: 25%;
+  text-align: left;
+  padding-right: 10px;
+}

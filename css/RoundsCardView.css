@@ -1,0 +1,42 @@
+/* line 8, ../sass/RoundsCardView.scss */
+.RoundsCardView > ul {
+  white-space: nowrap;
+  width: 100%;
+  display: block;
+  margin: 20px 0;
+}
+/* line 13, ../sass/RoundsCardView.scss */
+.RoundsCardView > ul li {
+  margin-left: -4px;
+  display: inline-block;
+  width: 33%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  color: #6563a4;
+}
+/* line 21, ../sass/RoundsCardView.scss */
+.RoundsCardView > ul li > *:first-child {
+  position: relative;
+  font-size: 44px;
+  font-weight: 300;
+}
+/* line 23, ../sass/RoundsCardView.scss */
+.RoundsCardView > ul li > *:first-child > *:first-child {
+  margin-left: -10px;
+  position: absolute;
+  font-weight: 400;
+  color: #d667cd;
+  font-size: 14.66667px;
+  top: 50%;
+  margin-top: -7.33333px;
+}
+/* line 32, ../sass/RoundsCardView.scss */
+.RoundsCardView > ul li > *:first-child > *:last-child {
+  font-size: 22px;
+}
+/* line 38, ../sass/RoundsCardView.scss */
+.RoundsCardView > ul li:last-child {
+  margin-left: 0;
+}

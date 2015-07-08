@@ -4,6 +4,8 @@ define([
 	'handlebars',
 	'AppView',
 	'Utils',
+	'views/ui/MintModalView',
+	'views/MainMenuView',
 	'text!/html/ui/NavBarView.html',
 	'css!/css/ui/NavBarView.css'
 	], function(
@@ -12,13 +14,32 @@ define([
 		Handlebars,
 		AppView,
 		Utils,
+		MintModalView,
+		MainMenuView,
 		html
 		) {
 
 		return Backbone.View.extend({
 			tagName  : "div",
 			className: 'NavBarView',
-			leftButtons:[],
+			leftButtons: [{
+				iconClass:'icon-menu',
+				action: function(event){
+					var $main = $('.AppView');
+					if($main.is('.out')){
+						return;
+					}
+					$main.addClass('out');
+					new MintModalView({
+						extraClass: 'mainMenuModal',
+						onBeforeClose: function(){
+							$main.removeClass('out');
+							console.log("closed");
+						},
+						contentView: new MainMenuView()
+					}).render();
+				},
+			}],
 			rightButtons:[],
 			attachedToView: null,
 			template: Handlebars.compile(html),
@@ -33,11 +54,22 @@ define([
 				this.listenTo(AppView.getInstance().router, 'route', that.setSelected);
 
 				_.each(this.getButtons(), function(button){
-					if(button.route && button.iconClass){
+
+					if(!button.iconClass){
+						console.error("Buttons should have an .iconClass key");
+						return;
+					}
+
+					if(button.route){
 						that.events[tapEvent+' .'+button.iconClass] = function(){
 							AppView.getInstance().router.navigate(button.route, {trigger:true});
 						}
 					}
+
+					if(button.action){
+						that.events[tapEvent+' .'+button.iconClass] = button.action;
+					}
+
 				});
 
 				this.delegateEvents();
@@ -69,7 +101,7 @@ define([
 			},
 
 			getButtons: function(){
-				return _.extend({},this.leftButtons, this.rightButtons);
+				return this.leftButtons.concat(this.rightButtons);
 			},
 
 			setSelected: function(){

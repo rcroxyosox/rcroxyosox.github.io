@@ -1,0 +1,11 @@
+<header>
+	<h2>{{headerTitle}}{{#if headerSubTitle}} <span>{{headerSubTitle}}</span>{{/if}}</h2>
+</header>
+<ul>
+	{{#each dataPoints}}
+	<li>
+		<label>{{name}}</label>
+		<div><div class="progressBar progressBarStyle{{@index}}"><b style="width: {{perc}}%"></b></div></div>
+	</li>
+	{{/each}}
+</ul>

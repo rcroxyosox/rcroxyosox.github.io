@@ -1,0 +1,11 @@
+<div class="mint-modal">
+	<div class="mint-modal-cont">
+		<div class="mint-modal-view"></div>
+		{{#unless isFullScreenModal}}
+			<a class="icon mint-modal-x {{#if x}}in{{/if}}"></a>
+		{{/unless}}
+	</div>
+</div>
+{{#if isFullScreenModal}}
+	<a class="icon mint-modal-x {{#if x}}in{{/if}}"></a>
+{{/if}}

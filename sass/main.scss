@@ -38,6 +38,15 @@ body{
 	&.preload{
 		@include transition(none);
 	}
+	&.mint-modal-freeze{
+		overflow: hidden;
+		.mainView{
+	        left: 0;
+	        top: 0;
+	        overflow: hidden;
+	        height: 100%;
+        }
+	}
 }
 * { 
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -116,14 +125,52 @@ button{
  	}
 }
 
+// Modals
 .modal{
 	position: absolute;
 	display: block; 
-	@include border-radius(50%);
+	@include border-radius(50%); 
 	@include sq(50px);
 	background: red;
 	@include single-transition(all, 0.3s, ease-in-out, 0.3s);
 	&.in{
 		@include transform(scale(80));
+	}
+}
+
+// Progress bars
+.progressBar{
+	display: block;
+	background: $gray3; 
+	position: relative;
+	@include size(100%, 13px);
+	> *{
+		position: absolute;
+		left: 0;
+		top: 0;
+		@include size(0, 100%);
+		@include single-transition(all, 0.5s, ease-in-out, 0.3s);
+		display: block;
+		max-width: 0;
+	}
+	&.in{
+		> *{
+			max-width: 100%;
+		}
+	}
+	&.progressBarStyle0{
+		> *{
+			background: $green2;
+		}
+	}
+	&.progressBarStyle1{
+		> *{
+			background: $purple2;
+		}
+	}
+	&.progressBarStyle2{
+		> *{
+			background: $blue3;
+		}
 	}
 }

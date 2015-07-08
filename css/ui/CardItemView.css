@@ -6,6 +6,7 @@
   font-size: 13px;
   padding: 20px;
   margin-bottom: 10px;
+  position: relative;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -20,33 +21,37 @@
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 18, ../../sass/ui/CardItemView.scss */
+/* line 19, ../../sass/ui/CardItemView.scss */
 .CardItemView > * {
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 22, ../../sass/ui/CardItemView.scss */
+/* line 23, ../../sass/ui/CardItemView.scss */
 .CardItemView header h2 {
   text-align: left;
 }
-/* line 24, ../../sass/ui/CardItemView.scss */
+/* line 25, ../../sass/ui/CardItemView.scss */
 .CardItemView header h2 span {
   color: #999999;
 }
 /* line 30, ../../sass/ui/CardItemView.scss */
-.CardItemView.modalIn {
-  -moz-transform: scale(5);
-  -ms-transform: scale(5);
-  -webkit-transform: scale(5);
-  transform: scale(5);
+.CardItemView label {
+  font-size: 11px;
+  text-transform: uppercase;
+  line-height: 0;
+  color: #999999;
 }
-/* line 31, ../../sass/ui/CardItemView.scss */
+/* line 36, ../../sass/ui/CardItemView.scss */
+.CardItemView.modalIn {
+  z-index: 2;
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -webkit-transform: scale(10);
+  transform: scale(10);
+}
+/* line 38, ../../sass/ui/CardItemView.scss */
 .CardItemView.modalIn > * {
-  -moz-transform: translateY(-50%) scale(0.1);
-  -ms-transform: translateY(-50%) scale(0.1);
-  -webkit-transform: translateY(-50%) scale(0.1);
-  transform: translateY(-50%) scale(0.1);
   opacity: 0;
 }

@@ -22,6 +22,7 @@ define([
 		tagName:"section",
 		className:"AppView",
 		router: new Router(),
+		currentNav: null,
 		currentView: null,
 		previousView: null,
 		switchView: function(options){
@@ -32,10 +33,10 @@ define([
 			var createNewView = function(){
 				that.$el.html(that.currentView.render().$el);
 				if(that.currentView.Nav){
-					var nav = new that.currentView.Nav({
+					that.currentNav = new that.currentView.Nav({
 						attachedToView: that.currentView
 					});
-					that.$el.prepend(nav.render().$el);
+					that.$el.prepend(that.currentNav.render().$el);
 					that.currentView.$el.addClass('withNavBarView');
 				}
 			}

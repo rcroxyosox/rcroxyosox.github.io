@@ -8,7 +8,7 @@
 	position: relative;
 	background-position: center center;
 	@include background-size(cover);
-
+	@include single-transition(all, 0.3s, ease-in-out);
 	height: $NavBarViewHeight; 
 	width: 100%; 
 	display: block;
@@ -68,11 +68,13 @@
 		opacity: 0;
 	}
 	&.in{
-		opacity: 1;
 		> aside{
 			opacity: 1; 
 		}
 	}  
+	&.hide{
+		opacity: 0;
+	}
 	.navBarButtons{
 		&.leftButtons{
 			text-align: left; 

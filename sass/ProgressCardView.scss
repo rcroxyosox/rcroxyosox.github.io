@@ -1,0 +1,26 @@
+@import "compass/css3";
+@import "_base";
+
+////////////////////////////////////////////////////////////////////
+// View: ProgressCardView (May want to extend MintChartBarView)
+////////////////////////////////////////////////////////////////////
+.ProgressCardView{
+	> ul{
+		display: table;
+		width: 100%;
+		margin: 15px 0 10px;
+		li{
+			display: table-row;
+			> *{
+				padding: 5px;
+				&:first-child{
+					width: 25%;
+					text-align: left;
+					padding-right: 10px;
+				}
+				display: table-cell;
+			}
+
+		}
+	}
+}

@@ -5,6 +5,9 @@ define([
 	'handlebars',
 	'views/HomeNavBarView',
 	'views/ui/CardCollectionView',
+	'views/SkinToSkinCardView',
+	'views/ProgressCardView',
+	'views/RoundsCardView',
 	'text!/html/HomeDashboardView.html',
 	'css!/css/HomeDashboardView.css'
 	], function(
@@ -14,6 +17,9 @@ define([
 		Handlebars,
 		HomeNavBarView,
 		CardCollectionView,
+		SkinToSkinCardView,
+		ProgressCardView,
+		RoundsCardView,
 		html
 		) {
 
@@ -44,7 +50,9 @@ define([
 			render: function() {
 				var that = this;
 				this.$el.html(this.template(this));
-				this.$el.append(new CardCollectionView().render().$el);
+				this.$el.append(new CardCollectionView({
+					cards: [RoundsCardView, SkinToSkinCardView, ProgressCardView]
+				}).render().$el);
 				setTimeout(function(){ that.$el.addClass('in'); },10);
 				return this;
 			}
