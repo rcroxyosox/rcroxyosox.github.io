@@ -3,7 +3,7 @@ define([
         'jquery',
         'backbone',
         'handlebars',
-        'utils',
+        'Utils',
         'text!/html/ui/MintModalView.html',
         'css!/css/ui/MintModalView.css'
     ],
