@@ -92,12 +92,15 @@ define([
             remove: function(){
                 var that = this;
                 if (this.removed) return $.when(this);
+                $(document).off("keydown.removeMintModal");
+                $("body").removeClass("mint-modal-freeze");
 
                 return $.Deferred(function(dfd) {
                     that.removed = true;
                     that.$('.mint-modal-x').removeClass('in');
                     that.$el.removeClass('in');
-                    var delay = mintUtils.getTransitionDuration(that.$modal.addClass('animate'));
+                    console.log(that);
+                    var delay = mintUtils.getTransitionDuration(that.$('.mint-modal').addClass('animate'));
                     that.onBeforeClose();
                     that.currentNav && that.currentNav.$el.addClass('hide');
                     setTimeout(function(){
@@ -118,9 +121,6 @@ define([
                             clearTimeout(this);
                         });
                     }
-
-                    $(document).off("keydown.removeMintModal");
-                    $("body").removeClass("mint-modal-freeze");
 
                 }).promise();
             },

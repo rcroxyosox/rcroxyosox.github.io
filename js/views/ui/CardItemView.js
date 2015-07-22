@@ -31,26 +31,24 @@ define([
 			headerTitle: "",
 			headerSubTitle: "",
 			DetailView: null,
-			modal: null,
 			onModalClose: function(){
-				AppView.getInstance().router.back({trigger: false, replace: false});
+				AppView.getInstance().router.navigate('dashboard',{trigger: false, replace: false});
 				AppView.getInstance().currentNav.$el.removeClass('hide');
 				this.$el.removeClass('modalIn');
 			},
 			initialize: function(options){
 				var that = this;
 				_.extend(this, options);
-				this.modal = new MintModalView({
-					onClose: function(){ that.onModalClose(); },
-					contentView: new this.DetailView()
-				})
 			},
 			openDetailView: function(event){
 				var that = this;
 				this.$el.toggleClass('modalIn');
 				AppView.getInstance().currentNav.$el.addClass('hide');
 				setTimeout(function(){
-					that.modal.render();
+					new MintModalView({
+						onClose: function(){ that.onModalClose(); },
+						contentView: new that.DetailView()
+					}).render();
 				},300);
 			},
 			render: function() {
