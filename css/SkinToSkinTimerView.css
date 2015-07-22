@@ -1,0 +1,119 @@
+@-webkit-keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+@-moz-keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+@-o-keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+/* line 16, ../sass/SkinToSkinTimerView.scss */
+.SkinToSkinTimerView {
+  text-align: center;
+  color: #999999;
+  font-weight: 400;
+  font-size: 13px;
+}
+/* line 22, ../sass/SkinToSkinTimerView.scss */
+.SkinToSkinTimerView .timerElement {
+  display: block;
+  margin: 10% auto;
+  position: relative;
+  width: 180px;
+  height: 180px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f7f7f7;
+}
+/* line 31, ../sass/SkinToSkinTimerView.scss */
+.SkinToSkinTimerView .timerElement.blink {
+  -webkit-animation: blink 1s ease-in-out 0s infinite;
+  -moz-animation: blink 1s ease-in-out 0s infinite;
+  -o-animation: blink 1s ease-in-out 0s infinite;
+  animation: blink 1s ease-in-out 0s infinite;
+}
+/* line 35, ../sass/SkinToSkinTimerView.scss */
+.SkinToSkinTimerView .timerElement.timerComplete .fill {
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+/* line 39, ../sass/SkinToSkinTimerView.scss */
+.SkinToSkinTimerView .timerElement .graphic {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 0;
+  background: url("https://aboutyournewborn.files.wordpress.com/2012/09/baby-smile-green-jpeg-300.jpg") no-repeat center center;
+  background-attachment: fixed;
+  -moz-background-size: auto 205px;
+  -o-background-size: auto 205px;
+  -webkit-background-size: auto 205px;
+  background-size: auto 205px;
+}
+/* line 52, ../sass/SkinToSkinTimerView.scss */
+.SkinToSkinTimerView .timerElement .fill {
+  background: #d667cd;
+  width: 101%;
+  height: 101%;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+/* line 59, ../sass/SkinToSkinTimerView.scss */
+.SkinToSkinTimerView .timerElement .fill .icon {
+  width: 60%;
+  height: 60%;
+  left: 50%;
+  top: 50%;
+  margin-left: -30%;
+  margin-top: -30%;
+  display: block;
+  position: absolute;
+}
+/* line 72, ../sass/SkinToSkinTimerView.scss */
+.SkinToSkinTimerView .timerAmount {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+/* line 77, ../sass/SkinToSkinTimerView.scss */
+.SkinToSkinTimerView .timerLabel {
+  text-transform: uppercase;
+}

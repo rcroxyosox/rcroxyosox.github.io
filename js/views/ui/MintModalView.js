@@ -37,15 +37,7 @@ define([
             x: true, // Bool: show an x in the top right corner to close the modal
             width: null, // for simple width setting without needing to add a custom css class
             modalBgClose: true, // Bool: click on the background of the modal to close. Note that this can be set on a per-subview level as well (this.contentView.modalBgClose).
-            bg: function(){ // for blurring the background elements // ROB TODO: remove this check after evergreen 
-                if($('#main').length){
-                    return $('#main');
-                }else if($('.background-gradient').length){
-                    return $('.background-gradient');
-                }else{
-                    return $('body');
-                }
-            },
+            bg: $('body'),
 
             // modalOptions.onSwitchContentView - Add this to the contentView as a callback for when the transition completes
             onBeforeClose: function(){},
@@ -100,13 +92,16 @@ define([
             remove: function(){
                 var that = this;
                 if (this.removed) return $.when(this);
+
                 return $.Deferred(function(dfd) {
                     that.removed = true;
                     that.$('.mint-modal-x').removeClass('in');
                     that.$el.removeClass('in');
                     var delay = mintUtils.getTransitionDuration(that.$modal.addClass('animate'));
                     that.onBeforeClose();
+                    that.currentNav && that.currentNav.$el.addClass('hide');
                     setTimeout(function(){
+                        that.contentView && that.contentView.remove();
                         that.bg.removeClass('mint-modal-bg blur');
                         that.onClose();
                         that.contentView && that.contentView.remove();
@@ -116,8 +111,8 @@ define([
                         that.$el.detach();
                         Backbone.View.prototype.remove.call(that);
                         dfd.resolve();
-
                     }, delay);
+
                     if(that._timeouts.length > 0){
                         $.each(that._timeouts, function(){
                             clearTimeout(this);
@@ -126,6 +121,7 @@ define([
 
                     $(document).off("keydown.removeMintModal");
                     $("body").removeClass("mint-modal-freeze");
+
                 }).promise();
             },
 
@@ -151,6 +147,10 @@ define([
                         this.contentView.modalOptions.x = this.contentView.modalOptions.x();
                     }
                     shouldShowX = (typeof(this.contentView.modalOptions.x) !== "undefined")?this.contentView.modalOptions.x:this.x;
+                }
+
+                if(this.contentView.Nav){
+                    shouldShowX = false;
                 }
 
                 this.$('.mint-modal-x').toggleClass('in', shouldShowX);
@@ -180,6 +180,19 @@ define([
                     .addClass("mint-modal-view")
                     .append(this.contentView.render().$el)
                     .appendTo(this.$modalcont);
+
+                if(this.contentView.Nav){
+                    this.currentNav = new this.contentView.Nav({
+                        modal: this
+                    });
+                    this.currentNav.$el.addClass('hide');
+                    this.contentView.$el.addClass((this.currentNav.collapsed)?'withNavBarViewCollapsed':'withNavBarView');
+                    this.$modalpage.prepend(this.currentNav.render().$el);
+                    setTimeout(function(){
+                        that.currentNav.$el.removeClass('hide');
+                    },100);
+                }
+
                 this.contentView.delegateEvents();
                 this.setFooterView((options.view.modalOptions && options.view.modalOptions.ModalFooterView)?options.view.modalOptions.ModalFooterView:null);
                 this.setModalWidth(this.contentView.modalOptions.width || this.width);
@@ -246,7 +259,6 @@ define([
 
             switchContentView: function(options){
                 var that = this;
-
                 var settings = $.extend({
                     view: null,
                     direction: "left" // left | right
@@ -315,7 +327,7 @@ define([
 
                 this.isFullScreenModal && this.$el.addClass('mint-modal-fullscreen');
 
-                this.$el.html(this.template(this)).appendTo("body");
+                this.$el.html(this.template(this)).appendTo(".AppView");
 
                 this.$modal = this.$('.mint-modal');
                 this.$modalcont = this.$('.mint-modal-cont');

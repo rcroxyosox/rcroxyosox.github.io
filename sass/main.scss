@@ -114,6 +114,10 @@ button{
  		padding-top: $NavBarViewHeightExpanded;
  	}
 
+ 	&.withNavBarViewCollapsed{
+ 		padding-top: $NavBarViewHeight;
+ 	}
+
  	@include single-transition(all, 0.3s, ease-in-out);
 	opacity: 0;
 
@@ -172,5 +176,23 @@ button{
 		> *{
 			background: $blue3;
 		}
+	}
+}
+
+// Header + Paragraph block
+.headerParaBlock{
+	width: 80%;
+	font-size: 13px;
+	text-align: center;
+	font-weight: $fontWeightMed;
+	margin: 0 auto;
+	header{
+		color: $purple3;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+	}
+	p{
+		color: $gray4;
+		line-height: 18px;
 	}
 }

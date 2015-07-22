@@ -11,11 +11,11 @@
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 9999;
+  z-index: 99;
   text-align: center;
   opacity: 0;
   overflow-y: auto;
-  background: #eeeded;
+  background: white;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
@@ -26,30 +26,30 @@
   opacity: 1;
 }
 
-/* line 43, ../../sass/ui/MintModalView.scss */
+/* line 46, ../../sass/ui/MintModalView.scss */
 .mint-modal-view.animate, .mint-modal-cont.animate {
   -moz-transition: all 0.7s ease-in-out;
   -o-transition: all 0.7s ease-in-out;
   -webkit-transition: all 0.7s ease-in-out;
   transition: all 0.7s ease-in-out;
 }
-/* line 46, ../../sass/ui/MintModalView.scss */
+/* line 49, ../../sass/ui/MintModalView.scss */
 .mint-modal-view.animate .mint-modal-x, .mint-modal-cont.animate .mint-modal-x {
   opacity: 0;
 }
 
-/* line 51, ../../sass/ui/MintModalView.scss */
+/* line 54, ../../sass/ui/MintModalView.scss */
 .mint-modal-cont {
   width: 100%;
 }
-/* line 56, ../../sass/ui/MintModalView.scss */
+/* line 59, ../../sass/ui/MintModalView.scss */
 .mint-modal-cont.left {
   -moz-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
 }
-/* line 59, ../../sass/ui/MintModalView.scss */
+/* line 62, ../../sass/ui/MintModalView.scss */
 .mint-modal-cont.right {
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);
@@ -57,7 +57,7 @@
   transform: translateX(100%);
 }
 
-/* line 63, ../../sass/ui/MintModalView.scss */
+/* line 66, ../../sass/ui/MintModalView.scss */
 .mint-modal-view {
   width: 100%;
   top: 0;
@@ -66,22 +66,22 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 68, ../../sass/ui/MintModalView.scss */
+/* line 71, ../../sass/ui/MintModalView.scss */
 .mint-modal-view.out {
   opacity: 0;
 }
-/* line 72, ../../sass/ui/MintModalView.scss */
+/* line 75, ../../sass/ui/MintModalView.scss */
 .mint-modal-view.right {
   position: absolute;
   left: -100%;
 }
-/* line 76, ../../sass/ui/MintModalView.scss */
+/* line 79, ../../sass/ui/MintModalView.scss */
 .mint-modal-view.left {
   position: absolute;
   left: 100%;
 }
 
-/* line 82, ../../sass/ui/MintModalView.scss */
+/* line 85, ../../sass/ui/MintModalView.scss */
 .mint-modal-footer {
   background: #333;
   position: absolute;
@@ -99,11 +99,11 @@
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 93, ../../sass/ui/MintModalView.scss */
+/* line 96, ../../sass/ui/MintModalView.scss */
 .mint-modal-footer.plain {
   background: transparent;
 }
-/* line 96, ../../sass/ui/MintModalView.scss */
+/* line 99, ../../sass/ui/MintModalView.scss */
 .mint-modal-footer.below {
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
@@ -111,16 +111,16 @@
   transform: translateY(100%);
   opacity: 0;
 }
-/* line 100, ../../sass/ui/MintModalView.scss */
+/* line 103, ../../sass/ui/MintModalView.scss */
 .mint-modal-footer.out {
   opacity: 0;
 }
-/* line 105, ../../sass/ui/MintModalView.scss */
+/* line 108, ../../sass/ui/MintModalView.scss */
 .mint-modal-footer a:hover {
   text-decoration: none;
 }
 
-/* line 110, ../../sass/ui/MintModalView.scss */
+/* line 113, ../../sass/ui/MintModalView.scss */
 .modal-footer-btn-group {
   line-height: 45px;
   color: #eeeded;
@@ -136,25 +136,25 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 123, ../../sass/ui/MintModalView.scss */
+/* line 126, ../../sass/ui/MintModalView.scss */
 .modal-footer-btn-group > li {
   position: relative;
   display: inline-block;
   margin-left: -4px;
 }
-/* line 127, ../../sass/ui/MintModalView.scss */
+/* line 130, ../../sass/ui/MintModalView.scss */
 .modal-footer-btn-group > li > a {
   text-transform: uppercase;
 }
-/* line 130, ../../sass/ui/MintModalView.scss */
+/* line 133, ../../sass/ui/MintModalView.scss */
 .modal-footer-btn-group > li:first-child {
   margin-left: 0;
 }
-/* line 132, ../../sass/ui/MintModalView.scss */
+/* line 135, ../../sass/ui/MintModalView.scss */
 .modal-footer-btn-group > li:first-child:after {
   display: none;
 }
-/* line 136, ../../sass/ui/MintModalView.scss */
+/* line 139, ../../sass/ui/MintModalView.scss */
 .modal-footer-btn-group > li.modal-btn-primary-wrap {
   position: absolute;
   top: -75px;
@@ -167,28 +167,28 @@
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-/* line 144, ../../sass/ui/MintModalView.scss */
+/* line 147, ../../sass/ui/MintModalView.scss */
 .modal-footer-btn-group > li.modal-btn-primary-wrap.out {
   opacity: 0;
 }
-/* line 149, ../../sass/ui/MintModalView.scss */
+/* line 152, ../../sass/ui/MintModalView.scss */
 .modal-footer-btn-group.groupRight {
   text-align: right;
   right: 0;
 }
-/* line 153, ../../sass/ui/MintModalView.scss */
+/* line 156, ../../sass/ui/MintModalView.scss */
 .modal-footer-btn-group.groupCenter {
   z-index: 5;
   left: 50%;
   margin-left: -16.5%;
 }
-/* line 158, ../../sass/ui/MintModalView.scss */
+/* line 161, ../../sass/ui/MintModalView.scss */
 .modal-footer-btn-group.groupLeft {
   text-align: left;
   left: 0;
 }
 
-/* line 164, ../../sass/ui/MintModalView.scss */
+/* line 167, ../../sass/ui/MintModalView.scss */
 .mint-modal {
   display: inline-block;
   position: relative;
@@ -206,21 +206,21 @@
   -webkit-transform: scale(0.9);
   transform: scale(0.9);
 }
-/* line 173, ../../sass/ui/MintModalView.scss */
+/* line 176, ../../sass/ui/MintModalView.scss */
 .mint-modal.animate {
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 176, ../../sass/ui/MintModalView.scss */
+/* line 179, ../../sass/ui/MintModalView.scss */
 .mint-modal.in {
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-/* line 185, ../../sass/ui/MintModalView.scss */
+/* line 188, ../../sass/ui/MintModalView.scss */
 .mint-modal .mint-modal-x {
   width: 23px;
   height: 23px;
@@ -243,18 +243,18 @@
   text-decoration: none;
   background-image: url("/img/icon-x-gray6.svg");
 }
-/* line 202, ../../sass/ui/MintModalView.scss */
+/* line 205, ../../sass/ui/MintModalView.scss */
 .mint-modal .mint-modal-x.in {
   opacity: 1;
   display: block;
 }
-/* line 206, ../../sass/ui/MintModalView.scss */
+/* line 209, ../../sass/ui/MintModalView.scss */
 .mint-modal .mint-modal-x:hover {
   text-decoration: none;
   opacity: 1;
 }
 
-/* line 212, ../../sass/ui/MintModalView.scss */
+/* line 215, ../../sass/ui/MintModalView.scss */
 .mint-modal-body-text {
   font-size: 16px;
   line-height: 24px;
@@ -262,16 +262,16 @@
   margin-bottom: 30px;
 }
 
-/* line 221, ../../sass/ui/MintModalView.scss */
+/* line 224, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen header h1 {
   font-size: 35px;
   line-height: 45px;
 }
-/* line 225, ../../sass/ui/MintModalView.scss */
+/* line 228, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen header h2 {
   font-size: 16px;
 }
-/* line 229, ../../sass/ui/MintModalView.scss */
+/* line 232, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .mint-modal {
   padding: 0 0 90px 0;
   width: 100%;
@@ -280,13 +280,13 @@
   box-shadow: none;
   background-color: transparent;
 }
-/* line 235, ../../sass/ui/MintModalView.scss */
+/* line 238, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .mint-modal-footer {
   background: transparent;
   border-top: 6px solid #333;
   padding-top: 10px;
 }
-/* line 240, ../../sass/ui/MintModalView.scss */
+/* line 243, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .mint-modal-x {
   display: block;
   opacity: 1;
@@ -309,26 +309,26 @@
   -webkit-transform: translateY(-100%) translateX(100%) scale(0);
   transform: translateY(-100%) translateX(100%) scale(0);
 }
-/* line 251, ../../sass/ui/MintModalView.scss */
+/* line 254, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .mint-modal-x:hover {
   background-color: black;
 }
-/* line 255, ../../sass/ui/MintModalView.scss */
+/* line 258, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .mint-modal-x.in {
   -moz-transform: translateY(0) translateX(0) scale(1);
   -ms-transform: translateY(0) translateX(0) scale(1);
   -webkit-transform: translateY(0) translateX(0) scale(1);
   transform: translateY(0) translateX(0) scale(1);
 }
-/* line 260, ../../sass/ui/MintModalView.scss */
+/* line 263, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .mint-modal-cont .mint-modal-x {
   display: none !important;
 }
-/* line 264, ../../sass/ui/MintModalView.scss */
+/* line 267, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .modal-btn-primary {
   margin: 0 !important;
 }
-/* line 267, ../../sass/ui/MintModalView.scss */
+/* line 270, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .modal-footer-btn-group {
   padding: 0;
   position: relative;
@@ -336,51 +336,51 @@
   text-transform: none;
   z-index: 10;
 }
-/* line 274, ../../sass/ui/MintModalView.scss */
+/* line 277, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .modal-footer-btn-group li {
   cursor: default;
 }
-/* line 276, ../../sass/ui/MintModalView.scss */
+/* line 279, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .modal-footer-btn-group li:after {
   display: none;
 }
-/* line 279, ../../sass/ui/MintModalView.scss */
+/* line 282, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .modal-footer-btn-group li a {
   text-transform: uppercase;
 }
-/* line 282, ../../sass/ui/MintModalView.scss */
+/* line 285, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .modal-footer-btn-group li.modal-btn-primary-wrap {
   left: 0;
 }
-/* line 287, ../../sass/ui/MintModalView.scss */
+/* line 290, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .modal-footer-btn-group.groupLeft li {
   margin-left: 0;
   margin-right: 15px;
 }
-/* line 293, ../../sass/ui/MintModalView.scss */
+/* line 296, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .modal-footer-btn-group.groupRight li {
   margin-left: 15px;
 }
-/* line 298, ../../sass/ui/MintModalView.scss */
+/* line 301, ../../sass/ui/MintModalView.scss */
 .mint-modal-fullscreen .mint-modal-body-text {
   font-size: 14px;
   line-height: 22px;
   margin-bottom: 0;
 }
 
-/* line 307, ../../sass/ui/MintModalView.scss */
+/* line 310, ../../sass/ui/MintModalView.scss */
 .MintModalConfirmationView header {
   margin-bottom: 0;
 }
-/* line 310, ../../sass/ui/MintModalView.scss */
+/* line 313, ../../sass/ui/MintModalView.scss */
 .MintModalConfirmationView .mint-modal {
   min-height: 200px;
 }
-/* line 313, ../../sass/ui/MintModalView.scss */
+/* line 316, ../../sass/ui/MintModalView.scss */
 .MintModalConfirmationView .modal-footer-btn-group {
   position: static;
 }
-/* line 316, ../../sass/ui/MintModalView.scss */
+/* line 319, ../../sass/ui/MintModalView.scss */
 .MintModalConfirmationView .modal-footer-btn-group .modal-btn-primary-wrap {
   left: 0;
 }

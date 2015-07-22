@@ -56,6 +56,7 @@
   opacity: 0;
   width: 100% !important;
   background: transparent;
+  z-index: 101;
   -moz-transition: all 0.3s !important;
   -o-transition: all 0.3s !important;
   -webkit-transition: all 0.3s !important;
@@ -65,7 +66,7 @@
   -webkit-transform: translateY(5%) perspective(210px) rotateX(-2deg) scale(0.9);
   transform: translateY(5%) perspective(210px) rotateX(-2deg) scale(0.9);
 }
-/* line 58, ../sass/MainMenuView.scss */
+/* line 59, ../sass/MainMenuView.scss */
 .mainMenuModal.in {
   opacity: 1;
   -moz-transform: translateY(0);
@@ -73,7 +74,7 @@
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-/* line 62, ../sass/MainMenuView.scss */
+/* line 63, ../sass/MainMenuView.scss */
 .mainMenuModal .mint-modal-x {
   right: auto;
   left: 20px;

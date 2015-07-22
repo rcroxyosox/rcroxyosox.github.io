@@ -53,6 +53,7 @@
 	width: 100% !important;
 	background: transparent;
 	$speed-appear: 0.3s;
+	z-index: 101;
 	@include transition(all $speed-appear ease-in-out !important);
 	@include transform(translateY(5%) perspective(210px) rotateX(-2deg) scale(0.9));
 	&.in{

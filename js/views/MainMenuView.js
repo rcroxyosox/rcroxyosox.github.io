@@ -29,8 +29,11 @@ define([
 			goToMenuItem: function(event){
 				var $li = $(event.target);
 				var route = $li.data('route');
-				AppView.getInstance().router.navigate(route, {trigger:true});
-				this.modal.remove();
+				var trigger = ($li.data('trigger') == "true" || $li.data('trigger') == undefined);
+				this.modal.remove().then(function(){
+					AppView.getInstance().router.navigate(route, {trigger:trigger});
+				});
+
 			},
 			render: function() {
 				this.$el.html(this.template({}));

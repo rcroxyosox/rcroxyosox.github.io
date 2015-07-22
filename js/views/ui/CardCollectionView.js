@@ -11,7 +11,7 @@ define([
 
 		return Backbone.View.extend({
 			tagName  : "ul",
-			className: 'mainViewContent CardCollectionView',
+			className: 'CardCollectionView',
 			cards: [],
 			events   : {},
 			initialize: function(options){
@@ -19,6 +19,7 @@ define([
 			},
 			render: function() {
 				var that = this;
+				that.$el.empty();
 				_.each(this.cards, function(CardClass){
 					var cardItemView = new CardClass();
 					that.$el.append(cardItemView.render().$el);

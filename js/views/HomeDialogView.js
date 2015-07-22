@@ -28,6 +28,105 @@ define([
 		ConversationItemViewHTML
 		) {
 
+		var tapEvent = (Utils.hasTouchSupport())?'touchstart':'click';
+
+		var ConversationPromptView = UserPromptView.extend({
+			model: null,
+			events   : function(){
+				var events = {};
+				events['focus input'] = 'focusInput';
+				events['keyup input'] = 'enterKey';
+				events[tapEvent+' .userPromptChoices'] = 'addResponse';
+				events[tapEvent+' button'] = 'addResponse';
+				return events;
+			},
+
+			initialize: function(options){
+				UserPromptView.prototype.initialize.call(this, options);
+				var responseType = ConversationItemModelCollection.getInstance().model.responseType;
+				var reqResponseType = this.model.get('requiresResponseType');
+				this.choices = this.model.get('choices');
+				this.isTypeChoice = (reqResponseType == responseType.CHOICE);
+				this.isTypeInput = (reqResponseType == responseType.INPUT);
+			},
+
+			enterKey: function(event){
+				if(event.keyCode == 13){
+					this.addResponse();
+				}
+			},
+
+			focusInput: function(event){
+				$(event.target).removeClass('blink');
+			},
+
+			moveToResponsePosition: function(){
+				var that = this;
+				var $last = $('.ConversationCollectionView li:last');
+				var $lastMessage = $last.find('p');
+				var position = $lastMessage.position();
+				var right = $('body').width() - position.left + $lastMessage.width();
+				var bottom = $('body').height() - position.top;
+				var delay = Utils.getTransitionDuration(that.$el);
+				var x = '-'+$('.mainViewContent').css('padding-right');
+				var y = '-'+(bottom)+'px';
+				
+				setTimeout(function(){
+					$last.addClass('in');
+				},delay-400);
+
+				that.$el.removeClass('in');
+				that.saveResponse();
+			},
+
+			saveResponse: function(){
+				var that = this;
+				var conversationItemModelCollection = ConversationItemModelCollection.getInstance();
+				conversationItemModelCollection.create(this.responseObj)
+				.done(function(){
+					that.remove();
+				})
+				.fail(function(){
+					that.$el.removeClass('send').addClass('in');
+				});
+			},
+
+			addResponse: function(event){
+				var that = this;
+				var conversationItemModelCollection = ConversationItemModelCollection.getInstance();
+				event && event.preventDefault();
+				
+				var responseType = conversationItemModelCollection.model.responseType;
+				var reqResponseType = this.model.get('requiresResponseType');
+
+				this.$el.addClass('send').removeClass('in');
+				this.responseObj = {
+					responseTo: this.model,
+					responseType: reqResponseType
+				};
+				// return;
+
+
+				if(reqResponseType == responseType.CHOICE){
+					var $selection = $(event.target).closest('li');
+					var selectedChoiceIndex = $selection.index();
+					var conversationItemModelCollection = ConversationItemModelCollection.getInstance();
+					var ConversationItemModel = ConversationItemModelCollection.getInstance().model;
+
+					this.responseObj.selectedChoice = selectedChoiceIndex;
+				}
+				else if(reqResponseType == responseType.INPUT){
+					this.responseObj.responseText = this.$('input').val();
+				}
+
+				conversationItemModelCollection.addUserResponse(this.responseObj);
+
+				setTimeout(function(){
+					that.moveToResponsePosition();
+				},100);
+			}
+		});
+
 		// A conversational item
 		var ConversationItemView = Backbone.View.extend({
 			tagName: 'li',
@@ -140,11 +239,13 @@ define([
 				}
 
 			},
+
 			renderUserPrompt: function(model){
 				this.userPrompt && this.userPrompt.remove();
-				this.userPrompt = new UserPromptView({model:model}).render();
+				this.userPrompt = new ConversationPromptView({model:model}).render();
 				this.userPrompt.render();
 			},
+
 			initialize: function(){
 				var that = this;
 				this.conversationCollectionView = new ConversationCollectionView();
@@ -152,6 +253,7 @@ define([
 					that.renderUserPrompt(model);
 				});
 			},
+
 			render: function() {
 				var that = this;
 				this.$el.html(this.template({postTime: moment().calendar()})).find('.mainViewContent').append(this.conversationCollectionView.render().$el);

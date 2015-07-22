@@ -31,19 +31,20 @@
 /* line 23, ../../sass/ui/CardItemView.scss */
 .CardItemView header h2 {
   text-align: left;
+  font-size: 14px;
 }
-/* line 25, ../../sass/ui/CardItemView.scss */
+/* line 26, ../../sass/ui/CardItemView.scss */
 .CardItemView header h2 span {
   color: #999999;
 }
-/* line 30, ../../sass/ui/CardItemView.scss */
+/* line 31, ../../sass/ui/CardItemView.scss */
 .CardItemView label {
   font-size: 11px;
   text-transform: uppercase;
   line-height: 0;
   color: #999999;
 }
-/* line 36, ../../sass/ui/CardItemView.scss */
+/* line 37, ../../sass/ui/CardItemView.scss */
 .CardItemView.modalIn {
   z-index: 2;
   -moz-transform: scale(10);
@@ -51,7 +52,7 @@
   -webkit-transform: scale(10);
   transform: scale(10);
 }
-/* line 38, ../../sass/ui/CardItemView.scss */
+/* line 39, ../../sass/ui/CardItemView.scss */
 .CardItemView.modalIn > * {
   opacity: 0;
 }

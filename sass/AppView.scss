@@ -9,8 +9,4 @@
 	position: relative;
 	@include sq(100%);
 	@include single-transition(all, 0.3s, ease-in-out);
-	&.out{
-		@include transform(perspective(210px) rotateX(-2deg) scale(0.9));
-		opacity: 0.3;
-	}
 }

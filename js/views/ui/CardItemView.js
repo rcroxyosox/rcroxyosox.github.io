@@ -17,7 +17,7 @@ define([
 		html
 		) {
 
-		var tapEvent = (Utils.hasTouchSupport())?'touchstart':'click';
+		var tapEvent = (Utils.hasTouchSupport())?'click':'click';
 
 		return Backbone.View.extend({
 			tagName  : "li",
@@ -31,22 +31,27 @@ define([
 			headerTitle: "",
 			headerSubTitle: "",
 			DetailView: null,
+			modal: null,
+			onModalClose: function(){
+				AppView.getInstance().router.back({trigger: false, replace: false});
+				AppView.getInstance().currentNav.$el.removeClass('hide');
+				this.$el.removeClass('modalIn');
+			},
+			initialize: function(options){
+				var that = this;
+				_.extend(this, options);
+				this.modal = new MintModalView({
+					onClose: function(){ that.onModalClose(); },
+					contentView: new this.DetailView()
+				})
+			},
 			openDetailView: function(event){
 				var that = this;
 				this.$el.toggleClass('modalIn');
 				AppView.getInstance().currentNav.$el.addClass('hide');
 				setTimeout(function(){
-					new MintModalView({
-						onClose: function(){
-							AppView.getInstance().currentNav.$el.removeClass('hide');
-							that.$el.removeClass('modalIn');
-						},
-						contentView: new that.DetailView()
-					}).render();
+					that.modal.render();
 				},300);
-			},
-			initialize: function(options){
-				_.extend(this, options);
 			},
 			render: function() {
 				this.$el.html(this.template(this));

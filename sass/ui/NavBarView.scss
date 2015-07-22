@@ -29,6 +29,7 @@
 		overflow: hidden;  
 		white-space: nowrap; 
 		text-overflow: ellipsis;
+		text-align: left;
 	}
 	> nav{
 		width: 100%;
@@ -71,7 +72,13 @@
 		> aside{
 			opacity: 1; 
 		}
+		.navTitleCell{
+			opacity: 1 !important;
+		}
 	}  
+	&.tuck{
+		@include transform(translateY(-100%));
+	}
 	&.hide{
 		opacity: 0;
 	}
@@ -92,6 +99,7 @@
 			@include sq($NavBarViewIconSize);
 			display: inline-block;
 			opacity: 0.3;
+			background-position: center center;
 			&.selected{
 				opacity: 1;
 			}
@@ -107,7 +115,7 @@
 }
 
 .navBarViewHeader{
-	background: url("http://www.galleriesss.com/wp-content/uploads/2014/06/cute-newborn-babycute-smiling-newborn-baby-photography-gallery-tdltewl9.jpg");
+	background: url($babyImg);
 	@include size(100%, $NavBarViewHeightExpanded);
 	background-repeat: none;
 	background-position: center center;
@@ -116,7 +124,11 @@
 	top: 0;
 	left: 0;
 	@include background-size(100%);
-	.shade{
+	&.collapsed{ 
+		height: $NavBarViewHeight;
+		opacity: 0;
+	}
+	.shade{ 
 		content: "";
 		display: block;
 		position: absolute;
@@ -152,4 +164,9 @@
 		line-height: 25px;
 		font-weight: $fontWeightMed;
 	}
+}
+
+// Specific Navs
+.HomeNavBarView{
+
 }

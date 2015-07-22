@@ -71,23 +71,42 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -o-background-size: 100%;
   -webkit-background-size: 100%;
   background-size: 100%;
+  background-position: center center;
   background-repeat: no-repeat;
   position: relative;
 }
 
-/* line 14, ../sass/ui/icons.scss */
+/* line 15, ../sass/ui/icons.scss */
 .icon-menu {
   background-image: url("/img/icon-menu.svg");
 }
 
-/* line 18, ../sass/ui/icons.scss */
+/* line 19, ../sass/ui/icons.scss */
 .icon-conversation {
   background-image: url("/img/icon-conversation.svg");
 }
 
-/* line 22, ../sass/ui/icons.scss */
+/* line 23, ../sass/ui/icons.scss */
 .icon-dashboard {
   background-image: url("/img/icon-dashboard.svg");
+}
+
+/* line 27, ../sass/ui/icons.scss */
+.icon-x-white {
+  background-image: url("/img/icon-x-white.svg");
+  -moz-background-size: 80%;
+  -o-background-size: 80%;
+  -webkit-background-size: 80%;
+  background-size: 80%;
+}
+
+/* line 32, ../sass/ui/icons.scss */
+.icon-check-white {
+  background-image: url("/img/icon-check-white.svg");
+  -moz-background-size: 80%;
+  -o-background-size: 80%;
+  -webkit-background-size: 80%;
+  background-size: 80%;
 }
 
 /* line 9, ../sass/main.scss */
@@ -222,16 +241,20 @@ button {
 .mainView.withNavBarView {
   padding-top: 200px;
 }
-/* line 120, ../sass/main.scss */
+/* line 117, ../sass/main.scss */
+.mainView.withNavBarViewCollapsed {
+  padding-top: 50px;
+}
+/* line 124, ../sass/main.scss */
 .mainView.in {
   opacity: 1;
 }
-/* line 122, ../sass/main.scss */
+/* line 126, ../sass/main.scss */
 .mainView.in .mainViewContent {
   background: white;
 }
 
-/* line 129, ../sass/main.scss */
+/* line 133, ../sass/main.scss */
 .modal {
   position: absolute;
   display: block;
@@ -247,7 +270,7 @@ button {
   -webkit-transition-delay: 0.3s;
   transition: all 0.3s ease-in-out 0.3s;
 }
-/* line 136, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 .modal.in {
   -moz-transform: scale(80);
   -ms-transform: scale(80);
@@ -255,7 +278,7 @@ button {
   transform: scale(80);
 }
 
-/* line 142, ../sass/main.scss */
+/* line 146, ../sass/main.scss */
 .progressBar {
   display: block;
   background: #d4d4d4;
@@ -263,7 +286,7 @@ button {
   width: 100%;
   height: 13px;
 }
-/* line 147, ../sass/main.scss */
+/* line 151, ../sass/main.scss */
 .progressBar > * {
   position: absolute;
   left: 0;
@@ -278,19 +301,39 @@ button {
   display: block;
   max-width: 0;
 }
-/* line 157, ../sass/main.scss */
+/* line 161, ../sass/main.scss */
 .progressBar.in > * {
   max-width: 100%;
 }
-/* line 162, ../sass/main.scss */
+/* line 166, ../sass/main.scss */
 .progressBar.progressBarStyle0 > * {
   background: #6dd5c9;
 }
-/* line 167, ../sass/main.scss */
+/* line 171, ../sass/main.scss */
 .progressBar.progressBarStyle1 > * {
   background: #6563a4;
 }
-/* line 172, ../sass/main.scss */
+/* line 176, ../sass/main.scss */
 .progressBar.progressBarStyle2 > * {
   background: #00bcd4;
+}
+
+/* line 183, ../sass/main.scss */
+.headerParaBlock {
+  width: 80%;
+  font-size: 13px;
+  text-align: center;
+  font-weight: 400;
+  margin: 0 auto;
+}
+/* line 189, ../sass/main.scss */
+.headerParaBlock header {
+  color: #5f5d9a;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+/* line 194, ../sass/main.scss */
+.headerParaBlock p {
+  color: #999999;
+  line-height: 18px;
 }

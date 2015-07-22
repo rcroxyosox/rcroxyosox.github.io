@@ -5,6 +5,7 @@ define([
 	'handlebars',
 	'views/HomeNavBarView',
 	'views/ui/CardCollectionView',
+	'views/ui/InlineNavView',
 	'views/SkinToSkinCardView',
 	'views/ProgressCardView',
 	'views/RoundsCardView',
@@ -17,6 +18,7 @@ define([
 		Handlebars,
 		HomeNavBarView,
 		CardCollectionView,
+		InlineNavView,
 		SkinToSkinCardView,
 		ProgressCardView,
 		RoundsCardView,
@@ -27,7 +29,10 @@ define([
 			tagName  : "div",
 			className: 'mainView HomeDashboardView',
 			events   : {},
-			Nav: HomeNavBarView.extend({navTitle: "Dashboard"}),
+			Nav: HomeNavBarView.extend({
+				// collapsed: true,
+				navTitle: "Dashboard"
+			}),
 			remove: function(){
 				var that = this;
 				var scrolled = this.$el.scrollTop();
@@ -50,10 +55,18 @@ define([
 			render: function() {
 				var that = this;
 				this.$el.html(this.template(this));
-				this.$el.append(new CardCollectionView({
-					cards: [RoundsCardView, SkinToSkinCardView, ProgressCardView]
-				}).render().$el);
+
 				setTimeout(function(){ that.$el.addClass('in'); },10);
+
+				var cardCollectionView = new CardCollectionView({ cards: [RoundsCardView, SkinToSkinCardView, ProgressCardView, ProgressCardView, ProgressCardView] });
+				new InlineNavView({
+					navItems: [	
+						{text: "Today", selected: true, view: cardCollectionView},
+						{text: "Week", action: function(){console.log("rerender?");}},
+						{text: "Month", action: function(){console.log("rerender?");}}
+					]
+				}).render().$el.prependTo(this.$('.mainViewContent'));
+
 				return this;
 			}
 		});

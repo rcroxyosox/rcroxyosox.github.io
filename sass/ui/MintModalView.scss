@@ -28,15 +28,18 @@ $footerheight: 45px;
 	height: 100%;
 	left: 0;
 	top: 0;
-	z-index: 9999;
+	z-index: 99;
 	text-align: center;
 	opacity: 0;
 	overflow-y: auto;
-	background: $gray2;
+	background: white;
 	@include single-transition(all, $speed-appear, ease-in-out);
 
 	&.in{
 		opacity: 1;
+	}
+
+	&.out{
 	}
 }
 .mint-modal-view, .mint-modal-cont{

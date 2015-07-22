@@ -1,0 +1,80 @@
+@import "compass/css3";
+@import "_base";
+
+@include keyframes(blink) {
+	0%, 100%{
+		opacity: 1;
+	}
+	50%{
+		opacity: 0.5;
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+// View: SkinToSkinTimerView
+////////////////////////////////////////////////////////////////////
+.SkinToSkinTimerView{
+	text-align: center;
+	color: $gray4; 
+	font-weight: $fontWeightMed;
+	font-size: 13px;
+
+	.timerElement{ 
+		$size: 180px;
+		display: block;
+		margin: 10% auto;
+		position: relative;
+		@include sq($size); 
+		@include border-radius(50%);
+		overflow: hidden;
+		background-color: $gray1;
+		&.blink{
+			@include animation(blink 1s ease-in-out 0s infinite);
+		}
+		&.timerComplete{
+			.fill{
+				@include transform(scale(1));
+			}
+		}
+		.graphic{ 
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			display: block;
+			@include size(100%, 0);
+			// border-top: 5px solid $pink2;
+			background: url($babyImg) no-repeat center center;
+			background-attachment: fixed;
+			@include background-size(auto $size+25px);
+			// @include single-transition(all, 0.2s, ease-in);
+		}
+
+		.fill{
+			background: $pink2;
+			@include sq(101%);
+			display: block;
+			@include border-radius(50%);
+			@include single-transition(all, 0.2s, ease-in-out);
+			@include transform(scale(0));
+			.icon{
+				$size: 60%;
+				@include sq($size);
+				left: 50%;
+				top: 50%;
+				margin-left: -$size/2;
+				margin-top: -$size/2;
+				display: block;
+				position: absolute;
+			}
+		}
+	}
+
+	.timerAmount{
+		font-size: 20px;
+		margin-bottom: 6px;
+	}
+
+	.timerLabel{
+		text-transform: uppercase;
+	}
+}

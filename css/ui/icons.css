@@ -6,21 +6,40 @@
   -o-background-size: 100%;
   -webkit-background-size: 100%;
   background-size: 100%;
+  background-position: center center;
   background-repeat: no-repeat;
   position: relative;
 }
 
-/* line 14, ../../sass/ui/icons.scss */
+/* line 15, ../../sass/ui/icons.scss */
 .icon-menu {
   background-image: url("/img/icon-menu.svg");
 }
 
-/* line 18, ../../sass/ui/icons.scss */
+/* line 19, ../../sass/ui/icons.scss */
 .icon-conversation {
   background-image: url("/img/icon-conversation.svg");
 }
 
-/* line 22, ../../sass/ui/icons.scss */
+/* line 23, ../../sass/ui/icons.scss */
 .icon-dashboard {
   background-image: url("/img/icon-dashboard.svg");
+}
+
+/* line 27, ../../sass/ui/icons.scss */
+.icon-x-white {
+  background-image: url("/img/icon-x-white.svg");
+  -moz-background-size: 80%;
+  -o-background-size: 80%;
+  -webkit-background-size: 80%;
+  background-size: 80%;
+}
+
+/* line 32, ../../sass/ui/icons.scss */
+.icon-check-white {
+  background-image: url("/img/icon-check-white.svg");
+  -moz-background-size: 80%;
+  -o-background-size: 80%;
+  -webkit-background-size: 80%;
+  background-size: 80%;
 }

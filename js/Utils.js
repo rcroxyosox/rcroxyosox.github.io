@@ -2,8 +2,8 @@ define(['jquery'], function($){
 
 	return {
 		hasTouchSupport: function(){
-			var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-			return supportsTouch;
+			var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
+			return isTouch;
 		},
 		getTransitionDuration: function($element, withDelay){
 			var el       = $element;

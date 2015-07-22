@@ -22,19 +22,23 @@ define([
 		return Backbone.View.extend({
 			tagName  : "div",
 			className: 'NavBarView',
+			collapsed: false,
 			leftButtons: [{
 				iconClass:'icon-menu',
 				action: function(event){
-					var $main = $('.AppView');
-					if($main.is('.out')){
+					var that = this;
+					var $main = $('.AppView').children().not('.mainMenuModal');
+					$main.addClass('out');
+
+					if(this.mainMenuModal){
 						return;
 					}
-					$main.addClass('out');
-					new MintModalView({
+
+					this.mainMenuModal = new MintModalView({
 						extraClass: 'mainMenuModal',
 						onBeforeClose: function(){
+							that.mainMenuModal = null;
 							$main.removeClass('out');
-							console.log("closed");
 						},
 						contentView: new MainMenuView()
 					}).render();
@@ -47,18 +51,19 @@ define([
 			navTitle: "",
 			headerTitle: "",
 			headerSubTitle: "",
+			events: {},
 			initialize: function(options){
 				_.extend(this, options);
 				var that = this;
 				var tapEvent = (Utils.hasTouchSupport())?'touchstart':'click';
 				this.listenTo(AppView.getInstance().router, 'route', that.setSelected);
-
 				_.each(this.getButtons(), function(button){
 
 					if(!button.iconClass){
 						console.error("Buttons should have an .iconClass key");
 						return;
 					}
+
 
 					if(button.route){
 						that.events[tapEvent+' .'+button.iconClass] = function(){
@@ -78,6 +83,7 @@ define([
 
 			initScrollListener: function(){
 				var that = this;
+				if(this.collapsed){ return; }
 				this.attachedToView.$el.on('scroll', function(event){
 					var $header = $(that.headerSelector);
 					var headerHeight = parseInt(that.attachedToView.$el.css('padding-top'));
@@ -108,8 +114,10 @@ define([
 				var selected = AppView.getInstance().router.getCurrentRoute();
 				var buttons = this.getButtons();
 				var button = _.findWhere(buttons, {route:selected});
-				this.$('.icon').removeClass('selected');
-				this.$('.'+button.iconClass).addClass('selected');
+				if(button){
+					this.$('.icon').removeClass('selected');
+					this.$('.'+button.iconClass).addClass('selected');
+				}
 			},
 
 			toggleSettings: function(){
@@ -118,7 +126,9 @@ define([
 
 			render: function() {
 				var that = this;
+				this.collapsed && this.$el.addClass('in collapsed');
 				this.$el.html(this.template(this));
+				this.collapsed && this.$('.navBarViewHeader').addClass('collapsed');
 				setTimeout(function(){ 
 					that.setSelected(); 
 					that.$el.parent().append(that.$(that.headerSelector));

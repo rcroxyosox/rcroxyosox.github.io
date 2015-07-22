@@ -32,7 +32,9 @@ define([
 		}
 
 		var HomeNavBarView = NavBarView.extend({
-
+			className: function(){
+				return NavBarView.prototype.className + " HomeNavBarView"
+			},
 			headerTitle: moment().format('dddd, MMMM D'),
 			headerSubTitle: "Good "+getGreetingTime()+" Mike",
 			events   : {},

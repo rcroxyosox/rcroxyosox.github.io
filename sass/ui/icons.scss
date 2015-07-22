@@ -7,6 +7,7 @@
 .icon{
 	@include sq(20px);
 	@include background-size(100%);
+	background-position: center center;
 	background-repeat: no-repeat;
 	position: relative;
 }
@@ -21,4 +22,14 @@
 
 .icon-dashboard{
 	background-image: url("#{$imgs}icon-dashboard.svg");
+}
+
+.icon-x-white{
+	background-image: url("#{$imgs}icon-x-white.svg");
+	@include background-size(80%);
+}
+
+.icon-check-white{
+	background-image: url("#{$imgs}icon-check-white.svg");
+	@include background-size(80%);
 }

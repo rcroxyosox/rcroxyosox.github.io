@@ -2,6 +2,7 @@ define([
 	'jquery',
 	'backbone',
 	'handlebars',
+	'AppView',
 	'views/ui/CardItemView',
 	'views/ui/MintChartBarView',
 	'views/SkinToSkinDetailView',
@@ -11,6 +12,7 @@ define([
 		$,
 		Backbone,
 		Handlebars,
+		AppView,
 		CardItemView,
 		MintChartBarView,
 		SkinToSkinDetailView,
@@ -31,6 +33,10 @@ define([
 			template: Handlebars.compile(html),
 			model: new SkinToSkinModel(),
 			DetailView: SkinToSkinDetailView, 
+			openDetailView: function(){
+				CardItemView.prototype.openDetailView.call(this);
+				AppView.getInstance().router.navigate('skintoskin');
+			},
 			render: function() {
 				CardItemView.prototype.render.call(this);
 				var data = _.extend(this, this.model.toJSON());
