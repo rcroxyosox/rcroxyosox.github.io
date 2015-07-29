@@ -1,0 +1,19 @@
+@import "compass/css3";
+@import "_base";
+
+////////////////////////////////////////////////////////////////////
+// View: FormCardItemView
+////////////////////////////////////////////////////////////////////
+.CardItemView{
+	&.FormCardItemView{
+	}
+}
+.formCardItems{
+	li{
+		&:last-child{
+			.formItem{
+				margin-bottom: 0;
+			}
+		}
+	}
+}

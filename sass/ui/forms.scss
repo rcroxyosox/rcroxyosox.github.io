@@ -1,0 +1,44 @@
+@import "compass/css3";
+@import "_base";
+
+////////////////////////////////////////////////////////////////////
+// Forms
+////////////////////////////////////////////////////////////////////
+.formItem{
+	width: 100%;
+	margin: 10px 0 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid $gray3;
+	display: table;
+	> *{
+		vertical-align: middle;
+		display: table-cell;
+		text-align: left;
+	}
+	label{
+		text-transform: none !important;
+		font-size: inherit !important;
+	}
+}
+ 
+input[type="text"], select{
+	@include appearance(none);
+	@include box-sizing(border-box);
+	background: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	color: $gray5;
+	border: none;
+	padding: 0;
+	width: 100%;
+	outline: none;
+}
+select{
+	background-image: url("#{$imgs}icon-arrow-down-gray4.svg");
+	background-repeat: no-repeat;
+	background-position: 100% center;
+	@include background-size(auto 110%);
+	option:disabled{
+		color: $gray4;
+	}
+}

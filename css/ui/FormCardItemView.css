@@ -1,0 +1,4 @@
+/* line 14, ../../sass/ui/FormCardItemView.scss */
+.formCardItems li:last-child .formItem {
+  margin-bottom: 0;
+}

@@ -20,10 +20,15 @@
 		@include single-transition(all, 0.3s, ease-in-out);
 	}
 	header{
+		margin-bottom: 15px;
 		h2{ 
+			text-transform: uppercase;
+			color: $purple2;
+			font-weight: $fontWeightBold;
+			font-size: 13px;
 			text-align: left;
-			font-size: 14px;
 			span{
+				margin-left: 6px;
 				color: $gray4;
 			}
 		}

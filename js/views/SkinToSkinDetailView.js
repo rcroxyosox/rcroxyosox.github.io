@@ -29,6 +29,7 @@ define([
 			modalOptions: {
 
 			},
+			
 			remove: function(){
 				var that = this;
 				this.navInstance && this.navInstance.$el.addClass('hide'); 
@@ -42,6 +43,7 @@ define([
 					that.trigger('removed');
 				}, 500);
 			},
+
 			render: function() {
 				var that = this;
 				this.$el.html(this.template({}));

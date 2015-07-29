@@ -1,0 +1,51 @@
+/* line 7, ../../sass/ui/forms.scss */
+.formItem {
+  width: 100%;
+  margin: 10px 0 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #d4d4d4;
+  display: table;
+}
+/* line 13, ../../sass/ui/forms.scss */
+.formItem > * {
+  vertical-align: middle;
+  display: table-cell;
+  text-align: left;
+}
+/* line 18, ../../sass/ui/forms.scss */
+.formItem label {
+  text-transform: none !important;
+  font-size: inherit !important;
+}
+
+/* line 24, ../../sass/ui/forms.scss */
+input[type="text"], select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: #666666;
+  border: none;
+  padding: 0;
+  width: 100%;
+  outline: none;
+}
+
+/* line 36, ../../sass/ui/forms.scss */
+select {
+  background-image: url("/img/icon-arrow-down-gray4.svg");
+  background-repeat: no-repeat;
+  background-position: 100% center;
+  -moz-background-size: auto 110%;
+  -o-background-size: auto 110%;
+  -webkit-background-size: auto 110%;
+  background-size: auto 110%;
+}
+/* line 41, ../../sass/ui/forms.scss */
+select option:disabled {
+  color: #999999;
+}

@@ -54,12 +54,18 @@ define([
 				}).render();
 			},
 
-			stopTimer: function(event){
+			pauseTimer: function(event){
 				var $btn = $(event.target).closest('li');
 				$btn.text('Start');
-				$('.timerElement').removeClass('blink');
 				clearTimeout(this.timeout);
+				$('.timerElement').removeClass('blink');
 				delete this.timeout;
+			},
+
+			endTimer: function(event){
+				this.pauseTimer(event);
+	    		this.elapsedTime = [0,0,0];
+	    		this._counter = 0;
 			},
 
 			startTimer: function(event){
@@ -67,10 +73,11 @@ define([
 				var $btn = $(event.target).closest('li');
 				$btn.text('Stop');
 				$('.timerElement').addClass('blink');
+				this.$('.timerElement').removeClass('timerComplete');
+
 			    (update = function(){
 			    	var interval = 10;
 			    	that._counter += interval;
-			    	that.$('.timerElement').removeClass('timerComplete');
 			    	that.$('.graphic').css({height: (that._counter/that.goalTime)*100+"%"});
 
 			    	if(that._counter % 1000 != 0){
@@ -92,10 +99,9 @@ define([
 			        
 			        // Time reached the end
 			    	if(that.elapsedTime[2] >= that.goalTime){
-			    		that.stopTimer(event);
-			    		that.$('.timerElement').addClass('timerComplete');
-			    		that.elapsedTime = [0,0,0];
-			    		that._counter = 0;
+			    		that.$('.timerElement').addClass('timerComplete').removeClass('blink');
+
+			    		that.endTimer(event);
 			    		return;
 			    	}
 
@@ -105,7 +111,7 @@ define([
 
 			toggleTimer: function(event){
 				if(this.timeout){
-					this.stopTimer(event);
+					this.pauseTimer(event);
 				}else{
 					this.startTimer(event);
 				}

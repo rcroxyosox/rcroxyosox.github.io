@@ -39,7 +39,8 @@ define([
 			"": "conversation",
 			"conversation": "conversation",
 			"dashboard": "dashboard",
-			"skintoskin": "skintoskin"
+			"skintoskin": "skintoskin",
+			"rounds": "rounds"
 		}
 	});
 
@@ -99,6 +100,14 @@ define([
 				require(['views/SkinToSkinDetailView'], function(SkinToSkinDetailView) {
 					that.switchView({
 						view: SkinToSkinDetailView,
+					});
+				});
+			});
+
+			this.router.on("route:rounds", function() {
+				require(['views/RoundsDetailView'], function(RoundsDetailView) {
+					that.switchView({
+						view: RoundsDetailView,
 					});
 				});
 			});

@@ -1,0 +1,31 @@
+<header>
+	<h2>{{headerTitle}}{{#if headerSubTitle}} <span>{{headerSubTitle}}</span>{{/if}}</h2>
+</header>
+<ul class="formCardItems">
+	{{#each formItems}}
+		<li>
+
+		<div class="formItem">
+
+			{{#if label}}
+				<label for="{{../../cid}}-{{@index}}">{{label}}</label>
+			{{/if}}
+
+			<div>
+				{{#compare type "==" "text"}}
+					<input type="text" {{attributes}} value="{{value}}" id="{{../../cid}}-{{@index}}" />
+				{{/compare}}
+
+				{{#compare type "==" "select"}}
+					<select>
+						{{#each options}}
+							<option value="{{value}}" {{attributes}}>{{text}}</option>
+						{{/each}}
+					</select>
+				{{/compare}}
+			</div>
+		</div>
+
+		</li>
+	{{/each}}
+</ul>
