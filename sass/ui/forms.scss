@@ -32,6 +32,9 @@ input[type="text"], select{
 	padding: 0;
 	width: 100%;
 	outline: none;
+	@include input-placeholder {
+		color: $gray4;
+	}
 }
 select{
 	background-image: url("#{$imgs}icon-arrow-down-gray4.svg");

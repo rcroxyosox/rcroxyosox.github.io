@@ -56,7 +56,7 @@ define([
 				var GeneralFormCardItemView = FormCardItemView.extend({
 					headerTitle: "General Conditions",
 					roundsFormItemCollection: new RoundsFormItemCollection([
-						{type:"select", options:[{text:"Is Jane Well?", attributes:"disabled selected"}, {text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
+						{label:"Is Jane Well?", type:"select", options:[{text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
 						{type:"select", options:[{text:"Is Jane in Pain?", attributes:"disabled selected"}, {text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
 						{type:"select", options:[{text:"Is Jane Comfortable?", attributes:"disabled selected"}, {text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
 						{attributes:"placeholder=Overall Observations", type:"text"}

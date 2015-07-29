@@ -34,8 +34,24 @@ input[type="text"], select {
   width: 100%;
   outline: none;
 }
+/* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+input[type="text"]:-moz-placeholder, select:-moz-placeholder {
+  color: #999999;
+}
+/* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+input[type="text"]::-moz-placeholder, select::-moz-placeholder {
+  color: #999999;
+}
+/* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+input[type="text"]:-ms-input-placeholder, select:-ms-input-placeholder {
+  color: #999999;
+}
+/* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+input[type="text"]::-webkit-input-placeholder, select::-webkit-input-placeholder {
+  color: #999999;
+}
 
-/* line 36, ../../sass/ui/forms.scss */
+/* line 39, ../../sass/ui/forms.scss */
 select {
   background-image: url("/img/icon-arrow-down-gray4.svg");
   background-repeat: no-repeat;
@@ -45,7 +61,7 @@ select {
   -webkit-background-size: auto 110%;
   background-size: auto 110%;
 }
-/* line 41, ../../sass/ui/forms.scss */
+/* line 44, ../../sass/ui/forms.scss */
 select option:disabled {
   color: #999999;
 }
