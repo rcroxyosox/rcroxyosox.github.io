@@ -168,7 +168,6 @@ body.mint-modal-freeze {
 body.mint-modal-freeze .mainView {
   left: 0;
   top: 0;
-  overflow: hidden;
   height: 100%;
 }
 

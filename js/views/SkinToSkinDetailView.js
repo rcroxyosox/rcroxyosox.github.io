@@ -52,7 +52,7 @@ define([
 
 				this.inlineNavView = new InlineNavView({
 					navItems: [	
-						{text: "Timer", selected: true, view: new SkinToSkinTimerView()},
+						{text: "Timer", selected: true, View: SkinToSkinTimerView},
 						{text: "Overtime", action: function(){console.log("rerender?");}}
 					]
 				});

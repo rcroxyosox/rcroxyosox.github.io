@@ -1,4 +1,10 @@
-/* line 14, ../../sass/ui/FormCardItemView.scss */
+/* line 9, ../../sass/ui/FormCardItemView.scss */
+.CardItemView.FormCardItemView select {
+  direction: rtl;
+  padding-right: 30px;
+}
+
+/* line 18, ../../sass/ui/FormCardItemView.scss */
 .formCardItems li:last-child .formItem {
   margin-bottom: 0;
 }

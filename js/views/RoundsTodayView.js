@@ -56,14 +56,24 @@ define([
 				var GeneralFormCardItemView = FormCardItemView.extend({
 					headerTitle: "General Conditions",
 					roundsFormItemCollection: new RoundsFormItemCollection([
-						{label:"Is Jane Well?", type:"select", options:[{text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
-						{type:"select", options:[{text:"Is Jane in Pain?", attributes:"disabled selected"}, {text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
-						{type:"select", options:[{text:"Is Jane Comfortable?", attributes:"disabled selected"}, {text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
+						{label:"Is Jane Well?", type:"select", options:[{text:"", value:"disabled selected"}, {text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
+						{label:"Is Jane in Pain?", type:"select", options:[{text:"", attributes:"disabled selected"}, {text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
+						{label: "Is Jane Comfortable?", type:"select", options:[{text:"", attributes:"disabled selected"}, {text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
 						{attributes:"placeholder=Overall Observations", type:"text"}
 					])
 				});
 
-				var cardCollectionView = new CardCollectionView({ cards: [DateFormCardItemView, BasicsFormCardItemView, GeneralFormCardItemView] });
+				var VitalsFormCardItemView = FormCardItemView.extend({
+					headerTitle: "Vitals",
+					roundsFormItemCollection: new RoundsFormItemCollection([
+						{label:"Is Jane Well?", type:"select", options:[{text:"", value:"disabled selected"}, {text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
+						{label:"Is Jane in Pain?", type:"select", options:[{text:"", attributes:"disabled selected"}, {text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
+						{label: "Is Jane Comfortable?", type:"select", options:[{text:"", attributes:"disabled selected"}, {text:"Yes", value:"yes"}, {text:"No", value:"no"}]},
+						{attributes:"placeholder=Overall Observations", type:"text"}
+					])
+				});
+
+				var cardCollectionView = new CardCollectionView({ cards: [DateFormCardItemView, BasicsFormCardItemView, GeneralFormCardItemView, VitalsFormCardItemView] });
 				this.$el.empty().append(cardCollectionView.render().$el);
 
 				return this;

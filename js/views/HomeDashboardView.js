@@ -58,10 +58,12 @@ define([
 
 				setTimeout(function(){ that.$el.addClass('in'); },10);
 
-				var cardCollectionView = new CardCollectionView({ cards: [RoundsCardView, SkinToSkinCardView, ProgressCardView, ProgressCardView, ProgressCardView] });
 				new InlineNavView({
 					navItems: [	
-						{text: "Today", selected: true, view: cardCollectionView},
+						{text: "Today", selected: true, View: CardCollectionView.extend({ 
+								cards: [RoundsCardView, SkinToSkinCardView, ProgressCardView, ProgressCardView, ProgressCardView] 
+							})
+						},
 						{text: "Week", action: function(){console.log("rerender?");}},
 						{text: "Month", action: function(){console.log("rerender?");}}
 					]

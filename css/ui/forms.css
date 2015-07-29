@@ -1,24 +1,42 @@
 /* line 7, ../../sass/ui/forms.scss */
-.formItem {
+.formCardItems {
+  display: block;
   width: 100%;
-  margin: 10px 0 15px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #d4d4d4;
-  display: table;
 }
-/* line 13, ../../sass/ui/forms.scss */
-.formItem > * {
-  vertical-align: middle;
-  display: table-cell;
+/* line 10, ../../sass/ui/forms.scss */
+.formCardItems > li {
+  display: table;
   text-align: left;
 }
-/* line 18, ../../sass/ui/forms.scss */
+/* line 13, ../../sass/ui/forms.scss */
+.formCardItems > li > * {
+  padding: 8px 0 5px;
+  vertical-align: middle;
+  text-align: left;
+  display: table-cell;
+  margin-right: 10px;
+}
+/* line 19, ../../sass/ui/forms.scss */
+.formCardItems > li > *:last-child {
+  margin-right: 0;
+}
+/* line 25, ../../sass/ui/forms.scss */
+.formCardItems > li.twoCol > *:last-child input {
+  text-align: right;
+}
+
+/* line 32, ../../sass/ui/forms.scss */
+.formItem {
+  width: 100%;
+  border-bottom: 1px solid #d4d4d4;
+}
+/* line 35, ../../sass/ui/forms.scss */
 .formItem label {
   text-transform: none !important;
   font-size: inherit !important;
 }
 
-/* line 24, ../../sass/ui/forms.scss */
+/* line 41, ../../sass/ui/forms.scss */
 input[type="text"], select {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -51,7 +69,7 @@ input[type="text"]::-webkit-input-placeholder, select::-webkit-input-placeholder
   color: #999999;
 }
 
-/* line 39, ../../sass/ui/forms.scss */
+/* line 56, ../../sass/ui/forms.scss */
 select {
   background-image: url("/img/icon-arrow-down-gray4.svg");
   background-repeat: no-repeat;
@@ -61,7 +79,7 @@ select {
   -webkit-background-size: auto 110%;
   background-size: auto 110%;
 }
-/* line 44, ../../sass/ui/forms.scss */
+/* line 61, ../../sass/ui/forms.scss */
 select option:disabled {
   color: #999999;
 }

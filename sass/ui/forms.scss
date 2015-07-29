@@ -4,17 +4,34 @@
 ////////////////////////////////////////////////////////////////////
 // Forms
 ////////////////////////////////////////////////////////////////////
+.formCardItems{
+	display: block;
+	width: 100%;
+	> li{
+		display: table;
+		text-align: left;
+		> *{
+			padding: 8px 0 5px;
+			vertical-align: middle;
+			text-align: left;
+			display: table-cell;
+			margin-right: 10px;
+			&:last-child{
+				margin-right: 0;
+			}
+		}
+		&.twoCol{
+			> *:last-child{
+				input{
+					text-align: right;
+				}
+			}
+		}
+	}
+}
 .formItem{
 	width: 100%;
-	margin: 10px 0 15px;
-	padding-bottom: 5px;
 	border-bottom: 1px solid $gray3;
-	display: table;
-	> *{
-		vertical-align: middle;
-		display: table-cell;
-		text-align: left;
-	}
 	label{
 		text-transform: none !important;
 		font-size: inherit !important;

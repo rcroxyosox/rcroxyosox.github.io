@@ -24,7 +24,10 @@ define([
 				return events;
 			},
 			selectionBarHtml: '<div class="selectionBar"></div>',
-			navItems: [], // {text: "Hello", action: function(navItem){}, view:Backbone.View} 
+			navItems: [], // {text: "Hello", action: function(navItem){}, View:Backbone.View, _renderedView: new Backbone.View()} 
+			_prevIndex: null,
+			_direction: null,
+			_animating: false,
 			template: Handlebars.compile(html),
 
 			initialize: function(options){
@@ -36,10 +39,14 @@ define([
 			},
 
 			getSelectedView: function(){
-				return this.navItems[this.getSelectedIndex()].view;
+				return this.navItems[this.getSelectedIndex()]._renderedView;
 			},
 
 			selectNavItem: function(event){
+
+				if(this._animating){
+					return;
+				}
 
 				var selectedIndex = null;
 
@@ -74,7 +81,7 @@ define([
 				var okay = true;
 				var selectedIndex = this.getSelectedIndex();
 				var button = this.navItems[selectedIndex];
-				if(!button.action && !button.view){
+				if(!button.action && !button.View){
 					var okay = false;
 					console.error(button, " Should have either an action (a function), or a view (a Backbone.View)");
 				}
@@ -82,7 +89,7 @@ define([
 			},
 
 			takeAction: function(){
-				var selectedIndex = _.findIndex(this.navItems, {selected:true});
+				var selectedIndex = this.getSelectedIndex();
 				var navItem = this.navItems[selectedIndex];
 				var action = navItem.action;
 				if(action){
@@ -91,16 +98,50 @@ define([
 			},
 
 			switchView: function(){
-				var selectedIndex = _.findIndex(this.navItems, {selected:true});
-				var $viewContainer = this.$('.inlineNavContentArea');
-				var view = this.navItems[selectedIndex].view;
-				if(view){
-					$viewContainer.empty().append(this.navItems[selectedIndex].view.render().$el);
+				var that = this;
+				var selectedIndex = this.getSelectedIndex();
+
+				if(this._prevIndex == selectedIndex || !this.navItems[selectedIndex].View){
+					return;
 				}
+
+				var $viewContainer = this.$('.inlineNavContentArea');
+				var view = this.navItems[selectedIndex]._renderedView = new this.navItems[selectedIndex].View();
+
+				if(this._prevIndex != null){
+					this._animating = true;
+					this._direction = (selectedIndex > this._prevIndex)?'Left':'Right'
+					this.$el.addClass('animate animate'+this._direction);
+					var delay = Utils.getTransitionDuration($viewContainer);
+					that.navItems[that._prevIndex]._renderedView.$el.removeClass('in');
+					view.$el.addClass('transitioning');
+					setTimeout(function(){
+						that._animating = false;
+						that.$el.removeClass('animate animateLeft animateRight');
+						that.navItems[that._prevIndex]._renderedView.remove();
+						that.navItems[selectedIndex]._renderedView.$el.removeClass('transitioning left right');
+						that._prevIndex = selectedIndex;
+					}, delay || 500);
+
+				}else{
+					this._prevIndex = selectedIndex;
+				}
+
+				if(view){
+					this._direction && view.render().$el.addClass(this._direction.toLowerCase());
+
+					setTimeout(function(){
+						view.$el.addClass('in');
+					},0);
+
+					$viewContainer.append(view.render().$el);
+				}
+
+				
 			},
 
 			setSelectedState: function(){
-				var selectedIndex = _.findIndex(this.navItems, {selected:true});
+				var selectedIndex = this.getSelectedIndex();
 				var $selectedItem = this.$('li:eq('+selectedIndex+')');
 				var $selectionBar = this.$('.selectionBar');
 				var pos = $selectedItem.position();
@@ -118,7 +159,7 @@ define([
 				this.$el.html(this.template(this));
 				setTimeout(function(){
 					that.selectNavItem();
-				},0)
+				},300)
 				return this;
 			}
 		});

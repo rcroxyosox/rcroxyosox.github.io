@@ -5,6 +5,7 @@ define([
 	'views/ModalNavBarView',
 	'views/ui/InlineNavView',
 	'views/RoundsTodayView',
+	'views/RoundsHistoryView',
 	'text!/html/RoundsDetailView.html',
 	'css!/css/RoundsDetailView.css'
 	], function(
@@ -14,6 +15,7 @@ define([
 		ModalNavBarView,
 		InlineNavView,
 		RoundsTodayView,
+		RoundsHistoryView,
 		html
 		) {
 
@@ -46,9 +48,9 @@ define([
 				setTimeout(function(){ that.$el.addClass('in'); },10);
 				this.inlineNavView = new InlineNavView({
 					navItems: [	
-						{text: "Today", selected: true, view: new RoundsTodayView()},
-						{text: "Week", action: function(){console.log("rerender?");}},
-						{text: "Month", action: function(){console.log("rerender?");}}
+						{text: "Today", View: RoundsTodayView},
+						{text: "History", selected: true, View: RoundsHistoryView },
+						{text: "Over Time", action: function(){console.log("rerender?");}}
 					]
 				});
 				this.inlineNavView.render().$el.prependTo(this.$('.mainViewContent'));

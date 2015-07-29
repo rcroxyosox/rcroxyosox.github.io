@@ -1,13 +1,13 @@
-/* line 9, ../../sass/ui/InlineNavView.scss */
+/* line 10, ../../sass/ui/InlineNavView.scss */
 .InlineNavView {
   text-align: left;
 }
-/* line 11, ../../sass/ui/InlineNavView.scss */
+/* line 12, ../../sass/ui/InlineNavView.scss */
 .InlineNavView > nav {
   position: relative;
   margin-bottom: 20px;
 }
-/* line 15, ../../sass/ui/InlineNavView.scss */
+/* line 16, ../../sass/ui/InlineNavView.scss */
 .InlineNavView > nav li {
   font-size: 12px;
   font-weight: 400;
@@ -18,11 +18,11 @@
   padding-bottom: 8px;
   margin-right: 10px;
 }
-/* line 24, ../../sass/ui/InlineNavView.scss */
+/* line 25, ../../sass/ui/InlineNavView.scss */
 .InlineNavView > nav li:last-child {
   margin-right: 0;
 }
-/* line 30, ../../sass/ui/InlineNavView.scss */
+/* line 31, ../../sass/ui/InlineNavView.scss */
 .InlineNavView .selectionBar {
   width: 0;
   height: 3px;
@@ -34,4 +34,59 @@
   position: absolute;
   left: 0;
   bottom: 0;
+}
+/* line 40, ../../sass/ui/InlineNavView.scss */
+.InlineNavView.animate .inlineNavContentArea {
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+/* line 45, ../../sass/ui/InlineNavView.scss */
+.InlineNavView.animateLeft .inlineNavContentArea {
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+/* line 50, ../../sass/ui/InlineNavView.scss */
+.InlineNavView.animateRight .inlineNavContentArea {
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+/* line 54, ../../sass/ui/InlineNavView.scss */
+.InlineNavView .inlineNavContentArea {
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+/* line 58, ../../sass/ui/InlineNavView.scss */
+.InlineNavView .inlineNavContentArea > * {
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0;
+}
+/* line 64, ../../sass/ui/InlineNavView.scss */
+.InlineNavView .inlineNavContentArea > *.transitioning {
+  position: absolute;
+  top: 0;
+}
+/* line 67, ../../sass/ui/InlineNavView.scss */
+.InlineNavView .inlineNavContentArea > *.transitioning.left {
+  right: -100%;
+}
+/* line 70, ../../sass/ui/InlineNavView.scss */
+.InlineNavView .inlineNavContentArea > *.transitioning.right {
+  left: -100%;
+}
+/* line 74, ../../sass/ui/InlineNavView.scss */
+.InlineNavView .inlineNavContentArea > *.in {
+  opacity: 1;
 }

@@ -5,6 +5,7 @@
 // View: InlineNavView
 ////////////////////////////////////////////////////////////////////
 $selectionBarSize: 3px;
+$animationSpeed: 0.5s;
 
 .InlineNavView{
 	text-align: left;
@@ -29,10 +30,50 @@ $selectionBarSize: 3px;
 	}
 	.selectionBar{
 		@include size(0, $selectionBarSize);
-		@include single-transition(all, 0.5s, ease-in-out);
+		@include single-transition(all, $animationSpeed, ease-in-out);
 		background-color: $green2;
 		position: absolute;
 		left: 0;
 		bottom: 0;
+	}
+	&.animate{
+		.inlineNavContentArea{
+			@include single-transition(all, $animationSpeed, ease-in-out);
+		}
+	}
+	&.animateLeft{
+		.inlineNavContentArea{
+			@include transform(translateX(-100%));
+		}
+	}
+	&.animateRight{
+		.inlineNavContentArea{
+			@include transform(translateX(100%));
+		}
+	}
+	.inlineNavContentArea{
+		white-space: nowrap;
+		position: relative;
+		width: 100%;
+		> *{
+			@include single-transition(all, 0.5s, ease-in-out);
+			width: 100%;
+			display: inline-block;
+			vertical-align: top;
+			opacity: 0;
+			&.transitioning{
+				position: absolute;
+				top: 0;
+				&.left{
+					right: -100%;
+				}
+				&.right{
+					left: -100%;
+				}
+			}
+			&.in{
+				opacity: 1;
+			}
+		}
 	}
 }

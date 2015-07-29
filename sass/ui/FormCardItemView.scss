@@ -6,6 +6,10 @@
 ////////////////////////////////////////////////////////////////////
 .CardItemView{
 	&.FormCardItemView{
+		select{
+			direction: rtl;
+			padding-right: 30px;
+		}
 	}
 }
 .formCardItems{

@@ -3,9 +3,8 @@
 </header>
 <ul class="formCardItems">
 	{{#each formItems}}
-		<li>
+		<li class="formItem {{#if label}} twoCol{{/if}}">
 
-		<div class="formItem">
 
 			{{#if label}}
 				<label for="{{../../cid}}-{{@index}}">{{label}}</label>
@@ -24,7 +23,6 @@
 					</select>
 				{{/compare}}
 			</div>
-		</div>
 
 		</li>
 	{{/each}}

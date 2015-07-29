@@ -99,7 +99,6 @@ define([
                     that.removed = true;
                     that.$('.mint-modal-x').removeClass('in');
                     that.$el.removeClass('in');
-                    console.log(that);
                     var delay = mintUtils.getTransitionDuration(that.$('.mint-modal').addClass('animate'));
                     that.onBeforeClose();
                     that.currentNav && that.currentNav.$el.addClass('hide');
