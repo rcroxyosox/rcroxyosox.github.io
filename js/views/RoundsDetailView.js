@@ -48,8 +48,8 @@ define([
 				setTimeout(function(){ that.$el.addClass('in'); },10);
 				this.inlineNavView = new InlineNavView({
 					navItems: [	
-						{text: "Today", View: RoundsTodayView},
-						{text: "History", selected: true, View: RoundsHistoryView },
+						{text: "Today", selected: true, View: RoundsTodayView},
+						{text: "History", View: RoundsHistoryView },
 						{text: "Over Time", action: function(){console.log("rerender?");}}
 					]
 				});
