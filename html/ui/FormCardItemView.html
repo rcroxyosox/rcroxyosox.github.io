@@ -13,11 +13,11 @@
 
 			<div>
 				{{#compare type "==" "text"}}
-					<input type="text" {{attributes}} value="{{value}}" id="{{../../cid}}-{{@index}}" />
+					<input type="text" {{attributes}} value="{{value}}" id="{{../../cid}}-{{@index}}" name="{{../../cid}}-{{@index}}" />
 				{{/compare}}
 
 				{{#compare type "==" "select"}}
-					<select>
+					<select  id="{{../../cid}}-{{@index}}" name="{{../../cid}}-{{@index}}">
 						{{#each options}}
 							<option value="{{value}}" {{attributes}}>{{text}}</option>
 						{{/each}}
