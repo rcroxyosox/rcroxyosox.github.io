@@ -72,21 +72,22 @@
   display: inline-block;
   vertical-align: top;
   opacity: 0;
+  white-space: normal;
 }
-/* line 64, ../../sass/ui/InlineNavView.scss */
+/* line 65, ../../sass/ui/InlineNavView.scss */
 .InlineNavView .inlineNavContentArea > *.transitioning {
   position: absolute;
   top: 0;
 }
-/* line 67, ../../sass/ui/InlineNavView.scss */
+/* line 68, ../../sass/ui/InlineNavView.scss */
 .InlineNavView .inlineNavContentArea > *.transitioning.left {
   right: -100%;
 }
-/* line 70, ../../sass/ui/InlineNavView.scss */
+/* line 71, ../../sass/ui/InlineNavView.scss */
 .InlineNavView .inlineNavContentArea > *.transitioning.right {
   left: -100%;
 }
-/* line 74, ../../sass/ui/InlineNavView.scss */
+/* line 75, ../../sass/ui/InlineNavView.scss */
 .InlineNavView .inlineNavContentArea > *.in {
   opacity: 1;
 }

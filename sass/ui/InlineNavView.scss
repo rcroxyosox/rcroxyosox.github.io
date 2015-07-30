@@ -61,6 +61,7 @@ $animationSpeed: 0.5s;
 			display: inline-block;
 			vertical-align: top;
 			opacity: 0;
+			white-space: normal;
 			&.transitioning{
 				position: absolute;
 				top: 0;

@@ -92,3 +92,7 @@ $fontWeightBold: 700;
 @mixin sq($s){
 	@include size($s, $s);
 }
+
+@mixin rangeTrack(){
+    
+}

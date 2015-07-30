@@ -327,12 +327,14 @@ button {
 }
 /* line 189, ../sass/main.scss */
 .headerParaBlock header {
-  color: #5f5d9a;
+  color: #6563a4;
+  font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-/* line 194, ../sass/main.scss */
+/* line 195, ../sass/main.scss */
 .headerParaBlock p {
+  white-space: normal;
   color: #999999;
   line-height: 18px;
 }

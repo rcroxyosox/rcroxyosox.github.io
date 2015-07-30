@@ -187,11 +187,13 @@ button{
 	font-weight: $fontWeightMed;
 	margin: 0 auto;
 	header{
-		color: $purple3;
+		color: $purple2;
+		font-weight: $fontWeightBold;
 		text-transform: uppercase;
 		margin-bottom: 10px;
 	}
 	p{
+		white-space: normal;
 		color: $gray4;
 		line-height: 18px;
 	}

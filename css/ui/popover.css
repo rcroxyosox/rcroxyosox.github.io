@@ -1,0 +1,59 @@
+/* line 7, ../../sass/ui/popover.scss */
+.popover {
+  position: absolute;
+  left: 50%;
+  bottom: 130%;
+  margin-left: -50%;
+  margin-top: -40px;
+  background: #f7f7f7;
+  width: 100%;
+  border-bottom: 5px solid #f7f7f7;
+  opacity: 0;
+  z-index: -1;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -moz-transform: scale(0.8) translateY(50%);
+  -ms-transform: scale(0.8) translateY(50%);
+  -webkit-transform: scale(0.8) translateY(50%);
+  transform: scale(0.8) translateY(50%);
+}
+/* line 23, ../../sass/ui/popover.scss */
+.popover.in {
+  z-index: 0;
+  opacity: 1;
+  -moz-transform: scale(1) translateY(0);
+  -ms-transform: scale(1) translateY(0);
+  -webkit-transform: scale(1) translateY(0);
+  transform: scale(1) translateY(0);
+}
+/* line 29, ../../sass/ui/popover.scss */
+.popover > section {
+  padding: 20px;
+}
+/* line 31, ../../sass/ui/popover.scss */
+.popover > section header {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #6563a4;
+  font-weight: 700;
+  font-size: 13px;
+}
+/* line 39, ../../sass/ui/popover.scss */
+.popover:before {
+  position: absolute;
+  content: "";
+  display: block;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: #f7f7f7 transparent;
+  left: 50%;
+  bottom: -15px;
+  margin-left: -10px;
+}

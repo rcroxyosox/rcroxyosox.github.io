@@ -36,7 +36,7 @@ define([
 				var events = {};
 				events['focus input'] = 'focusInput';
 				events['keyup input'] = 'enterKey';
-				events[tapEvent+' .userPromptChoices'] = 'addResponse';
+				events[tapEvent+' .buttonSet'] = 'addResponse';
 				events[tapEvent+' button'] = 'addResponse';
 				return events;
 			},

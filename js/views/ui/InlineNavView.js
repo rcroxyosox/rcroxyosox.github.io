@@ -112,16 +112,19 @@ define([
 					this._animating = true;
 					this._direction = (selectedIndex > this._prevIndex)?'Left':'Right'
 					this.$el.addClass('animate animate'+this._direction);
-					var delay = Utils.getTransitionDuration($viewContainer);
+					var delay = Utils.getTransitionDuration($viewContainer) || 500;
 					that.navItems[that._prevIndex]._renderedView.$el.removeClass('in');
 					view.$el.addClass('transitioning');
 					setTimeout(function(){
 						that._animating = false;
-						that.$el.removeClass('animate animateLeft animateRight');
 						that.navItems[that._prevIndex]._renderedView.remove();
-						that.navItems[selectedIndex]._renderedView.$el.removeClass('transitioning left right');
 						that._prevIndex = selectedIndex;
-					}, delay || 500);
+					}, delay);
+
+					setTimeout(function(){
+						that.$el.removeClass('animate animateLeft animateRight');
+						that.navItems[selectedIndex]._renderedView.$el.removeClass('transitioning left right');
+					}, delay * 2);
 
 				}else{
 					this._prevIndex = selectedIndex;

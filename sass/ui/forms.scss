@@ -4,41 +4,95 @@
 ////////////////////////////////////////////////////////////////////
 // Forms
 ////////////////////////////////////////////////////////////////////
-.formCardItems{
+.formCardItems {
 	display: block;
 	width: 100%;
-	> li{
+
+	> li {
 		display: table;
 		text-align: left;
-		> *{
+
+		> * {
 			padding: 8px 0 5px;
 			vertical-align: middle;
 			text-align: left;
 			display: table-cell;
 			margin-right: 10px;
-			&:last-child{
+
+			&:last-child {
 				margin-right: 0;
 			}
 		}
-		&.twoCol{
-			> *:last-child{
-				input{
+		&.twoCol {
+			> *:last-child {
+				input {
 					text-align: right;
 				}
 			}
 		}
 	}
 }
-.formItem{
+.formItem {
 	width: 100%;
 	border-bottom: 1px solid $gray3;
-	label{
+
+	label {
 		text-transform: none !important;
 		font-size: inherit !important;
 	}
 }
+// Range slider
+input[type=range] {
+	-webkit-appearance: none;
+	width: 100%;
+	margin: 13.8px 0;
+
+	&::-webkit-slider-runnable-track{
+		width: 100%;
+		height: 1px;
+		cursor: pointer;
+		background: $gray3;
+		@include border-radius(50%);
+	}
  
-input[type="text"], select{
+	&:focus {
+		outline: none;
+		&::-webkit-slider-runnable-track {
+			// background: $gray5;
+		}
+	}
+
+	&::-webkit-slider-thumb {
+		border: none;
+		@include sq(15px);
+		@include border-radius(50%);
+		background: $pink2;
+		cursor: pointer;
+		-webkit-appearance: none;
+		@include box-shadow(1px 1px 1px rgba($gray5, 0.4));
+		margin-top: -7px;
+	}
+
+}
+
+/* todo : inferior vendors
+input[type=range]::-moz-range-thumb {
+}
+input[type=range]::-ms-track {
+}
+input[type=range]::-ms-fill-lower {
+}
+input[type=range]::-ms-fill-upper {
+}
+input[type=range]::-ms-thumb {
+}
+input[type=range]:focus::-ms-fill-lower {
+}
+input[type=range]:focus::-ms-fill-upper {
+}
+*/
+
+input[type="text"], select {
 	@include appearance(none);
 	@include box-sizing(border-box);
 	background: transparent;
@@ -49,16 +103,18 @@ input[type="text"], select{
 	padding: 0;
 	width: 100%;
 	outline: none;
+
 	@include input-placeholder {
 		color: $gray4;
 	}
 }
-select{
+select {
 	background-image: url("#{$imgs}icon-arrow-down-gray4.svg");
 	background-repeat: no-repeat;
 	background-position: 100% center;
 	@include background-size(auto 110%);
-	option:disabled{
+
+	option:disabled {
 		color: $gray4;
 	}
 }

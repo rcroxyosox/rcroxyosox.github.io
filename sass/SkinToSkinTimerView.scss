@@ -3,6 +3,7 @@
 
 @include keyframes(blink) {
 	0%, 100%{
+		border-width: 0;
 		opacity: 1;
 	}
 	50%{
@@ -28,6 +29,8 @@
 		@include border-radius(50%);
 		overflow: hidden;
 		background-color: $gray1;
+		@include box-sizing(border-box);
+
 		&.blink{
 			@include animation(blink 1s ease-in-out 0s infinite);
 		}
@@ -45,7 +48,7 @@
 			// border-top: 5px solid $pink2;
 			background: url($babyImg) no-repeat center center;
 			background-attachment: fixed;
-			@include background-size(auto $size+25px);
+			@include background-size(auto $size+50px);
 			// @include single-transition(all, 0.2s, ease-in);
 		}
 
@@ -76,5 +79,9 @@
 
 	.timerLabel{
 		text-transform: uppercase;
+	}
+
+	.timerContainer{
+		position: relative;
 	}
 }

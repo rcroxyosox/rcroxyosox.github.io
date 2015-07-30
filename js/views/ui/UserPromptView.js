@@ -5,7 +5,8 @@ define([
 	'Utils',
 	'models/ConversationItemModelCollection',
 	'text!/html/ui/UserPromptView.html',
-	'css!/css/ui/UserPromptView.css'
+	'css!/css/ui/UserPromptView.css',
+	'css!/css/ui/buttons.css'
 	], function(
 		$,
 		Backbone,
@@ -30,6 +31,14 @@ define([
 
 			initialize: function(options){
 				_.extend(this, options);
+			},
+
+			hide: function(){
+				this.$el.removeClass('in');
+			},
+
+			show: function(){
+				this.$el.addClass('in');
 			},
 
 			remove: function(){

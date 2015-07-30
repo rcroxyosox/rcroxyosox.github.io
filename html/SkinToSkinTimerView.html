@@ -10,7 +10,20 @@
 	</aside>
 </div>
 
-<div>
+<div class="timerContainer">
+
 	<div class="timerAmount"><span class="elapsedTime">0</span> of <span class="goalTime">{{goalTime}}</span></div>
-	<div class="timerLabel">{{intervalText}} Completed</div>
+	<div class="timerLabel"><span class="intervalText">{{intervalText}}</span> Completed</div>
+
+	<div class="popover timerSliderPopover">
+		<section>
+			<header>Set a new goal</header>
+			<input type="range" name="points" min="0" max="3600000" class="timerInput" value="{{goalTimeUnformatted}}">
+		</section>
+		<ul class="timerButtonSet buttonSet sm col2">
+			<li>save</li>
+			<li>cancel</li>
+		</ul>
+	</div>
+
 </div>

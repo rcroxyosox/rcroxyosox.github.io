@@ -5,7 +5,9 @@ define([
 	'Utils',
 	'views/ui/UserPromptView',
 	'text!/html/SkinToSkinTimerView.html',
-	'css!/css/SkinToSkinTimerView.css'
+	'css!/css/SkinToSkinTimerView.css',
+	'css!/css/ui/forms.css',
+	'css!/css/ui/popover.css'
 	], function(
 		$,
 		Backbone,
@@ -17,12 +19,20 @@ define([
 
 		var tapEvent = (Utils.hasTouchSupport())?'click':'click';
 
+		var goalTimeFromDB = 6000;
+
 		return Backbone.View.extend({
 			tagName  : "div",
 			className: 'SkinToSkinTimerView',
-			events   : {},
+			events   : function(){
+				var events = {};
+				events[tapEvent+' .timerContainer'] = 'toggleTimerPopover';
+				events['input .timerInput'] = 'sliderChange';
+				events[tapEvent+' .timerButtonSet'] = 'saveCancelGoalTime';
+				return events;
+			},
 			template: Handlebars.compile(html),
-			goalTime: 6000,
+			goalTime: goalTimeFromDB,
 			intervalText: "Minute",
 			_counter: 0,
 			elapsedTime: [0,0,0],
@@ -37,6 +47,50 @@ define([
 					Backbone.View.prototype.remove.call(that);
 				},300);
 			},
+			
+			saveGoalTime: function(){
+				this.goalTime = this.$('.timerInput').val();
+			},
+
+			cancelGoalTime: function(){
+				this.goalTime = goalTimeFromDB;
+				this.renderGoalTime();
+			},
+
+			saveCancelGoalTime: function(event){
+				var action = $(event.target).text();
+				var actionSet = {
+					save: this.saveGoalTime,
+					cancel: this.cancelGoalTime
+				};
+				actionSet[action] && actionSet[action].call(this);
+				this.toggleTimerPopover();
+			},
+
+			sliderChange: function(event){
+				var $slider = $(event.target);
+				this.goalTime = $slider.val();
+				this.renderGoalTime();
+			},
+
+			toggleTimerPopover: function(event){
+				if(event){
+					var $obj = $(event.target);
+					if($obj.closest('.timerSliderPopover').length){
+						return;
+					}
+				}
+
+				var isIn = this.$('.timerSliderPopover').is('.in');
+				if(isIn){
+					this.$('.timerSliderPopover').removeClass('in');
+					this.userPrompt && this.userPrompt.$el.addClass('in');
+				}else{
+					this.pauseTimer();
+					this.$('.timerSliderPopover').addClass('in');
+					this.userPrompt && this.userPrompt.$el.removeClass('in');
+				}
+			},
 
 			renderUserPrompt: function(){
 				var that = this;
@@ -46,7 +100,7 @@ define([
 					isTypeChoice: true,
 					events: function(){
 						var events = {};
-						events[tapEvent+' .userPromptChoices'] = function(event){
+						events[tapEvent+' .buttonSet'] = function(event){
 							that.toggleTimer.call(that, event)
 						}
 						return events;
@@ -55,7 +109,11 @@ define([
 			},
 
 			pauseTimer: function(event){
-				var $btn = $(event.target).closest('li');
+				if(!this.userPrompt){
+					return;
+				}
+
+				var $btn = this.userPrompt.$('li:first');
 				$btn.text('Start');
 				clearTimeout(this.timeout);
 				$('.timerElement').removeClass('blink');
@@ -101,8 +159,8 @@ define([
 			    	if(that.elapsedTime[2] >= that.goalTime){
 			    		that.$('.timerElement').addClass('timerComplete').removeClass('blink');
 
-			    		that.endTimer(event);
-			    		return;
+			    		// that.endTimer(event);
+			    		// return;
 			    	}
 
 			    	that.timeout = setTimeout(update, interval);
@@ -111,21 +169,40 @@ define([
 
 			toggleTimer: function(event){
 				if(this.timeout){
-					this.pauseTimer(event);
+					this.$('.graphic').css({height: 0});
+					this.endTimer(event);
 				}else{
 					this.startTimer(event);
 				}
 
 			},
 
-			render: function() {
-				var that = this;
+			getFragmentedGoalTime: function(){
 				var goalMinutes = Math.floor(this.goalTime / 60000);
 				var goalSeconds = (this.goalTime - (goalMinutes * 60000)) / 1000;
 				goalSeconds = ("0" + goalSeconds).slice(-2);
-				var goalTime = (goalSeconds > 0)?goalMinutes+":"+goalSeconds:goalMinutes;
-				var intervalText = (goalMinutes > 0) ? this.intervalText : this.intervalText+"s";
-				this.$el.html(this.template({goalTime:goalTime, intervalText: intervalText}));
+				var intervalText = (goalMinutes > 0) ? this.intervalText+"s" : this.intervalText;
+				var goalTimeFormatted = (goalSeconds > 0)?goalMinutes+":"+goalSeconds:goalMinutes;
+				var goalTimeFragment = {
+					goalTimeUnformatted: this.goalTime,
+					goalTime: goalTimeFormatted,
+					seconds: goalSeconds,
+					minutes: goalMinutes,
+					intervalText: intervalText
+				};
+				return goalTimeFragment;
+			},
+
+			renderGoalTime: function(){
+				var goalTimeFragment = this.getFragmentedGoalTime();
+				this.$('.intervalText').text(goalTimeFragment.intervalText);
+				this.$('.goalTime').text(goalTimeFragment.goalTime);
+				this.$('.timerInput').val(this.goalTime);
+			},
+
+			render: function() {
+				var that = this;
+				this.$el.html(this.template(this.getFragmentedGoalTime()));
 				that.renderUserPrompt();
 				return this;
 			}

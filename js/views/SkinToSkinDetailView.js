@@ -5,6 +5,7 @@ define([
 	'views/ModalNavBarView',
 	'views/ui/InlineNavView',
 	'views/SkinToSkinTimerView',
+	'views/SkinToSkinHistoryView',
 	'text!/html/SkinToSkinDetailView.html',
 	'css!/css/SkinToSkinDetailView.css'
 	], function(
@@ -14,6 +15,7 @@ define([
 		ModalNavBarView,
 		InlineNavView,
 		SkinToSkinTimerView,
+		SkinToSkinHistoryView,
 		html
 		) {
 
@@ -53,7 +55,7 @@ define([
 				this.inlineNavView = new InlineNavView({
 					navItems: [	
 						{text: "Timer", selected: true, View: SkinToSkinTimerView},
-						{text: "Overtime", action: function(){console.log("rerender?");}}
+						{text: "History", View: SkinToSkinHistoryView}
 					]
 				});
 				
