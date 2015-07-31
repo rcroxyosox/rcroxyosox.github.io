@@ -8,6 +8,7 @@
 	<aside class="fill">
 		<i class="icon icon-check-white"></i>
 	</aside>
+	<aside class="spinner"></aside>
 </div>
 
 <div class="timerContainer">
@@ -18,7 +19,7 @@
 	<div class="popover timerSliderPopover">
 		<section>
 			<header>Set a new goal</header>
-			<input type="range" name="points" min="0" max="3600000" class="timerInput" value="{{goalTimeUnformatted}}">
+			<input type="range" name="points" min="0" max="60" class="timerInput" value="{{goalTimeAsMinutes}}">
 		</section>
 		<ul class="timerButtonSet buttonSet sm col2">
 			<li>save</li>

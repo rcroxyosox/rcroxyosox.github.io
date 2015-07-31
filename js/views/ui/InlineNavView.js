@@ -97,6 +97,21 @@ define([
 				}
 			},
 
+			switchToViewWithIndex: function(index){
+				if(!this.navItems[index]){
+					console.error(index+" out of range in this.navItems");
+					return;
+				}
+
+				_.each(this.navItems, function(o, i){
+					delete o.selected;
+					if(i == index){
+						o.selected = true;
+					}
+				});
+				this.selectNavItem();
+			},
+
 			switchView: function(){
 				var that = this;
 				var selectedIndex = this.getSelectedIndex();
@@ -107,6 +122,7 @@ define([
 
 				var $viewContainer = this.$('.inlineNavContentArea');
 				var view = this.navItems[selectedIndex]._renderedView = new this.navItems[selectedIndex].View();
+				view.inlineNavView = this;
 
 				if(this._prevIndex != null){
 					this._animating = true;

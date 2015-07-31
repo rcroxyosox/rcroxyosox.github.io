@@ -63,14 +63,15 @@ input[type=range] {
 	}
 
 	&::-webkit-slider-thumb {
+		$s: 32px;
 		border: none;
-		@include sq(15px);
+		@include sq($s);
 		@include border-radius(50%);
 		background: $pink2;
 		cursor: pointer;
 		-webkit-appearance: none;
 		@include box-shadow(1px 1px 1px rgba($gray5, 0.4));
-		margin-top: -7px;
+		margin-top: -$s/2;
 	}
 
 }

@@ -19,7 +19,7 @@ define([
 
 		var tapEvent = (Utils.hasTouchSupport())?'click':'click';
 
-		var goalTimeFromDB = 6000;
+		var goalTimeFromDB = 1000 * 60 * .5;
 
 		return Backbone.View.extend({
 			tagName  : "div",
@@ -33,7 +33,7 @@ define([
 			},
 			template: Handlebars.compile(html),
 			goalTime: goalTimeFromDB,
-			intervalText: "Minute",
+			intervalText: ["Second", "Minute"],
 			_counter: 0,
 			elapsedTime: [0,0,0],
 			initialize: function(options){
@@ -49,12 +49,13 @@ define([
 			},
 			
 			saveGoalTime: function(){
-				this.goalTime = this.$('.timerInput').val();
+				this.goalTime = this.$('.timerInput').val() * 60 * 1000;
 			},
 
 			cancelGoalTime: function(){
 				this.goalTime = goalTimeFromDB;
 				this.renderGoalTime();
+				this.$('.timerInput').val(this.goalTime / 1000 / 60);
 			},
 
 			saveCancelGoalTime: function(event){
@@ -69,7 +70,8 @@ define([
 
 			sliderChange: function(event){
 				var $slider = $(event.target);
-				this.goalTime = $slider.val();
+				goalTime = $slider.val();
+				this.goalTime = goalTime * 60 * 1000;
 				this.renderGoalTime();
 			},
 
@@ -124,6 +126,8 @@ define([
 				this.pauseTimer(event);
 	    		this.elapsedTime = [0,0,0];
 	    		this._counter = 0;
+
+	    		this.inlineNavView.switchToViewWithIndex(1);
 			},
 
 			startTimer: function(event){
@@ -181,10 +185,23 @@ define([
 				var goalMinutes = Math.floor(this.goalTime / 60000);
 				var goalSeconds = (this.goalTime - (goalMinutes * 60000)) / 1000;
 				goalSeconds = ("0" + goalSeconds).slice(-2);
-				var intervalText = (goalMinutes > 0) ? this.intervalText+"s" : this.intervalText;
 				var goalTimeFormatted = (goalSeconds > 0)?goalMinutes+":"+goalSeconds:goalMinutes;
+
+				var intervalText;
+				if(goalMinutes > 1){
+					intervalText = this.intervalText[1]+"s";
+				}else if(goalMinutes == 1 && goalSeconds == 0){
+					intervalText = this.intervalText[1];
+				}else if(goalSeconds > 1){
+					intervalText = this.intervalText[0]+"s";
+				}else if(goalSeconds == 1){
+					intervalText = this.intervalText[0];
+				}else{
+					intervalText = this.intervalText[1]+"s";
+				}
+
 				var goalTimeFragment = {
-					goalTimeUnformatted: this.goalTime,
+					goalTimeAsMinutes: (this.goalTime / 1000 / 60),
 					goalTime: goalTimeFormatted,
 					seconds: goalSeconds,
 					minutes: goalMinutes,
@@ -197,7 +214,6 @@ define([
 				var goalTimeFragment = this.getFragmentedGoalTime();
 				this.$('.intervalText').text(goalTimeFragment.intervalText);
 				this.$('.goalTime').text(goalTimeFragment.goalTime);
-				this.$('.timerInput').val(this.goalTime);
 			},
 
 			render: function() {
