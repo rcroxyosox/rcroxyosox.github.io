@@ -54,7 +54,7 @@
 	input[type="text"],input[type="date"]{
 		width: 80%;
 	}
-	
+
 	input[type="date"], input[type="text"], button{
 		@include box-sizing(border-box);
 		padding: 15px;
@@ -64,6 +64,8 @@
 		color: white;
 		@include appearance(none);
 		@include box-sizing(border-box);
+		@include border-radius(0);
+		margin: 0;
 		background: transparent;
 		border: none;
 		outline: none;		

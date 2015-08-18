@@ -82,30 +82,34 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  margin: 0;
   background: transparent;
   border: none;
   outline: none;
 }
-/* line 70, ../../sass/ui/UserPromptView.scss */
+/* line 72, ../../sass/ui/UserPromptView.scss */
 .UserPromptView input[type="date"].blink {
   -webkit-animation: blinkbg 1s ease-in-out 0s infinite;
   -moz-animation: blinkbg 1s ease-in-out 0s infinite;
   -o-animation: blinkbg 1s ease-in-out 0s infinite;
   animation: blinkbg 1s ease-in-out 0s infinite;
 }
-/* line 75, ../../sass/ui/UserPromptView.scss */
+/* line 77, ../../sass/ui/UserPromptView.scss */
 .UserPromptView input[type="text"] {
   background: rgba(51, 51, 51, 0.3);
   color: white;
 }
-/* line 78, ../../sass/ui/UserPromptView.scss */
+/* line 80, ../../sass/ui/UserPromptView.scss */
 .UserPromptView input[type="text"].blink {
   -webkit-animation: blinkbg 1s ease-in-out 0s infinite;
   -moz-animation: blinkbg 1s ease-in-out 0s infinite;
   -o-animation: blinkbg 1s ease-in-out 0s infinite;
   animation: blinkbg 1s ease-in-out 0s infinite;
 }
-/* line 82, ../../sass/ui/UserPromptView.scss */
+/* line 84, ../../sass/ui/UserPromptView.scss */
 .UserPromptView button {
   width: 20%;
   margin-left: -4px;
