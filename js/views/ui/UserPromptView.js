@@ -17,13 +17,6 @@ define([
 		) {
 
 		var tapEvent = (Utils.hasTouchSupport())?'touchstart':'click';
-		var baseEvents = {
-			'click .userInputDatepicker': function(event){
-				console.log("hello");
-				$(event.target).attr({type:"date"});
-
-			}
-		};
 
 		return Backbone.View.extend({
 			tagName  : "div",
@@ -38,12 +31,7 @@ define([
 			isTypeDate: false,
 
 			initialize: function(options){
-				var newEvents = _.extend(this.events(), baseEvents);
-				delete options.events;
-				this.events = newEvents;
-				this.delegateEvents();
 				_.extend(this, options);
-				console.log(this.events);
 			},
 
 			hide: function(){
