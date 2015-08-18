@@ -99,7 +99,7 @@ define([
 				this.userPrompt && this.userPrompt.remove();
 				this.userPrompt = new UserPromptView({
 					choices: ["start"],
-					isTypeChoice: true,
+					isTypeDate: true,
 					events: function(){
 						var events = {};
 						events[tapEvent+' .buttonSet'] = function(event){

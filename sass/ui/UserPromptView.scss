@@ -50,14 +50,31 @@
 	// 		background: white;
 	// 	}
 	// }
-	input[type="text"], button{
+
+	input[type="text"],input[type="date"]{
+		width: 80%;
+	}
+	
+	input[type="date"], input[type="text"], button{
 		@include box-sizing(border-box);
 		padding: 15px;
 	}
 
+	input[type="date"]{
+		color: white;
+		@include appearance(none);
+		@include box-sizing(border-box);
+		background: transparent;
+		border: none;
+		outline: none;		
+		&.blink{
+			@include animation(blinkbg 1s ease-in-out 0s infinite);
+		}
+	}
+
 	input[type="text"]{
-		width: 80%;
 		background: rgba($gray6, 0.3);
+		color: white;
 		&.blink{
 			@include animation(blinkbg 1s ease-in-out 0s infinite);
 		}

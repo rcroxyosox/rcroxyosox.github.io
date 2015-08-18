@@ -26,8 +26,10 @@ define([
 			responseObj: null,
 			
 			choices: [],
+
 			isTypeChoice: false,
 			isTypeInput: false,
+			isTypeDate: false,
 
 			initialize: function(options){
 				_.extend(this, options);

@@ -29,7 +29,7 @@ define([
 			template: Handlebars.compile(html),
 			inlineNavView: null,
 			modalOptions: {
-
+				
 			},
 			
 			remove: function(){
