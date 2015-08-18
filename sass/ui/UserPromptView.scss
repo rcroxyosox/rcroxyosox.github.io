@@ -23,7 +23,6 @@
 	display: block; 
 	width: 100%;
 	z-index: 100;
-	// height: $UserPromptViewHeight;
 	text-align: center;  
 	@include box-sizing(border-box); 
 	@include single-transition(all, 0.1s, ease-in-out);
@@ -32,6 +31,11 @@
 		@include single-transition(all, 0.5s, ease-in-out);
 		@include transform(translateY(0));
 	} 
+
+	.blink{
+		@include animation(blinkbg 1s ease-in-out 0s infinite);
+	}
+
 	// &.send{ 
 	// 	overflow: hidden;
 	// 	margin-top: -$collapsedSize/2;
@@ -51,8 +55,13 @@
 	// 	}
 	// }
 
+	select{
+		color: white;
+	}
+
 	input[type="text"],input[type="date"]{
 		width: 80%;
+		min-height: $UserPromptViewHeight;
 	}
 
 	input[type="date"], input[type="text"], button{
@@ -77,12 +86,36 @@
 	input[type="text"]{
 		background: rgba($gray6, 0.3);
 		color: white;
-		&.blink{
-			@include animation(blinkbg 1s ease-in-out 0s infinite);
-		}
 	}
 	button{
 		width: 20%;
 		margin-left: -4px;
+	}
+
+	.unitTypeSection{
+		display: table;
+		width: 100%;
+		$w: 20%;
+		> *{
+			display: table-cell;
+			width: (100% - $w)/2;	
+			@include box-sizing(border-box);
+			margin-left: -4px;
+			&.selectWrap{
+				padding-left: 10px;
+				select{
+					width: 80%;
+				}
+			}
+			&.buttonWrap{
+				width: 	$w;
+				button{
+					width: 100%;
+				}
+			}
+			input[type="text"]{
+				width: 100%;
+			}
+		}
 	}
 }

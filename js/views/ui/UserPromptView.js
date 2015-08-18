@@ -25,10 +25,11 @@ define([
 			model: null,
 			responseObj: null,
 			choices: [],
-
+			units: [], // eg. {text:"Inches", value:"in"}, {text:"Feet", value:"ft"}
 			isTypeChoice: false,
 			isTypeInput: false,
 			isTypeDate: false,
+			isTypeUnit: false,
 
 			initialize: function(options){
 				_.extend(this, options);

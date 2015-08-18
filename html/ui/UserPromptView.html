@@ -13,3 +13,25 @@
 {{#if isTypeDate}}
 	<input type="date" placeholder="Tap to add a date" class="blink" /> <button>Send</button>
 {{/if}}
+
+{{#if isTypeUnit}}
+<div class="unitTypeSection">
+	<div class="inputWrap blink">
+		<input type="text" placeholder="Value" /> 
+	</div>
+	<div class="selectWrap blink">
+		<select>
+			{{#if units}}
+				{{#each units}}
+					<option value="{{text}}">{{text}}</option>
+				{{/each}}
+			{{else}}
+				{{log "Error: No units given in the units array of userPromptView"}}
+			{{/if}}
+		</select> 
+	</div>
+	<div class="buttonWrap">
+		<button>Send</button>
+	</div>
+</div>
+{{/if}}
