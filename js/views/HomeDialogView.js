@@ -46,8 +46,11 @@ define([
 				var responseType = ConversationItemModelCollection.getInstance().model.responseType;
 				var reqResponseType = this.model.get('requiresResponseType');
 				this.choices = this.model.get('choices');
+				this.units = this.model.get('units');
 				this.isTypeChoice = (reqResponseType == responseType.CHOICE);
 				this.isTypeInput = (reqResponseType == responseType.INPUT);
+				this.isTypeDate = (reqResponseType == responseType.DATE);
+				this.isTypeUnit = (reqResponseType == responseType.UNIT);
 			},
 
 			enterKey: function(event){
@@ -115,6 +118,15 @@ define([
 
 					this.responseObj.selectedChoice = selectedChoiceIndex;
 				}
+
+				else if(reqResponseType == responseType.DATE){
+					this.responseObj.responseText = moment(this.$('input').val()).format('dddd, MMMM Do, YYYY')
+				}
+
+				else if(reqResponseType == responseType.UNIT){
+					this.responseObj.responseText = this.$('input').val() + " " + this.$('select option:selected').text()
+				}
+
 				else if(reqResponseType == responseType.INPUT){
 					this.responseObj.responseText = this.$('input').val();
 				}

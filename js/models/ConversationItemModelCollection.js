@@ -26,9 +26,10 @@ define([
 
 			var lastItem = collection[collection.length-1];
 			var requiresResponseType = lastItem.get('requiresResponseType');
+			var responseType = lastItem.get('responseType');
 
 			// If the last item was a selection of a CHOICE
-			if(lastItem.get('responseType') == ConversationItemModel.responseType.CHOICE){
+			if(responseType == ConversationItemModel.responseType.CHOICE){
 				// get the original question
 				var originalQuestionItem =  lastItem.get('responseTo');
 				var nextId = originalQuestionItem.get('possibleResponses')[lastItem.get('selectedChoice')];
@@ -42,15 +43,31 @@ define([
 
 			}
 
+			// If the last item was a DATE or UNIT value given 
+			else if(responseType == ConversationItemModel.responseType.DATE 
+				|| responseType == ConversationItemModel.responseType.UNIT){
+
+				// get the original question
+				var originalQuestionItem =  lastItem.get('responseTo');
+				var nextId = originalQuestionItem.get('possibleResponses')[0];
+
+				if(typeof(nextId) != "undefined"){
+					var nextItem = _.findWhere(this.fakeDB, {id: nextId});
+					return nextItem;
+				}else{
+					console.error("Could not find possibleResponses arr for ", possibleResponses);
+				}
+			}
+
 			// If the last item was an INPUT value given
-			else if(lastItem.get('responseType') == ConversationItemModel.responseType.INPUT){
+			else if(responseType == ConversationItemModel.responseType.INPUT){
 
 				// Bunch of server side magic...
 				var nextItem = _.findWhere(this.fakeDB, {id: 3});
 				return nextItem;
 			}
 
-			else if(requiresResponseType == ConversationItemModel.responseType.BOTCONTINUE){
+			else if(requiresResponseType == ConversationItemModel.responseType.BOTCONTINUE ){
 				var nextItem = _.findWhere(this.fakeDB, {id: lastItem.get('possibleResponses')[0]});
 				return nextItem;
 			}
@@ -61,8 +78,25 @@ define([
 		{
 			id: 1,
 			responseTo: 21,
-			message: "how are you doing today?",
-			requiresResponseType: ConversationItemModel.responseType.INPUT,
+			message: "When is your childs birthday?",
+			requiresResponseType: ConversationItemModel.responseType.DATE,
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
+			possibleResponses: [2]
+		},
+		{
+			id: 2,
+			responseTo: 21,
+			message: "Got it. And what does your baby weigh?",
+			requiresResponseType: ConversationItemModel.responseType.UNIT,
+			responseType: ConversationItemModel.responseType.BOTCONTINUE,
+			units: [{text:"Pounds", value:"lbs"}, {text:"Kilograms", value:"kg"}],
+			possibleResponses: [21]
+		},
+		{
+			id: 21,
+			responseTo: 21,
+			message: "Got it. How are you doing?",
+			requiresResponseType: ConversationItemModel.responseType.CHOICE,
 			responseType: ConversationItemModel.responseType.BOTCONTINUE,
 			choices: ["Meh", "Great!"],
 			possibleResponses: [3,4]
@@ -153,7 +187,11 @@ define([
 			if(reqResponseType == ConversationItemModel.responseType.CHOICE){
 				userResponse.message = userResponse.responseTo.get('choices')[userResponse.selectedChoice];
 			}
-			else if(reqResponseType == ConversationItemModel.responseType.INPUT){
+
+			else if(reqResponseType == ConversationItemModel.responseType.INPUT
+				|| reqResponseType == ConversationItemModel.responseType.DATE
+				|| reqResponseType == ConversationItemModel.responseType.UNIT
+				){
 				userResponse.message = userResponse.responseText;
 			}
 

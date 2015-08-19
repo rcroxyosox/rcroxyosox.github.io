@@ -126,11 +126,11 @@ input[type="text"]::-webkit-input-placeholder, select::-webkit-input-placeholder
 select {
   background-image: url("/img/icon-arrow-down-gray4.svg");
   background-repeat: no-repeat;
-  background-position: 100% center;
-  -moz-background-size: auto 110%;
-  -o-background-size: auto 110%;
-  -webkit-background-size: auto 110%;
-  background-size: auto 110%;
+  background-position: 90% center;
+  -moz-background-size: auto 25px;
+  -o-background-size: auto 25px;
+  -webkit-background-size: auto 25px;
+  background-size: auto 25px;
 }
 /* line 118, ../../sass/ui/forms.scss */
 select option:disabled {

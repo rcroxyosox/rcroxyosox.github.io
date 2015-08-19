@@ -57,6 +57,9 @@
 
 	select{
 		color: white;
+	    padding: 15px;
+	    width: 100%;
+	    @include border-radius(0);
 	}
 
 	input[type="text"],input[type="date"]{
@@ -101,12 +104,6 @@
 			width: (100% - $w)/2;	
 			@include box-sizing(border-box);
 			margin-left: -4px;
-			&.selectWrap{
-				padding-left: 10px;
-				select{
-					width: 80%;
-				}
-			}
 			&.buttonWrap{
 				width: 	$w;
 				button{

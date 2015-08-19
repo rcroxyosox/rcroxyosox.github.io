@@ -112,8 +112,8 @@ input[type="text"], select {
 select {
 	background-image: url("#{$imgs}icon-arrow-down-gray4.svg");
 	background-repeat: no-repeat;
-	background-position: 100% center;
-	@include background-size(auto 110%);
+	background-position: 90% center;
+	@include background-size(auto 25px);
 
 	option:disabled {
 		color: $gray4;

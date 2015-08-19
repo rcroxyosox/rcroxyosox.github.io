@@ -73,20 +73,25 @@
 /* line 58, ../../sass/ui/UserPromptView.scss */
 .UserPromptView select {
   color: white;
+  padding: 15px;
+  width: 100%;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
-/* line 62, ../../sass/ui/UserPromptView.scss */
+/* line 65, ../../sass/ui/UserPromptView.scss */
 .UserPromptView input[type="text"], .UserPromptView input[type="date"] {
   width: 80%;
   min-height: 50px;
 }
-/* line 67, ../../sass/ui/UserPromptView.scss */
+/* line 70, ../../sass/ui/UserPromptView.scss */
 .UserPromptView input[type="date"], .UserPromptView input[type="text"], .UserPromptView button {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 15px;
 }
-/* line 72, ../../sass/ui/UserPromptView.scss */
+/* line 75, ../../sass/ui/UserPromptView.scss */
 .UserPromptView input[type="date"] {
   color: white;
   -moz-appearance: none;
@@ -102,29 +107,29 @@
   border: none;
   outline: none;
 }
-/* line 81, ../../sass/ui/UserPromptView.scss */
+/* line 84, ../../sass/ui/UserPromptView.scss */
 .UserPromptView input[type="date"].blink {
   -webkit-animation: blinkbg 1s ease-in-out 0s infinite;
   -moz-animation: blinkbg 1s ease-in-out 0s infinite;
   -o-animation: blinkbg 1s ease-in-out 0s infinite;
   animation: blinkbg 1s ease-in-out 0s infinite;
 }
-/* line 86, ../../sass/ui/UserPromptView.scss */
+/* line 89, ../../sass/ui/UserPromptView.scss */
 .UserPromptView input[type="text"] {
   background: rgba(51, 51, 51, 0.3);
   color: white;
 }
-/* line 90, ../../sass/ui/UserPromptView.scss */
+/* line 93, ../../sass/ui/UserPromptView.scss */
 .UserPromptView button {
   width: 20%;
   margin-left: -4px;
 }
-/* line 95, ../../sass/ui/UserPromptView.scss */
+/* line 98, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .unitTypeSection {
   display: table;
   width: 100%;
 }
-/* line 99, ../../sass/ui/UserPromptView.scss */
+/* line 102, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .unitTypeSection > * {
   display: table-cell;
   width: 40%;
@@ -133,23 +138,15 @@
   box-sizing: border-box;
   margin-left: -4px;
 }
-/* line 104, ../../sass/ui/UserPromptView.scss */
-.UserPromptView .unitTypeSection > *.selectWrap {
-  padding-left: 10px;
-}
-/* line 106, ../../sass/ui/UserPromptView.scss */
-.UserPromptView .unitTypeSection > *.selectWrap select {
-  width: 80%;
-}
-/* line 110, ../../sass/ui/UserPromptView.scss */
+/* line 107, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .unitTypeSection > *.buttonWrap {
   width: 20%;
 }
-/* line 112, ../../sass/ui/UserPromptView.scss */
+/* line 109, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .unitTypeSection > *.buttonWrap button {
   width: 100%;
 }
-/* line 116, ../../sass/ui/UserPromptView.scss */
+/* line 113, ../../sass/ui/UserPromptView.scss */
 .UserPromptView .unitTypeSection > * input[type="text"] {
   width: 100%;
 }

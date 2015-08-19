@@ -6,7 +6,8 @@ define([
 	'models/ConversationItemModelCollection',
 	'text!/html/ui/UserPromptView.html',
 	'css!/css/ui/UserPromptView.css',
-	'css!/css/ui/buttons.css'
+	'css!/css/ui/buttons.css',
+	'css!/css/ui/forms.css'
 	], function(
 		$,
 		Backbone,
@@ -26,6 +27,7 @@ define([
 			responseObj: null,
 			choices: [],
 			units: [], // eg. {text:"Inches", value:"in"}, {text:"Feet", value:"ft"}
+			
 			isTypeChoice: false,
 			isTypeInput: false,
 			isTypeDate: false,
@@ -58,7 +60,6 @@ define([
 
 			render: function() {
 				var that = this;
-
 				this.numChoices = this.choices.length;
 				this.$el.html(this.template(this));
 				
