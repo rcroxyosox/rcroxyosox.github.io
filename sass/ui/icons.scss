@@ -33,3 +33,13 @@
 	background-image: url("#{$imgs}icon-check-white.svg");
 	@include background-size(80%);
 }
+
+.icon-smiley-sad{
+	background-image: url("#{$imgs}icon-smiley-sad.svg");
+	@include background-size(80%);
+}
+
+.icon-smiley-happy{
+	background-image: url("#{$imgs}icon-smiley-happy.svg");
+	@include background-size(80%);
+}

@@ -98,7 +98,7 @@ define([
 			message: "Got it. How are you doing?",
 			requiresResponseType: ConversationItemModel.responseType.CHOICE,
 			responseType: ConversationItemModel.responseType.BOTCONTINUE,
-			choices: ["Meh", "Great!"],
+			choices: ["<img src=\"/img/icon-smiley-sad.svg\" width=\"40\" />", "<img src=\"/img/icon-smiley-happy.svg\" height=\"40\" />"],
 			possibleResponses: [3,4]
 		},
 		{
@@ -107,7 +107,7 @@ define([
 			message: "By the way, looks like you've been getting in more Skin to Skin time. That's great",
 			requiresResponseType: ConversationItemModel.responseType.BOTCONTINUE,
 			responseType: ConversationItemModel.responseType.BOTCONTINUE,
-			possibleResponses: [21]
+			possibleResponses: [22]
 		},
 		{
 			id: 3,
@@ -166,7 +166,7 @@ define([
 			possibleResponses: [10]
 		},
 		{
-			id: 21,
+			id: 22,
 			responseTo: 20,
 			message: "{{carditem:skintoskin}}",
 			responseType: ConversationItemModel.responseType.BOTCONTINUE,

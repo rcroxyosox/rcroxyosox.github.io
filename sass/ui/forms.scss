@@ -93,7 +93,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 */
 
-input[type="text"], select {
+input[type="text"], input[type="date"], select  {
 	@include appearance(none);
 	@include box-sizing(border-box);
 	background: transparent;
@@ -109,6 +109,7 @@ input[type="text"], select {
 		color: $gray4;
 	}
 }
+
 select {
 	background-image: url("#{$imgs}icon-arrow-down-gray4.svg");
 	background-repeat: no-repeat;

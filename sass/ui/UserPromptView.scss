@@ -73,14 +73,7 @@
 	}
 
 	input[type="date"]{
-		color: white;
-		@include appearance(none);
-		@include box-sizing(border-box);
-		@include border-radius(0);
-		margin: 0;
-		background: transparent;
-		border: none;
-		outline: none;		
+		color: white;	
 		&.blink{
 			@include animation(blinkbg 1s ease-in-out 0s infinite);
 		}

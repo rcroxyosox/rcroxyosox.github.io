@@ -102,13 +102,10 @@ define([
 				var responseType = conversationItemModelCollection.model.responseType;
 				var reqResponseType = this.model.get('requiresResponseType');
 
-				this.$el.addClass('send').removeClass('in');
 				this.responseObj = {
 					responseTo: this.model,
 					responseType: reqResponseType
 				};
-				// return;
-
 
 				if(reqResponseType == responseType.CHOICE){
 					var $selection = $(event.target).closest('li');
@@ -120,17 +117,27 @@ define([
 				}
 
 				else if(reqResponseType == responseType.DATE){
-					this.responseObj.responseText = moment(this.$('input').val()).format('dddd, MMMM Do, YYYY')
+					var inputVal = this.$('input').val();
+					if(!inputVal.length){
+						return;
+					}
+					this.responseObj.responseText = moment(inputVal).format('dddd, MMMM Do, YYYY')
 				}
 
 				else if(reqResponseType == responseType.UNIT){
-					this.responseObj.responseText = this.$('input').val() + " " + this.$('select option:selected').text()
+					var inputVal = this.$('input').val();
+					if(!inputVal.length){
+						return;
+					}
+					this.responseObj.responseText = inputVal + " " + this.$('select option:selected').text()
 				}
 
 				else if(reqResponseType == responseType.INPUT){
-					this.responseObj.responseText = this.$('input').val();
+					var inputVal = this.$('input').val();
+					this.responseObj.responseText = inputVal;
 				}
 
+				this.$el.addClass('send').removeClass('in');
 				conversationItemModelCollection.addUserResponse(this.responseObj);
 
 				setTimeout(function(){

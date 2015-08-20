@@ -43,3 +43,21 @@
   -webkit-background-size: 80%;
   background-size: 80%;
 }
+
+/* line 37, ../../sass/ui/icons.scss */
+.icon-smiley-sad {
+  background-image: url("/img/icon-smiley-sad.svg");
+  -moz-background-size: 80%;
+  -o-background-size: 80%;
+  -webkit-background-size: 80%;
+  background-size: 80%;
+}
+
+/* line 42, ../../sass/ui/icons.scss */
+.icon-smiley-happy {
+  background-image: url("/img/icon-smiley-happy.svg");
+  -moz-background-size: 80%;
+  -o-background-size: 80%;
+  -webkit-background-size: 80%;
+  background-size: 80%;
+}

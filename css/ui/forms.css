@@ -90,7 +90,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 */
 /* line 96, ../../sass/ui/forms.scss */
-input[type="text"], select {
+input[type="text"], input[type="date"], select {
   -moz-appearance: none;
   -webkit-appearance: none;
   -moz-box-sizing: border-box;
@@ -106,23 +106,23 @@ input[type="text"], select {
   outline: none;
 }
 /* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
-input[type="text"]:-moz-placeholder, select:-moz-placeholder {
+input[type="text"]:-moz-placeholder, input[type="date"]:-moz-placeholder, select:-moz-placeholder {
   color: #999999;
 }
 /* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
-input[type="text"]::-moz-placeholder, select::-moz-placeholder {
+input[type="text"]::-moz-placeholder, input[type="date"]::-moz-placeholder, select::-moz-placeholder {
   color: #999999;
 }
 /* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
-input[type="text"]:-ms-input-placeholder, select:-ms-input-placeholder {
+input[type="text"]:-ms-input-placeholder, input[type="date"]:-ms-input-placeholder, select:-ms-input-placeholder {
   color: #999999;
 }
 /* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
-input[type="text"]::-webkit-input-placeholder, select::-webkit-input-placeholder {
+input[type="text"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, select::-webkit-input-placeholder {
   color: #999999;
 }
 
-/* line 112, ../../sass/ui/forms.scss */
+/* line 113, ../../sass/ui/forms.scss */
 select {
   background-image: url("/img/icon-arrow-down-gray4.svg");
   background-repeat: no-repeat;
@@ -132,7 +132,7 @@ select {
   -webkit-background-size: auto 25px;
   background-size: auto 25px;
 }
-/* line 118, ../../sass/ui/forms.scss */
+/* line 119, ../../sass/ui/forms.scss */
 select option:disabled {
   color: #999999;
 }
