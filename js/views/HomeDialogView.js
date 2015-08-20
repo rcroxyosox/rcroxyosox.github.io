@@ -36,8 +36,8 @@ define([
 				var events = {};
 				events['focus input'] = 'focusInput';
 				events['keyup input'] = 'enterKey';
-				events[tapEvent+' .buttonSet'] = 'addResponse';
-				events[tapEvent+' button'] = 'addResponse';
+				events[tapEvent+ ' button'] = 'addResponse';
+				events[tapEvent+ ' .buttonSet'] = 'addResponse';
 				return events;
 			},
 
@@ -95,9 +95,14 @@ define([
 			},
 
 			addResponse: function(event){
+
 				var that = this;
 				var conversationItemModelCollection = ConversationItemModelCollection.getInstance();
-				event && event.preventDefault();
+
+				if(event){
+					event.preventDefault();
+					var $obj = $(event.target);
+				}
 				
 				var responseType = conversationItemModelCollection.model.responseType;
 				var reqResponseType = this.model.get('requiresResponseType');
@@ -263,6 +268,12 @@ define([
 				this.userPrompt && this.userPrompt.remove();
 				this.userPrompt = new ConversationPromptView({model:model}).render();
 				this.userPrompt.render();
+
+				// Weird bug with touch events only
+				var that = this;
+				setTimeout(function(){
+					that.userPrompt.delegateEvents();
+				}, 1000);
 			},
 
 			initialize: function(){
